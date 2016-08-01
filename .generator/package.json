@@ -1,0 +1,19 @@
+{
+  "name": "comigr",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "del": "^2.2.0",
+    "fs-walk": "0.0.1",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "jsdom": "9.4.1",
+    "jsdom-global": "2.0.0",
+    "yargs": "^3.9.0"
+  }
+}

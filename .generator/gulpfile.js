@@ -8,17 +8,16 @@ const yargs = require('yargs');
 const gutil = require('gulp-util');
 const del = require('del');
 
-const root = 'imports/components';
+const root = '../imports/components';
 
 let resolveToComponents = (glob = '') => {
-  return path.join(root, glob); // app/components/{glob}
+  return path.join(root, glob);
 };
 
-// map of all paths
 let paths = {
-  js: resolveToComponents('**/*!(.test.js).js'), // exclude spec files
+  js: resolveToComponents('**/*!(.test.js).js'),
   output: root,
-  blankTemplates: path.join(__dirname, '.generator', 'component/**/*.**'),
+  blankTemplates: path.join(__dirname, 'component/**/*.**'),
   dest: path.join(__dirname, 'dist')
 };
 
