@@ -1,15 +1,21 @@
-<md-sidenav
-        class="md-sidenav-left"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        md-disable-backdrop
-        md-whiteframe="4">
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
-      </md-toolbar>
-      <md-content layout-padding>
-        <p hide show-gt-md>
-          {{ vm.name }}
-        </p>
-      </md-content>
+<md-sidenav class="md-sidenav-left" md-component-id="left" ng-click="vm.close()" md-whiteframe="4">
+    <md-toolbar class="md-tall md-theme-indigo">
+      <h1 class="md-toolbar-tools">
+        <span class="md-flex">Sidenav Left</span>
+      </h1>
+    </md-toolbar>
+    <md-content flex layout-padding class="md-theme-indigo">
+        <ul>
+            <list-item ng-repeat="section in vm.sections">
+                <menu-link section="section">
+                    <a class="md-button md-ink-ripple" aria-label="Getting Started">
+                        <span>
+                            {{ section }}
+                        </span>
+                    </a>
+                </menu-link>
+                <md-divider></md-divider>
+            </list-item>
+        </ul>
+    </md-content>
 </md-sidenav>

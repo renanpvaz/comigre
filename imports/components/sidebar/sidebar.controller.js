@@ -1,6 +1,9 @@
 class SidebarController {
-  constructor() {
+
+  constructor($mdSidenav, $log) {
+    this.isSidenavOpen = false;
     this.name = 'sidebar';
+    this.sections = ['Trabalhos', 'Instituições', 'Eventos'];
   }
 }
 

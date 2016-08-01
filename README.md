@@ -5,6 +5,10 @@
 - `$ npm install`
 - `$ meteor`
 
+### Test
+
+- `$ npm test`
+
 ### Create component
 
 - `$ cd .generator`
