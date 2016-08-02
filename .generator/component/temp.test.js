@@ -5,8 +5,8 @@ import <%= upCaseName %>Controller from './<%= name %>.controller';
 describe('<%= upCaseName %>', () => {
 
   describe('Controller', () => {
-    it('will test controller functions', () => {
-
+    it('test some controller method', () => {
+      //...
     });
   });
 });
