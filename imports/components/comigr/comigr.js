@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import './comigr.css';
+import './comigr.less';
 import template from './comigr.html';
 
 import sidebar from '../sidebar/sidebar';
