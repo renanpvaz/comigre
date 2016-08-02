@@ -1,21 +1,26 @@
-<md-sidenav class="md-sidenav-left" md-component-id="left" ng-click="vm.close()" md-whiteframe="4">
-    <md-toolbar class="md-tall md-theme-indigo">
-      <h1 class="md-toolbar-tools">
-        <span class="md-flex">Sidenav Left</span>
-      </h1>
+<md-sidenav
+  class="md-sidenav-left"
+  ng-class="vm.expanded ? '_md-closed' : 'md-closed'"
+  ng-mouseenter="vm.toggle()"
+  ng-mouseleave="vm.toggle()"
+  md-is-open="vm.expanded"
+  md-disable-backdrop="true"
+  md-component-id="left"
+  md-whiteframe="4">
+    <md-toolbar class="md-tall">
+      <img src="images/paperplane.png"></img>
     </md-toolbar>
-    <md-content flex layout-padding class="md-theme-indigo">
-        <ul>
-            <list-item ng-repeat="section in vm.sections">
-                <menu-link section="section">
-                    <a class="md-button md-ink-ripple" aria-label="Getting Started">
-                        <span>
-                            {{ section }}
-                        </span>
-                    </a>
-                </menu-link>
-                <md-divider></md-divider>
-            </list-item>
-        </ul>
+    <md-content flex layout-padding>
+      <ul>
+        <list-item ng-repeat="section in vm.sections">
+          <menu-link section="section">
+            <a class="md-button md-ink-ripple" aria-label="Getting Started">
+              <span>{{ section.name }}</span>
+            </a>
+            <i class="material-icons">{{ section.icon }}</i>
+            </menu-link>
+            <md-divider></md-divider>
+        </list-item>
+      </ul>
     </md-content>
 </md-sidenav>

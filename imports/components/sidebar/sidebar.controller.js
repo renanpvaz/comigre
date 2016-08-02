@@ -1,9 +1,17 @@
 class SidebarController {
 
   constructor($mdSidenav, $log) {
-    this.isSidenavOpen = false;
+    this.expanded = false;
     this.name = 'sidebar';
-    this.sections = ['Trabalhos', 'Instituições', 'Eventos'];
+    this.sections = [
+      { name:'Trabalhos', icon: 'work' },
+      { name:'Instituições', icon: 'account_balance' },
+      { name:'Eventos', icon: 'event' }
+    ];
+  }
+
+  toggle() {
+    this.expanded = !this.expanded;
   }
 }
 
