@@ -11,12 +11,12 @@ before_install:
 cache:
   directories:
     - node_modules
+    - .meteor/local/plugin-cache
 
 before_script:
   - meteor npm install
+  - meteor add dispatch:mocha-phantomjs
 
-env:
-  - METEOR_SCRIPT="meteor test --once --driver-package dispatch:mocha-phantomjs"
-  - METEOR_SCRIPT="meteor build $HOME/build.tgz"
-
-script: $METEOR_SCRIPT
+script:
+  - meteor test --once --driver-package dispatch:mocha-phantomjs
+  - meteor build $HOME/build.tgz
