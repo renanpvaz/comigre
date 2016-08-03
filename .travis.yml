@@ -3,5 +3,6 @@ language: node_js
 node_js: "0.10.43"
 install:
 - "curl https://install.meteor.com | /bin/sh"
+- "npm install"
 script:
 - "meteor run"
