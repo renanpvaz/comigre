@@ -1,6 +1,8 @@
+'use strict';
+
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import <%= upCaseName %>Controller from './<%= name %>.controller';
+import <%= upCaseName %>Ctrl from './<%= name %>.controller';
 
 describe('<%= upCaseName %>', () => {
 

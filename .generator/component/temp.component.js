@@ -1,5 +1,7 @@
+'use strict';
+
 import template from './<%= name %>.html';
-import controller from './<%= name %>.controller';
+import controller from './<%= name %>.ctrl';
 import './<%= name %>.less';
 
 let <%= name %>Component = {

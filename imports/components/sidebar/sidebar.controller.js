@@ -1,9 +1,9 @@
 class SidebarController {
 
-  constructor($mdSidenav, $log) {
+  constructor() {
     this.expanded = false;
     this.name = 'sidebar';
-    
+
     this.sections = [
       { name:'Trabalhos', icon: 'work' },
       { name:'Instituições', icon: 'account_balance' },

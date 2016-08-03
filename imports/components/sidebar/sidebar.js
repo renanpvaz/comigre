@@ -1,3 +1,5 @@
+'use strict';
+
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 import sidebarComponent from './sidebar.component';
@@ -10,7 +12,7 @@ let sidebarModule = angular.module(name, [
 
 .component(name, sidebarComponent)
 
-.config(($mdThemingProvider, $mdIconProvider) => {
+.config(($mdThemingProvider) => {
   $mdThemingProvider.definePalette('amazingPaletteName', {
     '50': 'ffebee',
     '100': 'ffcdd2',
