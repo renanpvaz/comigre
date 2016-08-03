@@ -15,8 +15,6 @@ cache:
 before_script:
   - meteor npm install
 
-env:
-  - METEOR_SCRIPT=test --once --driver-package dispatch:mocha-phantomjs
-  - METEOR_SCRIPT=build $HOME/build.tgz
-
-script: "meteor $METEOR_SCRIPT"
+script:
+  - meteor test --once --driver-package dispatch:mocha-phantomjs
+  - meteor build $HOME/build.tgz
