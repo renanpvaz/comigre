@@ -22,3 +22,4 @@ urigo:static-templates
 practicalmeteor:mocha
 less
 jshint
+dispatch:mocha-phantomjs
