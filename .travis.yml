@@ -1,0 +1,8 @@
+sudo: required
+language: node_js
+node_js: - "0.10.43"
+install:
+- "curl https://install.meteor.com | /bin/sh"
+- "meteor update"
+script:
+- "meteor run"
