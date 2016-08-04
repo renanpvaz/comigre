@@ -3,25 +3,27 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import './comigr.less';
-import template from './comigr.html';
+import './app.less';
+import template from './app.html';
 
 import sidebar from '../sidebar/sidebar';
-import map from '../crMap/crMap';
+import map from '../map/map';
+import jobRegister from '../jobRegister/jobRegister';
 
-const name = 'comigr';
+const name = 'app';
 
-class Comigr {}
+class AppCtrl {}
 
 export default angular.module(name, [
   angularMeteor,
   sidebar.name,
-  map.name
+  map.name,
+  jobRegister.name
 ])
 
 .component(name, {
   template,
-  controller: Comigr,
+  controller: AppCtrl,
   controllerAs: 'vm'
 })
 

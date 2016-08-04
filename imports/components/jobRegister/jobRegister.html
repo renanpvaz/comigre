@@ -1,0 +1,52 @@
+<md-card ng-class="{ 'sidebar-offset': vm.sidebarIsOpen }">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Cadastro de trabalho</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <form name="userForm">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
+            <input ng-model="theMax">
+          </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <input ng-model="user.address">
+        </md-input-container>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="user.address2" placeholder="Address 2">
+        </md-input-container>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>City</label>
+            <input ng-model="user.city">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+      </form>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button>Action 1</md-button>
+      <md-button>Action 2</md-button>
+    </md-card-actions>
+</md-card>
