@@ -12,6 +12,10 @@ cache:
   directories:
     - node_modules
     - .meteor/local/plugin-cache
+    - public/
+
+notifications:
+  slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 
 before_script:
   - meteor npm install
