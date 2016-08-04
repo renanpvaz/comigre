@@ -1,6 +1,6 @@
-class CrMapController {
+class mapCtrl {
   constructor() {
-    this.name = 'crMap';
+    this.name = 'map';
 
     this.map = {
       center: {
@@ -12,4 +12,4 @@ class CrMapController {
   }
 }
 
-export default CrMapController;
+export default mapCtrl;

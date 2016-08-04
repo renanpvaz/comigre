@@ -1,9 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import comigr from '../imports/components/comigr/comigr';
+import app from '../imports/components/app/app';
 
-angular.module('comigr-app', [
+angular.module('comigr', [
     angularMeteor,
-    comigr.name
+    app.name
 ]);

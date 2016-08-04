@@ -1,4 +1,4 @@
-class SidebarController {
+class SidebarCtrl {
 
   constructor() {
     this.expanded = false;
@@ -17,4 +17,4 @@ class SidebarController {
   }
 }
 
-export default SidebarController;
+export default SidebarCtrl;

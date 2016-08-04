@@ -1,8 +1,8 @@
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import CrMapController from './crMap.controller';
+import mapCtrl from './map.ctrl';
 
-describe('CrMap', () => {
+describe('map', () => {
 
   describe('Controller', () => {
     //...

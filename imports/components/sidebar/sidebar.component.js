@@ -1,9 +1,11 @@
 import template from './sidebar.html';
-import controller from './sidebar.controller';
+import controller from './sidebar.ctrl';
 
 let sidebarComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    expanded: '='
+  },
   template,
   controller,
   controllerAs: 'vm'
