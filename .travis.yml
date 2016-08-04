@@ -1,0 +1,22 @@
+sudo: false
+
+language: node_js
+
+node_js: "0.10.43"
+
+before_install:
+  - curl https://install.meteor.com | /bin/sh
+  - export PATH="$HOME/.meteor:$PATH"
+
+cache:
+  directories:
+    - node_modules
+    - .meteor/local/plugin-cache
+
+before_script:
+  - meteor npm install
+  - meteor add dispatch:mocha-phantomjs
+
+script:
+  - meteor test --once --driver-package dispatch:mocha-phantomjs
+  - meteor build $HOME/build.tgz

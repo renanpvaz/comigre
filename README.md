@@ -1,4 +1,4 @@
-# comigr
+# comigr [![Build Status](https://travis-ci.org/renanpvaz/comigr.svg?branch=master)](https://travis-ci.org/renanpvaz/comigr)
 
 ### Build
 
