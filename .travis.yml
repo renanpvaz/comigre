@@ -2,7 +2,7 @@ sudo: false
 
 language: node_js
 
-node_js: "0.10.43"
+node_js: "4.4.7"
 
 before_install:
   - curl https://install.meteor.com | /bin/sh
@@ -19,8 +19,8 @@ notifications:
 
 before_script:
   - meteor npm install
-  - meteor add dispatch:mocha-phantomjs
+  - meteor add dispatch:mocha
 
 script:
-  - meteor test --once --driver-package dispatch:mocha-phantomjs
+  - meteor test --once --driver-package dispatch:mocha
   - meteor build $HOME/build.tgz
