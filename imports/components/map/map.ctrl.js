@@ -9,6 +9,17 @@ class mapCtrl {
       },
       zoom: 8
     };
+
+    Meteor.call('getPlaces', this.map.center, 1,
+      (error, result) => {
+        console.log(result);
+        if (!error) {
+          this.places = result.map((place, i) => ({
+            id: i,
+            location: place.geometry.location
+          }));
+        }
+      });
   }
 }
 
