@@ -2,7 +2,7 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import <%= upCaseName %>Ctrl from './<%= name %>.controller';
+import <%= upCaseName %>Ctrl from './<%= name %>.ctrl';
 
 describe('<%= upCaseName %>', () => {
 

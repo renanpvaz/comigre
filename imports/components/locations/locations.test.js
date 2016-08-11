@@ -2,7 +2,7 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import LocationsCtrl from './locations.controller';
+import LocationsCtrl from './locations.ctrl';
 
 describe('Locations', () => {
 
