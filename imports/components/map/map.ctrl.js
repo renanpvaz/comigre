@@ -1,25 +1,37 @@
 class mapCtrl {
-  constructor() {
-    this.name = 'map';
+  constructor(uiGmapIsReady) {
+    this.places = [];
+    this.control = {};
 
-    this.map = {
-      center: {
-        latitude: -30.0277,
-        longitude: -51.2287
-      },
-      zoom: 8
-    };
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.map = {
+          center: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          },
+          zoom: 15
+        };
+      });
+    }
 
-    Meteor.call('getPlaces', this.map.center, 1,
+    uiGmapIsReady.promise().then(() => {
+      Meteor.call('getPlaces', this.map.center, 100,
       (error, result) => {
-        console.log(result);
+
         if (!error) {
-          this.places = result.map((place, i) => ({
+          const newPlaces = result.map((place, i) => ({
             id: i,
-            location: place.geometry.location
+            location: {
+              latitude: place.geometry.location.lat,
+              longitude: place.geometry.location.lng
+            }
           }));
+
+          this.control.newModels(newPlaces);
         }
       });
+    });
   }
 }
 

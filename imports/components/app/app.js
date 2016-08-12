@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import Meteor from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 
 import './app.less';
 import template from './app.html';
@@ -30,7 +30,7 @@ export default angular.module(name, [
 
 .config((uiGmapGoogleMapApiProvider) => {
   uiGmapGoogleMapApiProvider.configure({
-    key: Meteor.settings.googlePlacesAPIKey,
+    key: Meteor.settings.public.googlePlacesAPIKey,
     libraries: 'places,geometry'
   });
 });
