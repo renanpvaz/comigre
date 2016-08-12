@@ -3,7 +3,7 @@
 ### Build
 
 - `$ npm install`
-- `$ meteor`
+- `$ npm start`
 
 ### Test
 
