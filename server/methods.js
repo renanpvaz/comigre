@@ -7,7 +7,8 @@ Meteor.methods({
       params: {
         key: Meteor.settings.public.googlePlacesAPIKey,
         location: center.latitude + ',' + center.longitude,
-        radius: radius / 0.00062137 //convert to meters,
+        radius: radius / 0.00062137, //convert to meters,
+        types: 'health|food'
       }
     });
 

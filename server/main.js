@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  if (!Object.keys(Meteor.settings.public).length) {
+    throw new Meteor.Error('settings', 'No settings.json file in the root of the project');
+  }
 });
