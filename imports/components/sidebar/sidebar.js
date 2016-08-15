@@ -13,6 +13,8 @@ let sidebarModule = angular.module(name, [
 .component(name, sidebarComponent)
 
 .config(($mdThemingProvider) => {
+  'ngInject';
+
   $mdThemingProvider.definePalette('amazingPaletteName', {
     '50': 'ffebee',
     '100': 'ffcdd2',

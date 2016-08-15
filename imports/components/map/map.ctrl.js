@@ -1,5 +1,7 @@
 class mapCtrl {
   constructor(uiGmapIsReady) {
+    'ngInject';
+
     this.places = [];
     this.control = {};
 

@@ -31,6 +31,8 @@ export default angular.module(name, [
 })
 
 .config((uiGmapGoogleMapApiProvider) => {
+  'ngInject';
+
   uiGmapGoogleMapApiProvider.configure({
     key: Meteor.settings.public.googlePlacesAPIKey,
     libraries: 'places,geometry'
