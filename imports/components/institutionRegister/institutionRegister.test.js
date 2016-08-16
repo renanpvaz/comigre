@@ -1,8 +1,8 @@
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import JobRegisterCtrl from './jobRegister.ctrl';
+import institutionRegisterCtrl from './institutionRegister.ctrl';
 
-describe('JobsRegister', () => {
+describe('institutionRegister', () => {
 
   describe('Controller', () => {
     it('test some controller method', () => {

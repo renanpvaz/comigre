@@ -8,18 +8,18 @@
   md-component-id="left"
   md-whiteframe="10">
     <md-toolbar>
-      <img src="images/paperplane.png"></img>
+      <img src="images/paperplane2.png"></img>
     </md-toolbar>
     <md-content flex layout-padding>
       <ul>
         <list-item ng-repeat="section in vm.sections">
           <menu-link section="section">
-            <a class="md-button md-ink-ripple" aria-label="Getting Started">
+            <a class="md-button md-accent">
               <span>{{ section.name }}</span>
             </a>
-            <i class="material-icons">{{ section.icon }}</i>
+            <i class="material-icons md-primary">{{ section.icon }}</i>
             </menu-link>
-            <md-divider></md-divider>
+            <md-divider class="md-accent"></md-divider>
         </list-item>
       </ul>
     </md-content>

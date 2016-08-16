@@ -8,7 +8,7 @@ Meteor.methods({
         key: Meteor.settings.public.googlePlacesAPIKey,
         location: center.latitude + ',' + center.longitude,
         radius: radius / 0.00062137, //convert to meters,
-        types: 'health|food'
+        types: 'local_government_office|city_hall'
       }
     });
 

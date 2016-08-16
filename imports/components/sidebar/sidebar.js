@@ -15,28 +15,89 @@ let sidebarModule = angular.module(name, [
 .config(($mdThemingProvider) => {
   'ngInject';
 
-  $mdThemingProvider.definePalette('amazingPaletteName', {
-    '50': 'ffebee',
-    '100': 'ffcdd2',
-    '200': 'ef9a9a',
-    '300': 'e57373',
-    '400': 'ef5350',
-    '500': '002d42',
-    '600': 'e53935',
-    '700': 'd32f2f',
-    '800': 'c62828',
-    '900': 'b71c1c',
-    'A100': 'ff8a80',
-    'A200': 'ff5252',
-    'A400': 'ff1744',
-    'A700': 'd50000',
-    'contrastDefaultColor': 'light',
-    'contrastDarkColors': ['50', '100',
-     '200', '300', '400', 'A100'],
-    'contrastLightColors': undefined
-  });
+  const customPrimary = {
+        '50': '#0084c1',
+        '100': '#0073a8',
+        '200': '#00618e',
+        '300': '#005075',
+        '400': '#003e5b',
+        '500': '#002d42', // toolbar
+        '600': '#001c28',
+        '700': '#000a0f',
+        '800': '#fff',
+        '900': '#fff',
+        'A100': '#0095db',
+        'A200': '#00a7f4',
+        'A400': '#0fb3ff',
+        'A700': '#fff'
+    };
 
-  $mdThemingProvider.theme('default').primaryPalette('amazingPaletteName');
+    $mdThemingProvider
+        .definePalette('customPrimary', customPrimary);
+
+    const customAccent = {
+        '50': '#000a08',
+        '100': '#00231d',
+        '200': '#003d31',
+        '300': '#005646',
+        '400': '#00705a',
+        '500': '#00896f',
+        '600': '#00bc97',
+        '700': '#00d6ac',
+        '800': '#00efc0',
+        '900': '#0affcf',
+        'A100': '#00bc97',
+        'A200': '#fff', // text
+        'A400': '#00896f',
+        'A700': '#23ffd4'
+    };
+    $mdThemingProvider
+        .definePalette('customAccent', customAccent);
+
+    const customWarn = {
+        '50': '#ffb280',
+        '100': '#ffa266',
+        '200': '#ff934d',
+        '300': '#ff8333',
+        '400': '#ff741a',
+        '500': '#ff6400',
+        '600': '#e65a00',
+        '700': '#cc5000',
+        '800': '#b34600',
+        '900': '#993c00',
+        'A100': '#ffc199',
+        'A200': '#ffd1b3',
+        'A400': '#ffe0cc',
+        'A700': '#803200'
+    };
+    $mdThemingProvider
+        .definePalette('customWarn', customWarn);
+
+    const customBackground = {
+        '50': '#0084c1',
+        '100': '#0073a8',
+        '200': '#00618e',
+        '300': '#005075',
+        '400': '#003e5b',
+        '500': '#002d42',
+        '600': '#001c28',
+        '700': '#000a0f',
+        '800': '#fff',
+        '900': '#fff',
+        'A100': '#002d42', // Content
+        'A200': '#00a7f4',
+        'A400': '#0fb3ff',
+        'A700': '#fff'
+    };
+
+    $mdThemingProvider
+        .definePalette('customBackground', customBackground);
+
+   $mdThemingProvider.theme('default')
+       .primaryPalette('customPrimary')
+       .accentPalette('customAccent')
+       .warnPalette('customWarn')
+       .backgroundPalette('customBackground');
 });
 
 export default sidebarModule;

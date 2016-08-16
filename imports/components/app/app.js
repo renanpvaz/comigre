@@ -10,7 +10,6 @@ import template from './app.html';
 import sidebar from '../sidebar/sidebar';
 import navbar from '../navbar/navbar';
 import map from '../map/map';
-import jobRegister from '../jobRegister/jobRegister';
 
 const name = 'app';
 
@@ -20,7 +19,6 @@ export default angular.module(name, [
   angularMeteor,
   sidebar.name,
   map.name,
-  jobRegister.name,
   navbar.name
 ])
 
@@ -35,6 +33,7 @@ export default angular.module(name, [
 
   uiGmapGoogleMapApiProvider.configure({
     key: Meteor.settings.public.googlePlacesAPIKey,
-    libraries: 'places,geometry'
+    libraries: 'places,geometry',
+    language: 'pt-BR'
   });
 });

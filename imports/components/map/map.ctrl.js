@@ -1,9 +1,18 @@
+import { Institutions } from '../../api/institutions.js';
+
 class mapCtrl {
-  constructor(uiGmapIsReady) {
+  constructor(uiGmapIsReady, $scope, $reactive) {
     'ngInject';
 
+    $reactive(this).attach($scope);
+
     this.places = [];
-    this.control = {};
+
+    this.helpers({
+      institutions() {
+        return Institutions.find({});
+      }
+    });
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -22,15 +31,13 @@ class mapCtrl {
       (error, result) => {
 
         if (!error) {
-          const newPlaces = result.map((place, i) => ({
+          this.places = result.map((place, i) => ({
             id: i,
             location: {
               latitude: place.geometry.location.lat,
               longitude: place.geometry.location.lng
             }
           }));
-
-          this.control.newModels(newPlaces);
         }
       });
     });
