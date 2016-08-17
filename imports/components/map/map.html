@@ -1,6 +1,1 @@
-<div class="angular-google-map-container">
-  <ui-gmap-google-map ng-if="vm.map" center="vm.map.center" events="vm.map.events" zoom="vm.map.zoom">
-    <ui-gmap-markers models="vm.places" coords="'location'" control="vm.control" doRebuildAll="true" fit="true"></ui-gmap-markers>
-    <ui-gmap-markers models="vm.institutions" coords="'location'" doRebuildAll="true"></ui-gmap-markers>
-  </ui-gmap-google-map>
-</div>
+<leaflet ng-if="vm.center" width="100%" height="100%" lf-center="vm.center" markers="vm.institutions"></leaflet>

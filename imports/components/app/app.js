@@ -26,14 +26,4 @@ export default angular.module(name, [
   template,
   controller: AppCtrl,
   controllerAs: 'vm'
-})
-
-.config((uiGmapGoogleMapApiProvider) => {
-  'ngInject';
-
-  uiGmapGoogleMapApiProvider.configure({
-    key: Meteor.settings.public.googlePlacesAPIKey,
-    libraries: 'places,geometry',
-    language: 'pt-BR'
-  });
 });

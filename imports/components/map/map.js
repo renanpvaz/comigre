@@ -1,6 +1,6 @@
 import angular from 'angular';
-import 'angular-google-maps';
 import 'angular-simple-logger';
+import 'ui-leaflet';
 
 import mapComponent from './map.component';
 
@@ -8,7 +8,7 @@ const name = 'crMap';
 
 let mapModule = angular.module(name, [
   'nemLogging',
-  'uiGmapgoogle-maps'
+  'ui-leaflet'
 ])
 
 .component(name, mapComponent);
