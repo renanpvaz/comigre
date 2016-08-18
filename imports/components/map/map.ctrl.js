@@ -10,9 +10,7 @@ class mapCtrl {
 
     this.helpers({
       institutions() {
-        let institutions = Institutions.find().fetch();
-
-        return this.places.concat(institutions);
+        return Institutions.find().fetch();
       }
     });
 
@@ -26,13 +24,20 @@ class mapCtrl {
 
         Meteor.call('getPlaces', this.center, 1000,
           (error, result) => {
-
             if (!error) {
-              result.forEach((place) => this.institutions.push({
-                message: place.name,
-                lat: place.geometry.location.lat,
-                lng: place.geometry.location.lng
-              }));
+              result.forEach((place) => {
+                const isInCollection = this.institutions
+                  .some(i => i.googleId === place.place_id);
+
+                if (!isInCollection) {
+                  Institutions.insert({
+                    message: place.name,
+                    googleId: place.place_id,
+                    lat: place.geometry.location.lat,
+                    lng: place.geometry.location.lng
+                  });
+                }
+              });
             }
           });
       });
