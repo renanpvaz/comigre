@@ -1,16 +1,14 @@
-import { Institutions } from '../../api/institutions.js';
+import { Places } from '../../api/places.js';
 
-class mapCtrl {
+class MapCtrl {
   constructor($scope, $reactive) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
-    this.places = [];
-
     this.helpers({
-      institutions() {
-        return Institutions.find().fetch();
+      places() {
+        return Places.find().fetch();
       }
     });
 
@@ -22,19 +20,20 @@ class mapCtrl {
             zoom: 10
         };
 
-        Meteor.call('getPlaces', this.center, 1000,
+        Meteor.call('getPlacesFromGoogle', this.center, 1000,
           (error, result) => {
             if (!error) {
-              result.forEach((place) => {
-                const isInCollection = this.institutions
-                  .some(i => i.googleId === place.place_id);
+              result.forEach((gPlace) => {
+                const isInCollection = this.places.some(i => {
+                  return i.googleId === gPlace.place_id;
+                });
 
                 if (!isInCollection) {
-                  Institutions.insert({
-                    message: place.name,
-                    googleId: place.place_id,
-                    lat: place.geometry.location.lat,
-                    lng: place.geometry.location.lng
+                  Places.insert({
+                    message: gPlace.name,
+                    googleId: gPlace.place_id,
+                    lat: gPlace.geometry.location.lat,
+                    lng: gPlace.geometry.location.lng
                   });
                 }
               });
@@ -45,4 +44,4 @@ class mapCtrl {
   }
 }
 
-export default mapCtrl;
+export default MapCtrl;

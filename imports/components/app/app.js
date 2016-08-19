@@ -2,7 +2,6 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Meteor } from 'meteor/meteor';
 
 import './app.less';
 import template from './app.html';

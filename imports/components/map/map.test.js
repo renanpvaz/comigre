@@ -1,6 +1,6 @@
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import mapCtrl from './map.ctrl';
+import MapCtrl from './map.ctrl';
 
 describe('map', () => {
 
