@@ -12,7 +12,11 @@ describe('map', () => {
         zoom: 5
       };
 
-      assert.deepEqual(new MapCtrl().center, brazilCenter);
+      const reactiveMock = () => ({
+        attach: () => {}
+      });
+
+      assert.deepEqual(new MapCtrl({}, reactiveMock).center, brazilCenter);
     });
   });
 });
