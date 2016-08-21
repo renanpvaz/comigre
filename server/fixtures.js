@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Places } from '../imports/api/places.js';
+import { Places } from '../imports/api/places/places.js';
 
 Meteor.startup(() => {
   if (Places.find().count() === 0) {

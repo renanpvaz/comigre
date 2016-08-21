@@ -2,7 +2,7 @@
   "name": "comigr",
   "private": true,
   "scripts": {
-    "start": "meteor run --settings settings.json",
+    "start": "meteor run --settings settings.json --release 1.4.0.1",
     "test": "meteor test --driver-package practicalmeteor:mocha"
   },
   "dependencies": {

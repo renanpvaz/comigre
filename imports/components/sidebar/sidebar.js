@@ -6,7 +6,7 @@ import sidebarComponent from './sidebar.component';
 
 const name = 'sidebar';
 
-let sidebarModule = angular.module(name, [
+const sidebarModule = angular.module(name, [
   ngMaterial
 ])
 

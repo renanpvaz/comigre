@@ -1,2 +1,2 @@
-import '../imports/api/places';
-import '../imports/api/methods';
+import '../imports/api/places/places';
+import '../imports/api/places/methods';

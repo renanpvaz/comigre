@@ -2,7 +2,7 @@ import template from './map.html';
 import controller from './map.ctrl';
 import './map.less';
 
-let mapComponent = {
+const mapComponent = {
   restrict: 'E',
   bindings: {},
   template,

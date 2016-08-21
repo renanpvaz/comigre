@@ -6,7 +6,9 @@ import ngMaterial from 'angular-material';
 
 const name = 'navbar';
 
-let navbarModule = angular.module(name, [ngMaterial])
+const navbarModule = angular.module(name, [
+  ngMaterial
+])
 
 .component(name, navbarComponent);
 

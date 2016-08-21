@@ -4,7 +4,7 @@ import template from './<%= name %>.html';
 import controller from './<%= name %>.ctrl';
 import './<%= name %>.less';
 
-let <%= name %>Component = {
+const <%= name %>Component = {
   restrict: 'E',
   bindings: {},
   template,

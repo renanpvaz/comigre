@@ -1,7 +1,7 @@
 import template from './sidebar.html';
 import controller from './sidebar.ctrl';
 
-let sidebarComponent = {
+const sidebarComponent = {
   restrict: 'E',
   template,
   controller,

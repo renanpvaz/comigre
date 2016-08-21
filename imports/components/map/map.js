@@ -6,7 +6,7 @@ import mapComponent from './map.component';
 
 const name = 'crMap';
 
-let mapModule = angular.module(name, [
+const mapModule = angular.module(name, [
   'nemLogging',
   'ui-leaflet'
 ])

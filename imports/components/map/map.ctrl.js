@@ -1,4 +1,4 @@
-import { Places } from '../../api/places.js';
+import { Places } from '../../api/places/places.js';
 
 class MapCtrl {
   constructor($scope, $reactive) {
@@ -6,41 +6,59 @@ class MapCtrl {
 
     $reactive(this).attach($scope);
 
+    this.center = {
+      lat: -15.893,
+      lng: -52.2599,
+      zoom: 5
+    };
+
+    this.defaults = {
+      zoomControlPosition: 'topright',
+    };
+
     this.helpers({
       places() {
         return Places.find().fetch();
       }
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.center = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-            zoom: 10
-        };
+    // TODO: timeout and error parameter
+    navigator.geolocation.getCurrentPosition((position) => {
+      $scope.$apply(() => {
+        this.center.lat = position.coords.latitude;
+        this.center.lng = position.coords.longitude;
+        this.center.zoom = 15;
+      });
 
-        Meteor.call('getPlacesFromGoogle', this.center, 1000,
-          (error, result) => {
-            if (!error) {
-              result.forEach((gPlace) => {
-                const isInCollection = this.places.some(i => {
-                  return i.googleId === gPlace.place_id;
-                });
+      this.getNewPlaces();
+    });
+  }
 
-                if (!isInCollection) {
-                  Places.insert({
-                    message: gPlace.name,
-                    googleId: gPlace.place_id,
-                    lat: gPlace.geometry.location.lat,
-                    lng: gPlace.geometry.location.lng
-                  });
-                }
+  getNewPlaces() {
+    Meteor.call('getPlacesFromGoogle', this.center,
+      (error, result) => {
+
+        if (!error) {
+
+          result.forEach((gPlace) => {
+            const isInCollection = this.places
+              .some(i => i.googleId === gPlace.place_id);
+
+            if (!isInCollection) {
+
+              Places.insert({
+                message: gPlace.name,
+                googleId: gPlace.place_id,
+                lat: gPlace.geometry.location.lat,
+                lng: gPlace.geometry.location.lng
               });
             }
           });
+
+        } else {
+          throw error;
+        }
       });
-    }
   }
 }
 
