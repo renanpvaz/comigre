@@ -1,7 +1,7 @@
 class SidebarCtrl {
 
   constructor() {
-    this.expanded = false;
+    this.open = false;
     this.name = 'sidebar';
 
     this.sections = [
@@ -11,10 +11,6 @@ class SidebarCtrl {
       { name:'Cursos', icon: 'school' }
     ];
   }
-
-  // toggle() {
-  //   this.expanded = !this.expanded;
-  // }
 }
 
 export default SidebarCtrl;

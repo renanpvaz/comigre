@@ -1,12 +1,4 @@
 sidebar {
-  img {
-    height: 65%;
-    width: 13%;
-    right: 19px;
-    top: 12px;
-    position: absolute;
-  }
-
   .material-icons {
     color: #f1eded;
     margin-right: 10px;
@@ -14,14 +6,19 @@ sidebar {
     float: right;
     font-size: 22px;
   }
-}
 
-md-sidenav.md-closed,
-.md-sidenav-left.md-closed {
-    -webkit-transform: translate3d(-77%,0,0);
-    transform: translate3d(-77%,0,0);
-}
+  md-backdrop.md-opaque {
+    background-color: #5d5b5b;
+  }
 
-md-sidenav.md-closed {
-    display: block;
+  md-sidenav {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: 0.2s ease-in all;
+  }
+
+  ._md-closed {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0px, 0px);
+  }
 }

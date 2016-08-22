@@ -13,7 +13,10 @@ import map from '../map/map';
 
 const name = 'app';
 
-class AppCtrl {}
+class AppCtrl {
+  constructor() {
+  }
+}
 
 export default angular.module(name, [
   angularMeteor,

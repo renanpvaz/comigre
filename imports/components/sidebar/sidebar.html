@@ -1,15 +1,7 @@
 <md-sidenav
+  md-component-id="sidebar"
   class="md-sidenav-left"
-  ng-class="vm.expanded ? '_md-closed' : 'md-closed'"
-  ng-mouseenter="vm.toggle()"
-  ng-mouseleave="vm.toggle()"
-  md-is-open="vm.expanded"
-  md-disable-backdrop="true"
-  md-component-id="left"
-  md-whiteframe="10">
-    <md-toolbar>
-      <img src="images/paperplane2.png"></img>
-    </md-toolbar>
+  md-component-id="left">
     <md-content flex layout-padding>
       <ul>
         <list-item ng-repeat="section in vm.sections">
