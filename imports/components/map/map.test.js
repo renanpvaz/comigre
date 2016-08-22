@@ -1,4 +1,5 @@
 import { assert } from 'meteor/practicalmeteor:chai';
+import { Meteor } from 'meteor/meteor';
 
 import MapCtrl from './map.ctrl';
 
@@ -11,12 +12,18 @@ describe('map', () => {
         lng: -52.2599,
         zoom: 5
       };
+      const reactiveMock = (obj) => {
+        obj.helpers = () => {};
 
-      const reactiveMock = () => ({
-        attach: () => {}
-      });
+        return { attach: () => {} };
+      };
+      const $scopeMock = {
+        $watch: () => {}
+      };
 
-      assert.deepEqual(new MapCtrl({}, reactiveMock).center, brazilCenter);
+      if (Meteor.isClient) {
+        assert.deepEqual(new MapCtrl($scopeMock, reactiveMock).center, brazilCenter);
+      }
     });
   });
 });
