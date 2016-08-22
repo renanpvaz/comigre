@@ -11,6 +11,13 @@ class SidebarCtrl {
       { name:'Cursos', icon: 'school' }
     ];
   }
+<<<<<<< HEAD
+=======
+
+   toggle() {
+     this.expanded = !this.expanded;
+  }
+>>>>>>> 6ab12147558259936098c21f95c3bf7adc69c15b
 }
 
 export default SidebarCtrl;
