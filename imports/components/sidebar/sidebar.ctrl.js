@@ -12,9 +12,9 @@ class SidebarCtrl {
     ];
   }
 
-  // toggle() {
-  //   this.expanded = !this.expanded;
-  // }
+   toggle() {
+     this.expanded = !this.expanded;
+  }
 }
 
 export default SidebarCtrl;
