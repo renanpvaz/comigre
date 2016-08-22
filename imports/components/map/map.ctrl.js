@@ -22,20 +22,24 @@ class MapCtrl {
       }
     });
 
-    // TODO: timeout and error parameter
-    navigator.geolocation.getCurrentPosition((position) => {
-      $scope.$apply(() => {
-        this.center.lat = position.coords.latitude;
-        this.center.lng = position.coords.longitude;
-        this.center.zoom = 15;
-      });
+    $scope.$watch('vm.filter', () => this.getNewPlaces());
 
-      this.getNewPlaces();
-    });
+    // TODO: timeout and error parameter
+    if (navigator && 'geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        $scope.$apply(() => {
+          this.center.lat = position.coords.latitude;
+          this.center.lng = position.coords.longitude;
+          this.center.zoom = 15;
+        });
+
+        this.getNewPlaces();
+      });
+    }
   }
 
   getNewPlaces() {
-    Meteor.call('getPlacesFromGoogle', this.center,
+    Meteor.call('getPlacesFromGoogle', this.center, this.filter.types,
       (error, result) => {
 
         if (!error) {

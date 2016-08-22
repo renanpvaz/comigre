@@ -1,0 +1,18 @@
+<div class="lock-size" layout="row" layout-align="center center">
+  <md-fab-speed-dial md-open="vm.isOpen" md-direction="up" ng-class="'md-scale'">
+      <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-warn">
+            <md-icon md-font-library="material-icons">{{ vm.selected.icon }}</md-icon>
+          </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+          <md-button
+            ng-click="vm.select(filter)"
+            aria-label="{{ filter.name }}"
+            ng-repeat="filter in vm.filters"
+            class="md-fab md-raised md-mini">
+            <md-icon md-font-library="material-icons">{{ filter.icon }}</md-icon>
+          </md-button>
+      </md-fab-actions>
+  </md-fab-speed-dial>
+</div>

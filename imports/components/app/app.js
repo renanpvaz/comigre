@@ -8,6 +8,7 @@ import template from './app.html';
 
 import sidebar from '../sidebar/sidebar';
 import navbar from '../navbar/navbar';
+import placesFilter from '../placesFilter/placesFilter';
 import map from '../map/map';
 
 const name = 'app';
@@ -18,6 +19,7 @@ export default angular.module(name, [
   angularMeteor,
   sidebar.name,
   map.name,
+  placesFilter.name,
   navbar.name
 ])
 
