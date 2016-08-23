@@ -84,11 +84,7 @@ const sidebarModule = angular.module(name, [
         '700': '#000a0f',
         '800': '#fff',
         '900': '#fff',
-<<<<<<< HEAD
         'A100': '#1b1931', // Content
-=======
-        'A100': '#1C1A32', // Content
->>>>>>> 6ab12147558259936098c21f95c3bf7adc69c15b
         'A200': '#00a7f4',
         'A400': '#0fb3ff',
         'A700': '#fff'
