@@ -18,14 +18,23 @@ class MapCtrl {
 
     this.helpers({
       places() {
-        return Places.find().fetch();
+        return Places.find().fetch()
+          .filter(place => {
+            return place.types
+              .some(t => this.filter.types.includes(t))
+          });
       }
     });
 
-    $scope.$watch('vm.filter', () => this.getNewPlaces());
+    $scope.$watch('vm.filter', (val) => {
+      console.log(val);
+      if (val) {
+        this.getNewPlaces();
+      }
+    });
 
     // TODO: timeout and error parameter
-    if (navigator && 'geolocation' in navigator) {
+    if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         $scope.$apply(() => {
           this.center.lat = position.coords.latitude;
@@ -54,7 +63,8 @@ class MapCtrl {
                 message: gPlace.name,
                 googleId: gPlace.place_id,
                 lat: gPlace.geometry.location.lat,
-                lng: gPlace.geometry.location.lng
+                lng: gPlace.geometry.location.lng,
+                types: gPlace.types
               });
             }
           });

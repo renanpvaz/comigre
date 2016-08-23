@@ -7,8 +7,17 @@ import PlacesFilterCtrl from './placesFilter.ctrl';
 describe('PlacesFilter', () => {
 
   describe('Controller', () => {
-    it('test some controller method', () => {
-      //...
+    it('should select filter', () => {
+      const ctrl = new PlacesFilterCtrl();
+      const filter = {
+          name:'a',
+          icon: 'b',
+          types: ['c', 'd']
+      };
+
+      ctrl.select(filter);
+
+      assert.equal(ctrl.selected, filter);
     });
   });
 });
