@@ -21,8 +21,12 @@ class MapCtrl {
       places() {
         return Places.find().fetch()
           .filter(place => {
-            return place.types
-              .some(t => this.filter.types.includes(t))
+            if(place.types) {
+              return place.types
+                .some(t => this.filter.types.includes(t))
+            } else {
+              return false;
+            }
           });
       }
     });
