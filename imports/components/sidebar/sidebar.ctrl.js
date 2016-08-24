@@ -1,8 +1,10 @@
 class SidebarCtrl {
 
-  constructor() {
-    this.open = false;
+  constructor($mdSidenav) {
+    'ngInject';
+
     this.name = 'sidebar';
+    this.$mdSidenav = $mdSidenav;
 
     this.sections = [
       { name:'Trabalhos', icon: 'work' },
@@ -10,6 +12,10 @@ class SidebarCtrl {
       { name:'Eventos', icon: 'event' },
       { name:'Cursos', icon: 'school' }
     ];
+  }
+
+  onSwipeLeft() {
+    this.$mdSidenav('sidebar').close();
   }
 }
 
