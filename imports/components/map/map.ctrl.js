@@ -35,7 +35,7 @@ class MapCtrl {
     });
 
     $scope.$watch('vm.filter', (val) => {
-      if (val) {
+      if (val && this.center.zoom >= 10) {
         this.getNewPlaces();
       }
     });
