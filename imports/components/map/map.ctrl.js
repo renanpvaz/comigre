@@ -1,7 +1,7 @@
 import { Places } from '../../api/places/places.js';
 
 class MapCtrl {
-  constructor($scope, $reactive) {
+  constructor($scope, $reactive, $mdMedia) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -14,6 +14,7 @@ class MapCtrl {
 
     this.defaults = {
       zoomControlPosition: 'topright',
+      zoomControl: !$mdMedia('xs')
     };
 
     this.helpers({
@@ -27,7 +28,6 @@ class MapCtrl {
     });
 
     $scope.$watch('vm.filter', (val) => {
-      console.log(val);
       if (val) {
         this.getNewPlaces();
       }

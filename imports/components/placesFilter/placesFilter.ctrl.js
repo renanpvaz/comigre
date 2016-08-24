@@ -14,7 +14,7 @@ class PlacesFilterCtrl {
       }, {
         name:'Saúde',
         icon: 'local_hospital',
-        types: ['health', 'pharmacy', 'hospital']
+        types: ['health', 'pharmacy', 'hospital', 'doctor']
       }];
 
     this.selected = this.filters[0];

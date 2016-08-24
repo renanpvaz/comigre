@@ -9,8 +9,11 @@
           <md-button
             ng-click="vm.select(filter)"
             aria-label="{{ filter.name }}"
-            ng-repeat="filter in vm.filters"
+            ng-repeat="filter in vm.filters | filter:{ name: '!' + vm.selected.name }"
             class="md-fab md-raised md-mini">
+            <md-tooltip md-direction="left" md-autohide="false">
+              {{ filter.name }}
+            </md-tooltip>
             <md-icon md-font-library="material-icons">{{ filter.icon }}</md-icon>
           </md-button>
       </md-fab-actions>
