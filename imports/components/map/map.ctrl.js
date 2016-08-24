@@ -42,15 +42,32 @@ class MapCtrl {
 
     // TODO: timeout and error parameter
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      const error = (error) => console.log(error);
+      const success = (position) => {
+        const { latitude, longitude } = position.coords;
+
         $scope.$apply(() => {
-          this.center.lat = position.coords.latitude;
-          this.center.lng = position.coords.longitude;
+          this.center.lat = latitude;
+          this.center.lng = longitude;
           this.center.zoom = 15;
         });
 
+        this.places.push({
+          lat: latitude,
+          lng: longitude,
+          message: 'Você está aqui',
+          focus: true
+        });
+
         this.getNewPlaces();
-      });
+      };
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(success, error, options);
     }
   }
 
