@@ -14,7 +14,10 @@ class MapCtrl {
 
     this.defaults = {
       zoomControlPosition: 'topright',
-      zoomControl: !$mdMedia('xs')
+      zoomControl: !$mdMedia('xs'),
+      tileLayerOptions: {
+        detectRetina: $mdMedia('xs')
+      }
     };
 
     this.helpers({
