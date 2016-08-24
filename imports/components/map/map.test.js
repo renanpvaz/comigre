@@ -20,9 +20,10 @@ describe('map', () => {
       const $scopeMock = {
         $watch: () => {}
       };
+      const $mdMediaMock = () => {};
 
       if (Meteor.isClient) {
-        assert.deepEqual(new MapCtrl($scopeMock, reactiveMock).center, brazilCenter);
+        assert.deepEqual(new MapCtrl($scopeMock, reactiveMock, $mdMediaMock).center, brazilCenter);
       }
     });
   });
