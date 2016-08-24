@@ -26,7 +26,7 @@ class MapCtrl {
           .filter(place => {
             if(place.types) {
               return place.types
-                .some(t => this.filter.types.includes(t))
+                .some(t => this.filter.types.includes(t));
             } else {
               return false;
             }
@@ -62,13 +62,13 @@ class MapCtrl {
 
           result.forEach((gPlace) => {
             const isInCollection = this.places
-              .some(i => i.googleId === gPlace.place_id);
+              .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
             if (!isInCollection) {
 
               Places.insert({
                 message: gPlace.name,
-                googleId: gPlace.place_id,
+                googleId: gPlace.place_id, // jshint ignore:line
                 lat: gPlace.geometry.location.lat,
                 lng: gPlace.geometry.location.lng,
                 types: gPlace.types
