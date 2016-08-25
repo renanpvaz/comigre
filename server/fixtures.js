@@ -1,3 +1,5 @@
+'use strict';
+
 import { Meteor } from 'meteor/meteor';
 import { Places } from '../imports/api/places/places.js';
 

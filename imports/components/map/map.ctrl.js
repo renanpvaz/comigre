@@ -26,7 +26,7 @@ class MapCtrl {
           .filter(place => {
             if(place.types) {
               return place.types
-                .some(t => this.filter.types.includes(t))
+                .some(t => this.filter.types.includes(t));
             } else {
               return false;
             }
@@ -35,22 +35,39 @@ class MapCtrl {
     });
 
     $scope.$watch('vm.filter', (val) => {
-      if (val) {
+      if (val && this.center.zoom >= 10) {
         this.getNewPlaces();
       }
     });
 
     // TODO: timeout and error parameter
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      const error = (error) => console.log(error);
+      const success = (position) => {
+        const { latitude, longitude } = position.coords;
+
         $scope.$apply(() => {
-          this.center.lat = position.coords.latitude;
-          this.center.lng = position.coords.longitude;
+          this.center.lat = latitude;
+          this.center.lng = longitude;
           this.center.zoom = 15;
         });
 
+        this.places.push({
+          lat: latitude,
+          lng: longitude,
+          message: 'Você está aqui',
+          focus: true
+        });
+
         this.getNewPlaces();
-      });
+      };
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(success, error, options);
     }
   }
 
@@ -62,13 +79,13 @@ class MapCtrl {
 
           result.forEach((gPlace) => {
             const isInCollection = this.places
-              .some(i => i.googleId === gPlace.place_id);
+              .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
             if (!isInCollection) {
 
               Places.insert({
                 message: gPlace.name,
-                googleId: gPlace.place_id,
+                googleId: gPlace.place_id, // jshint ignore:line
                 lat: gPlace.geometry.location.lat,
                 lng: gPlace.geometry.location.lng,
                 types: gPlace.types

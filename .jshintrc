@@ -12,5 +12,10 @@
   "undef": true,
   "unused": true,
   "eqnull": true,
-  "varstmt": true
+  "varstmt": true,
+  "predef": [
+    "navigator",
+    "describe",
+    "it"
+  ]
 }
