@@ -8,7 +8,8 @@
       "type": "image/png"
     },
   ],
-  "start_url": "/index.html?webapp=true",
+  "start_url": "/?webapp=true",
+  "background_color": "#fff",
   "display": "standalone",
   "orientation": "portrait"
 }
