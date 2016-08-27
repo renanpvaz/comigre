@@ -27,8 +27,6 @@ class MapCtrl {
             if(place.types) {
               return place.types
                 .some(t => this.filter.types.includes(t));
-            } else {
-              return false;
             }
           });
       }

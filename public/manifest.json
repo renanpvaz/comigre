@@ -1,0 +1,14 @@
+{
+  "short_name": "Test Installable Web App",
+  "name": "Test Application that's installable on your home screen",
+  "icons": [
+    {
+      "src": "images/web-app-logo.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+  ],
+  "start_url": "/?webapp=true",
+  "display": "standalone",
+  "orientation": "portrait"
+}
