@@ -14,6 +14,7 @@ describe('map', () => {
       };
       const reactiveMock = (obj) => {
         obj.helpers = () => {};
+        obj.getReactively = () => {};
 
         return { attach: () => {} };
       };
@@ -22,8 +23,12 @@ describe('map', () => {
       };
       const $mdMediaMock = () => {};
 
+      const serviceMock = {
+        findGeolocation: () => {}
+      };
+
       if (Meteor.isClient) {
-        assert.deepEqual(new MapCtrl($scopeMock, reactiveMock, $mdMediaMock).center, brazilCenter);
+        assert.deepEqual(new MapCtrl($scopeMock, reactiveMock, $mdMediaMock, serviceMock).center, brazilCenter);
       }
     });
   });

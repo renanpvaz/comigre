@@ -5,7 +5,6 @@ import controller from './<%= name %>.ctrl';
 import './<%= name %>.less';
 
 const <%= name %>Component = {
-  restrict: 'E',
   bindings: {},
   template,
   controller,
