@@ -3,7 +3,11 @@
     <md-button class="md-icon-button" ng-click="vm.toggleMenu()" aria-label="Menu">
       <i class="material-icons">menu</i>
     </md-button>
-    <img ng-style="{ 'max-width': vm.$mdMedia('xs') ? '50%' : '100%' }" class="logo" src="images/logo.png"></img>
+    <img ng-click="vm.openMoreInfo($event)"
+      ng-style="{ 'max-width': vm.$mdMedia('xs') ? '50%' : '100%' }"
+      class="logo"
+      src="images/logo.png">
+    </img>
     <span flex></span>
     <md-button class="md-icon-button" aria-label="Favorite">
     </md-button>

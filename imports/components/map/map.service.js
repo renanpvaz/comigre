@@ -1,29 +1,48 @@
 import { Places } from '../../api/places/places.js';
 
 class MapService {
-  constructor() {
+  constructor($mdToast) {
     'ngInject';
 
     this.center = {};
+    this.$mdToast = $mdToast;
   }
 
   findGeolocation(center) {
     if ('geolocation' in navigator) {
-      const error = (error) => console.log(error);
-      const success = (position) => {
-        const { latitude, longitude } = position.coords;
-
-        center.lat = latitude;
-        center.lng = longitude;
-        center.zoom = 15;
-
-        this.center = center;
-      };
+      const toastService = this.$mdToast;
       const options = {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0
       };
+      const toast = this.$mdToast.simple()
+        .position('top right')
+        .hideDelay(3000);
+
+      function error(err) {
+        const errorToast = toast.textContent('Erro ao localizar')
+          .action('Tentar novamente')
+          .highlightAction(true);
+
+        toastService.show(errorToast).then(res => {
+          if (res === 'ok') {
+            this.findGeolocation(center);
+          }
+        })
+      }
+
+      function success(position) {
+        const { latitude, longitude } = position.coords;
+        const successToast = toast.textContent('Localização obtida');
+
+        center.lat = latitude;
+        center.lng = longitude;
+        center.zoom = 15;
+        this.center = center;
+
+        toastService.show(successToast);
+      }
 
       navigator.geolocation
         .getCurrentPosition(success, error, options);
@@ -39,8 +58,6 @@ class MapService {
           result.forEach((gPlace) => {
             const isInCollection = places
               .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
-
-            console.log(result);
 
             if (!isInCollection) {
 
@@ -60,6 +77,5 @@ class MapService {
       });
   }
 }
-
 
 export default MapService;

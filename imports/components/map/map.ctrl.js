@@ -15,13 +15,30 @@ class MapCtrl {
           types: {
             $in: this.getReactively('types')
           }
-        });;
+        }).fetch().map(place => {
+          place.compileMessage = true;
+          place.getMessageScope = () => $scope;
+          place.message = `
+              <div layout="row">
+                <p flex>${place.message}</p>
+                <i flex="10" class="material-icons md-icon-button" ng-click="vm.openDetails($event)">
+                  search
+                </i>
+              </div>
+              `.trim(); // TODO: Move to file
+
+          return place;
+        });
       }
     });
 
     this.$scope = $scope;
     this.$mdMedia = $mdMedia;
     this.MapService = MapService;
+  }
+
+  openDetails(e) {
+    console.log(e); // TODO: Open dialog and fetch details
   }
 
   onFilter(filter) {
