@@ -7,6 +7,7 @@ import 'ui-leaflet';
 import mapComponent from './map.component';
 import MapService from './map.service';
 import placesFilter from '../placesFilter/placesFilter';
+import placeDetail from '../placeDetail/placeDetail';
 
 const name = 'crMap';
 
@@ -18,5 +19,6 @@ const mapModule = angular
   ])
   .component(name, mapComponent)
   .service('MapService', MapService);
+
 
 export default mapModule;

@@ -3,8 +3,9 @@ import { Places } from '../../api/places/places.js';
 class MapCtrl {
   constructor($scope, $reactive, $mdMedia, MapService) {
     'ngInject';
-
     $reactive(this).attach($scope);
+
+    // $scope.$on('leafletDirectiveMarker.dblclick', (event) => console.log(event));
 
     this.types = [];
 
