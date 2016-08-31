@@ -12,8 +12,10 @@ class MapCtrl {
     this.helpers({
       places() {
         return Places.find({
-          types: this.getReactively('types')
-        });
+          types: {
+            $in: this.getReactively('types')
+          }
+        });;
       }
     });
 
