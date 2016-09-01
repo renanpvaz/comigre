@@ -1,11 +1,10 @@
 import { Places } from '../../api/places/places.js';
 
 class MapCtrl {
-  constructor($scope, $reactive, $mdMedia, MapService) {
+  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog) {
     'ngInject';
-    $reactive(this).attach($scope);
 
-    // $scope.$on('leafletDirectiveMarker.dblclick', (event) => console.log(event));
+    $reactive(this).attach($scope);
 
     this.types = [];
 
@@ -15,19 +14,6 @@ class MapCtrl {
           types: {
             $in: this.getReactively('types')
           }
-        }).fetch().map(place => {
-          place.compileMessage = true;
-          place.getMessageScope = () => $scope;
-          place.message = `
-              <div layout="row">
-                <p flex>${place.message}</p>
-                <i flex="10" class="material-icons md-icon-button" ng-click="vm.openDetails($event)">
-                  search
-                </i>
-              </div>
-              `.trim(); // TODO: Move to file
-
-          return place;
         });
       }
     });
@@ -35,17 +21,16 @@ class MapCtrl {
     this.$scope = $scope;
     this.$mdMedia = $mdMedia;
     this.MapService = MapService;
-  }
-
-  openDetails(e) {
-    console.log(e); // TODO: Open dialog and fetch details
-  }
-
-  onFilter(filter) {
-    this.types = filter.types;
+    this.$mdDialog = $mdDialog;
   }
 
   $onInit() {
+    this.$scope.$on('leafletDirectiveMarker.popupclose',
+      (event, args) => {
+        console.log(args);
+        this.openDetails(event, args);
+      });
+
     this.center = {
       lat: -15.893,
       lng: -52.2599,
@@ -61,12 +46,23 @@ class MapCtrl {
         detectRetina: this.$mdMedia('xs')
       }
     };
+  }
 
-    this.$scope.$watch('vm.filter', (val) => {
-      if (val && this.center.zoom >= 10) {
-        this.getNewPlaces(this.places, val);
-      }
-    });
+  openDetails($event, { model: place }) {
+    this.$mdDialog.show(
+      this.$mdDialog
+        .alert()
+        .title(place.message)
+        .textContent(place.types.join(', '))
+        .ariaLabel('More info')
+        .ok('Got it')
+        .targetEvent($event)
+        .clickOutsideToClose(true)
+      );
+  }
+
+  onFilter(filter) {
+    this.types = filter.types;
   }
 }
 
