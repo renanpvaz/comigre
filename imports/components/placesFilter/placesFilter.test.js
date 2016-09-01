@@ -15,6 +15,7 @@ describe('PlacesFilter', () => {
           types: ['c', 'd']
       };
 
+      ctrl.onSelect = () => {};
       ctrl.select(filter);
 
       assert.equal(ctrl.selected, filter);
