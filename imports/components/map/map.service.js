@@ -1,50 +1,52 @@
 import { Places } from '../../api/places/places.js';
+import Injectable from '../../common/injectable';
 
-class MapService {
-  constructor($mdToast) {
+class MapService extends Injectable {
+  constructor($mdToast, $window) {
     'ngInject';
 
+    super(...arguments);
+
     this.center = {};
-    this.$mdToast = $mdToast;
   }
 
   findGeolocation(center) {
-    if ('geolocation' in navigator) {
+    if ('geolocation' in this.$window.navigator) {
       const toastService = this.$mdToast;
+
       const options = {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0
       };
+
       const toast = this.$mdToast.simple()
-        .position('top right')
+        .position('bottom left')
         .hideDelay(3000);
 
-      function error(err) {
-        const errorToast = toast.textContent('Erro ao localizar')
-          .action('Tentar novamente')
-          .highlightAction(true);
+      const { error, success } = {
+        error(err) {
+          const errorToast = toast
+            .textContent('Erro ao localizar, tentando novamente')
+            .highlightAction(true);
 
-        toastService.show(errorToast).then(res => {
-          if (res === 'ok') {
-            this.findGeolocation(center);
-          }
-        })
-      }
+          toastService.show(errorToast).then(res => this.findGeolocation(center));
+        },
 
-      function success(position) {
-        const { latitude, longitude } = position.coords;
-        const successToast = toast.textContent('Localização obtida');
+        success(position) {
+          const { latitude, longitude } = position.coords;
+          const successToast = toast.textContent('Localização obtida');
 
-        center.lat = latitude;
-        center.lng = longitude;
-        center.zoom = 15;
-        this.center = center;
+          center.lat = latitude;
+          center.lng = longitude;
+          center.zoom = 15;
+          this.center = center;
 
-        toastService.show(successToast);
-      }
+          toastService.show(successToast);
+        }
+      };
 
-      navigator.geolocation
+      this.$window.navigator.geolocation
         .getCurrentPosition(success, error, options);
     }
   }
