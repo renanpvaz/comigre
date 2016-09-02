@@ -1,5 +1,4 @@
 class SidebarCtrl {
-
   constructor($mdSidenav) {
     'ngInject';
 

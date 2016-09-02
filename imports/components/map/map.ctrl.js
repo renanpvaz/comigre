@@ -1,8 +1,11 @@
 import { Places } from '../../api/places/places.js';
+import Injectable from '../../common/injectable';
 
-class MapCtrl {
-  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog) {
+class MapCtrl extends Injectable {
+  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog, leafletData) {
     'ngInject';
+
+    super(...arguments);
 
     $reactive(this).attach($scope);
 
@@ -17,17 +20,11 @@ class MapCtrl {
         });
       }
     });
-
-    this.$scope = $scope;
-    this.$mdMedia = $mdMedia;
-    this.MapService = MapService;
-    this.$mdDialog = $mdDialog;
   }
 
   $onInit() {
-    this.$scope.$on('leafletDirectiveMarker.popupclose',
+    this.$scope.$on('leafletDirectiveMarker.click',
       (event, args) => {
-        console.log(args);
         this.openDetails(event, args);
       });
 
@@ -49,16 +46,19 @@ class MapCtrl {
   }
 
   openDetails($event, { model: place }) {
-    this.$mdDialog.show(
-      this.$mdDialog
-        .alert()
-        .title(place.message)
-        .textContent(place.types.join(', '))
-        .ariaLabel('More info')
-        .ok('Got it')
-        .targetEvent($event)
-        .clickOutsideToClose(true)
-      );
+    Meteor.call('getPlaceDetail', place.googleId,
+      (error, result) => {
+        this.$mdDialog.show(
+          this.$mdDialog
+            .alert()
+            .title(result.name)
+            .textContent(result.vicinity)
+            .ariaLabel('More info')
+            .ok('OK')
+            .targetEvent($event)
+            .clickOutsideToClose(true)
+          );
+      });
   }
 
   onFilter(filter) {

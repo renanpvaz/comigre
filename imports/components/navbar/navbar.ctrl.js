@@ -1,14 +1,14 @@
 'use strict';
 
-class NavbarCtrl {
+import Injectable from '../../common/injectable';
+
+class NavbarCtrl extends Injectable {
   constructor($mdSidenav, $timeout, $mdMedia, $mdDialog) {
     'ngInject';
 
-    $timeout(() => $mdSidenav('sidebar').close());
+    super(...arguments);
 
-    this.name = 'navbar';
-    this.$mdSidenav = $mdSidenav;
-    this.$mdMedia = $mdMedia;
+    $timeout(() => $mdSidenav('sidebar').close());
   }
 
   toggleMenu() {
