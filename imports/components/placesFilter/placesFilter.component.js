@@ -5,9 +5,8 @@ import controller from './placesFilter.ctrl';
 import './placesFilter.less';
 
 const placesFilterComponent = {
-  restrict: 'E',
   bindings: {
-    selected: '='
+    onSelect: '&'
   },
   template,
   controller,

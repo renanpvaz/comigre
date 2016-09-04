@@ -3,8 +3,8 @@
 import angular from 'angular';
 import <%= name %>Component from './<%= name %>.component';
 
-const <%= name %>Module = angular.module('<%= name %>', [])
+const <%= name %> = angular
+  .module('<%= name %>', [])
+  .component('<%= name %>', <%= name %>Component);
 
-.component('<%= name %>', <%= name %>Component);
-
-export default <%= name %>Module;
+export default <%= name %>;

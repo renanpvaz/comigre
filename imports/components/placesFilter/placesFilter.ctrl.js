@@ -4,7 +4,6 @@ class PlacesFilterCtrl {
   constructor() {
     'ngInject';
 
-    this.name = 'placesFilter';
     this.isOpen = false;
 
     this.filters = [{
@@ -17,11 +16,12 @@ class PlacesFilterCtrl {
         types: ['health', 'pharmacy', 'hospital', 'doctor']
       }];
 
-    this.selected = this.filters[0];
+    this.select(this.filters[0]);
   }
 
   select(filter) {
     this.selected = filter;
+    this.onSelect({ filter });
   }
 }
 

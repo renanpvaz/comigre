@@ -6,7 +6,6 @@ import controller from './institutionRegister.ctrl';
 const name = 'institutionRegister';
 
 const institutionRegisterComponent = {
-  restrict: 'E',
   template,
   controller,
   controllerAs: 'vm'

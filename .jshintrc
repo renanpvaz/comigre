@@ -10,11 +10,9 @@
   "quotmark": "single",
   "strict": true,
   "undef": true,
-  "unused": true,
   "eqnull": true,
   "varstmt": true,
   "predef": [
-    "navigator",
     "describe",
     "it"
   ]

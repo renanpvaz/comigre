@@ -1,11 +1,32 @@
 import { Places } from '../../api/places/places.js';
+import Injectable from '../../common/injectable';
 
-class MapCtrl {
-  constructor($scope, $reactive, $mdMedia) {
+class MapCtrl extends Injectable {
+  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog, leafletData) {
     'ngInject';
+
+    super(...arguments);
+
     $reactive(this).attach($scope);
-    $scope.$on('leafletDirectiveMarker.dblclick', (event) => console.log(event));
-    
+
+    this.types = [];
+
+    this.helpers({
+      places() {
+        return Places.find({
+          types: {
+            $in: this.getReactively('types')
+          }
+        });
+      }
+    });
+  }
+
+  $onInit() {
+    this.$scope.$on('leafletDirectiveMarker.click',
+      (event, args) => {
+        this.openDetails(event, args);
+      });
 
     this.center = {
       lat: -15.893,
@@ -13,13 +34,16 @@ class MapCtrl {
       zoom: 5
     };
 
+    this.MapService.findGeolocation(this.center);
+
     this.defaults = {
       zoomControlPosition: 'topright',
-      zoomControl: !$mdMedia('xs'),
+      zoomControl: !this.$mdMedia('xs'),
       tileLayerOptions: {
-        detectRetina: $mdMedia('xs')
+        detectRetina: this.$mdMedia('xs')
       }
     };
+<<<<<<< HEAD
 
     this.helpers({
       places() {
@@ -68,34 +92,28 @@ class MapCtrl {
 
       navigator.geolocation.getCurrentPosition(success, error, options);
     }
+=======
+>>>>>>> 81c34e50b7593e183c5e2e84664d003dd3b1c675
   }
 
-  getNewPlaces() {
-    Meteor.call('getPlacesFromGoogle', this.center, this.filter.types,
+  openDetails($event, { model: place }) {
+    Meteor.call('getPlaceDetail', place.googleId,
       (error, result) => {
-
-        if (!error) {
-
-          result.forEach((gPlace) => {
-            const isInCollection = this.places
-              .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
-
-            if (!isInCollection) {
-
-              Places.insert({
-                message: gPlace.name,
-                googleId: gPlace.place_id, // jshint ignore:line
-                lat: gPlace.geometry.location.lat,
-                lng: gPlace.geometry.location.lng,
-                types: gPlace.types
-              });
-            }
-          });
-
-        } else {
-          throw error;
-        }
+        this.$mdDialog.show(
+          this.$mdDialog
+            .alert()
+            .title(result.name)
+            .textContent(result.vicinity)
+            .ariaLabel('More info')
+            .ok('OK')
+            .targetEvent($event)
+            .clickOutsideToClose(true)
+          );
       });
+  }
+
+  onFilter(filter) {
+    this.types = filter.types;
   }
 }
 

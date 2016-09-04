@@ -23,4 +23,3 @@ before_script:
 
 script:
   - meteor test --once --driver-package dispatch:mocha-phantomjs
-  - meteor build $HOME/build.tgz

@@ -2,10 +2,12 @@
 
 import { Meteor } from 'meteor/meteor';
 
+const baseUrl = 'https://maps.googleapis.com/maps/api/place/';
+
 Meteor.methods({
-  getPlacesFromGoogle: function (center, types) {
-    const reqURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
-    const result = HTTP.call('GET', reqURL, {
+  getPlacesFromGoogle(center, types) {
+    const url = `${baseUrl}nearbysearch/json`;
+    const response = HTTP.call('GET', url, {
       params: {
         key: Meteor.settings.public.googlePlacesAPIKey,
         location: `${center.lat},${center.lng}`,
@@ -14,6 +16,17 @@ Meteor.methods({
       }
     });
 
-    return result.data.results;
+    return response.data.results;
+  },
+  getPlaceDetail(placeid) {
+    const url = `${baseUrl}details/json`;
+    const response = HTTP.call('GET', url, {
+      params: {
+        key: Meteor.settings.public.googlePlacesAPIKey,
+        placeid
+      }
+    });
+
+    return response.data.result;
   }
 });
