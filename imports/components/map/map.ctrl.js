@@ -1,4 +1,6 @@
-import { Places } from '../../api/places/places.js';
+import {
+  Places
+} from '../../api/places/places.js';
 import Injectable from '../../common/injectable';
 
 class MapCtrl extends Injectable {
@@ -43,57 +45,6 @@ class MapCtrl extends Injectable {
         detectRetina: this.$mdMedia('xs')
       }
     };
-<<<<<<< HEAD
-
-    this.helpers({
-      places() {
-        return Places.find().fetch()
-          .filter(place => {
-            if(place.types) {
-              return place.types
-                .some(t => this.filter.types.includes(t));
-            }
-          });
-      }
-    });
-
-    $scope.$watch('vm.filter', (val) => {
-      if (val && this.center.zoom >= 10) {
-        this.getNewPlaces();
-      }
-    });
-
-    // TODO: timeout and error parameter
-    if ('geolocation' in navigator) {
-      const error = (error) => console.log(error);
-      const success = (position) => {
-        const { latitude, longitude } = position.coords;
-
-        $scope.$apply(() => {
-          this.center.lat = latitude;
-          this.center.lng = longitude;
-          this.center.zoom = 15;
-        });
-
-        this.places.push({
-          lat: latitude,
-          lng: longitude,
-          message: 'Você está aqui',
-          focus: true
-        });
-
-        this.getNewPlaces();
-      };
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-
-      navigator.geolocation.getCurrentPosition(success, error, options);
-    }
-=======
->>>>>>> 81c34e50b7593e183c5e2e84664d003dd3b1c675
   }
 
   openDetails($event, { model: place }) {
@@ -101,19 +52,20 @@ class MapCtrl extends Injectable {
       (error, result) => {
         this.$mdDialog.show(
           this.$mdDialog
-            .alert()
-            .title(result.name)
-            .textContent(result.vicinity)
-            .ariaLabel('More info')
-            .ok('OK')
-            .targetEvent($event)
-            .clickOutsideToClose(true)
-          );
+          .alert()
+          .title(result.name)
+          .textContent(result.vicinity)
+          .ariaLabel('More info')
+          .ok('OK')
+          .targetEvent($event)
+          .clickOutsideToClose(true)
+        );
       });
   }
 
   onFilter(filter) {
     this.types = filter.types;
+    this.MapService.getNewPlaces(this.places, filter);
   }
 }
 

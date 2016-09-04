@@ -6,6 +6,8 @@ const baseUrl = 'https://maps.googleapis.com/maps/api/place/';
 
 Meteor.methods({
   getPlacesFromGoogle(center, types) {
+    console.log(center);
+    console.log(types);
     const url = `${baseUrl}nearbysearch/json`;
     const response = HTTP.call('GET', url, {
       params: {

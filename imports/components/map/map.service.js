@@ -12,7 +12,7 @@ class MapService extends Injectable {
 
   findGeolocation(center) {
     if ('geolocation' in this.$window.navigator) {
-      const toastService = this.$mdToast;
+      const self = this;
 
       const options = {
         enableHighAccuracy: true,
@@ -30,7 +30,7 @@ class MapService extends Injectable {
             .textContent('Erro ao localizar, tentando novamente')
             .highlightAction(true);
 
-          toastService.show(errorToast).then(res => this.findGeolocation(center));
+          self.$mdToast.show(errorToast).then(res => this.findGeolocation(center));
         },
 
         success(position) {
@@ -40,9 +40,9 @@ class MapService extends Injectable {
           center.lat = latitude;
           center.lng = longitude;
           center.zoom = 15;
-          this.center = center;
+          self.center = center;
 
-          toastService.show(successToast);
+          self.$mdToast.show(successToast);
         }
       };
 
@@ -54,7 +54,6 @@ class MapService extends Injectable {
   getNewPlaces(places, filter) {
     Meteor.call('getPlacesFromGoogle', this.center, filter.types,
       (error, result) => {
-
         if (!error) {
 
           result.forEach((gPlace) => {
