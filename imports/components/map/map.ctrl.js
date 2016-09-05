@@ -1,10 +1,8 @@
-import {
-  Places
-} from '../../api/places/places.js';
+import { Places } from '../../api/places/places.js';
 import Injectable from '../../common/injectable';
 
 class MapCtrl extends Injectable {
-  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog, leafletData) {
+  constructor($scope, $reactive, $mdMedia, MapService, $mdDialog, leafletData, $rootElement) {
     'ngInject';
 
     super(...arguments);
@@ -47,20 +45,15 @@ class MapCtrl extends Injectable {
     };
   }
 
-  openDetails($event, { model: place }) {
-    Meteor.call('getPlaceDetail', place.googleId,
-      (error, result) => {
-        this.$mdDialog.show(
-          this.$mdDialog
-          .alert()
-          .title(result.name)
-          .textContent(result.vicinity)
-          .ariaLabel('More info')
-          .ok('OK')
-          .targetEvent($event)
-          .clickOutsideToClose(true)
-        );
-      });
+  openDetails($event, { model: { _id: id } }) {
+    this.$mdDialog.show({
+      template: `<places-detail id="'${id}'"></places-detail>`,
+      parent: this.$rootElement,
+      scope: this.$scope,
+      preserveScope: true,
+      clickOutsideToClose: true,
+      fullscreen: this.$mdMedia('xs')
+    });
   }
 
   onFilter(filter) {

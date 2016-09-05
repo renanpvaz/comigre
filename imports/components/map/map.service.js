@@ -30,7 +30,8 @@ class MapService extends Injectable {
             .textContent('Erro ao localizar, tentando novamente')
             .highlightAction(true);
 
-          self.$mdToast.show(errorToast).then(res => this.findGeolocation(center));
+          self.$mdToast.show(errorToast)
+            .then(res => self.findGeolocation(center));
         },
 
         success(position) {
@@ -61,7 +62,6 @@ class MapService extends Injectable {
               .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
             if (!isInCollection) {
-
               Places.insert({
                 message: gPlace.name,
                 googleId: gPlace.place_id, // jshint ignore:line

@@ -1,0 +1,49 @@
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{ vm.details.name }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.close()">
+          <i class="material-icons md-primary">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" >
+        <div layout="row" layout-align="center center" ng-if="vm.isLoading()">
+          <md-progress-circular md-diameter="60" value="{{vm.progress}}" md-mode="determinate">
+          </md-progress-circular>
+        </div>
+        <div ng-if="!vm.isLoading()" layout="column" layout-padding>
+          <div ng-if="vm.place.details.photos">
+            <!-- <img ng-src="https://maps.googleapis.com/maps/api/place/photo?photo_reference={{ vm.place.photos[0].photo_reference }}" /> -->
+          </div>
+          <div flex ng-if="vm.details.formattedWebsite">
+            <div layout="row">
+              <i class="material-icons md-primary">call</i>
+              <span>{{ vm.details.formatted_phone_number }}</span>
+            </div>
+          </div>
+          <div flex>
+            <div layout="row">
+              <i class="material-icons md-primary">room</i>
+              <span>{{ vm.details.vicinity }}</span>
+            </div>
+          </div>
+          <div flex ng-if="vm.details.formattedWebsite">
+            <div layout="row">
+              <i class="material-icons">open_in_new</i>
+              <span>{{ vm.details.formattedWebsite }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="answer('useful')">
+        OK
+      </md-button>
+    </md-dialog-actions>
+  </form>

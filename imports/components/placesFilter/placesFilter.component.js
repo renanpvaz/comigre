@@ -2,7 +2,6 @@
 
 import template from './placesFilter.html';
 import controller from './placesFilter.ctrl';
-import './placesFilter.less';
 
 const placesFilterComponent = {
   bindings: {

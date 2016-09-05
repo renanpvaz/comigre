@@ -7,6 +7,7 @@ import 'ui-leaflet';
 import mapComponent from './map.component';
 import MapService from './map.service';
 import placesFilter from '../placesFilter/placesFilter';
+import placesDetail from '../placesDetail/placesDetail';
 
 const name = 'crMap';
 
@@ -14,10 +15,10 @@ const mapModule = angular
   .module(name, [
     'nemLogging',
     'ui-leaflet',
-    placesFilter.name
+    placesFilter.name,
+    placesDetail.name
   ])
   .component(name, mapComponent)
   .service('MapService', MapService);
-
 
 export default mapModule;
