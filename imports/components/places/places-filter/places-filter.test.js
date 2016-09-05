@@ -1,8 +1,7 @@
 'use strict';
 
 import { assert } from 'meteor/practicalmeteor:chai';
-
-import PlacesFilterCtrl from './placesFilter.ctrl';
+import PlacesFilterCtrl from './places-filter.ctrl';
 
 describe('PlacesFilter', () => {
 

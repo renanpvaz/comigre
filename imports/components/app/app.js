@@ -8,26 +8,22 @@ import template from './app.html';
 
 import sidebar from '../sidebar/sidebar';
 import navbar from '../navbar/navbar';
-import placesFilter from '../placesFilter/placesFilter';
-import map from '../map/map';
+import places from '../places/index';
 
 const name = 'app';
 
 class AppCtrl {
-  constructor() {
-  }
+  constructor() { }
 }
 
-export default angular.module(name, [
-  angularMeteor,
-  sidebar.name,
-  map.name,
-  placesFilter.name,
-  navbar.name
-])
-
-.component(name, {
-  template,
-  controller: AppCtrl,
-  controllerAs: 'vm'
-});
+export default angular
+  .module(name, [
+    angularMeteor,
+    places,
+    sidebar.name,
+    navbar.name
+  ])
+  .component(name, {
+    template,
+    controller: AppCtrl
+  });

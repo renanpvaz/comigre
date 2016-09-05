@@ -2,9 +2,9 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import PlacesDetailCtrl from './placesDetail.ctrl';
+import PlacesCtrl from './places.ctrl';
 
-describe('PlacesDetail', () => {
+describe('Places', () => {
 
   describe('Controller', () => {
     it('test some controller method', () => {

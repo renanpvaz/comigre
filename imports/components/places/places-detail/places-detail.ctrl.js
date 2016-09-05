@@ -1,7 +1,7 @@
 'use strict';
 
-import { Places } from '../../api/places/places.js';
-import Injectable from '../../common/injectable';
+import { Places } from '../../../api/places/places.js';
+import Injectable from '../../../common/injectable';
 
 class PlacesDetailCtrl extends Injectable {
   constructor($mdDialog, $interval) {
@@ -21,13 +21,11 @@ class PlacesDetailCtrl extends Injectable {
 
     Meteor.call('getPlaceDetail', place.googleId,
       (error, details) => {
-        console.log(details);
-
         this.progress = 100;
         this.details = details;
 
         if (details.website) {
-          this.details.formattedWebsite = details.website.split('/')[2];
+          this.details.formattedWebsite = details.website.substr(7);
         }
       });
   }

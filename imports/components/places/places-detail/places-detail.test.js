@@ -1,8 +1,10 @@
+'use strict';
+
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import institutionRegisterCtrl from './institutionRegister.ctrl';
+import PlacesDetailCtrl from './places-detail.ctrl';
 
-describe('institutionRegister', () => {
+describe('PlacesDetail', () => {
 
   describe('Controller', () => {
     it('test some controller method', () => {

@@ -1,9 +1,9 @@
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>{{ vm.details.name }}</h2>
+        <h2>{{ $ctrl.details.name }}</h2>
         <span flex></span>
-        <md-button class="md-icon-button" ng-click="vm.close()">
+        <md-button class="md-icon-button" ng-click="$ctrl.close()">
           <i class="material-icons md-primary">close</i>
         </md-button>
       </div>
@@ -11,30 +11,30 @@
 
     <md-dialog-content>
       <div class="md-dialog-content" >
-        <div layout="row" layout-align="center center" ng-if="vm.isLoading()">
-          <md-progress-circular md-diameter="60" value="{{vm.progress}}" md-mode="determinate">
+        <div layout="row" layout-align="center center" ng-if="$ctrl.isLoading()">
+          <md-progress-circular md-diameter="60" value="{{$ctrl.progress}}" md-mode="determinate">
           </md-progress-circular>
         </div>
-        <div ng-if="!vm.isLoading()" layout="column" layout-padding>
-          <div ng-if="vm.place.details.photos">
-            <!-- <img ng-src="https://maps.googleapis.com/maps/api/place/photo?photo_reference={{ vm.place.photos[0].photo_reference }}" /> -->
+        <div ng-if="!$ctrl.isLoading()" layout="column" layout-padding>
+          <div ng-if="$ctrl.place.details.photos">
+            <!-- <img ng-src="https://maps.googleapis.com/maps/api/place/photo?photo_reference={{ $ctrl.place.photos[0].photo_reference }}" /> -->
           </div>
-          <div flex ng-if="vm.details.formattedWebsite">
+          <div flex ng-if="$ctrl.details.formattedWebsite">
             <div layout="row">
               <i class="material-icons md-primary">call</i>
-              <span>{{ vm.details.formatted_phone_number }}</span>
+              <span>{{ $ctrl.details.formatted_phone_number }}</span>
             </div>
           </div>
           <div flex>
             <div layout="row">
               <i class="material-icons md-primary">room</i>
-              <span>{{ vm.details.vicinity }}</span>
+              <span>{{ $ctrl.details.vicinity }}</span>
             </div>
           </div>
-          <div flex ng-if="vm.details.formattedWebsite">
+          <div flex ng-if="$ctrl.details.formattedWebsite">
             <div layout="row">
               <i class="material-icons">open_in_new</i>
-              <span>{{ vm.details.formattedWebsite }}</span>
+              <span>{{ $ctrl.details.formattedWebsite }}</span>
             </div>
           </div>
         </div>

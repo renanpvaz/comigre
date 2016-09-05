@@ -3,7 +3,9 @@
 class PlacesFilterCtrl {
   constructor() {
     'ngInject';
+  }
 
+  $onInit() {
     this.isOpen = false;
 
     this.filters = [{

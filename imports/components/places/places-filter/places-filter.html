@@ -1,15 +1,15 @@
-<div class="lock-size" layout="row" layout-align="center center">
-  <md-fab-speed-dial md-open="vm.isOpen" md-direction="up" ng-class="'md-scale'">
+<div class="md-primary md-fab md-fab-bottom-right" layout="row" layout-align="center center">
+  <md-fab-speed-dial md-open="$ctrl.isOpen" md-direction="up" ng-class="'md-scale'">
       <md-fab-trigger>
           <md-button aria-label="menu" class="md-fab md-warn">
-            <md-icon md-font-library="material-icons">{{ vm.selected.icon }}</md-icon>
+            <md-icon md-font-library="material-icons">{{ $ctrl.selected.icon }}</md-icon>
           </md-button>
       </md-fab-trigger>
       <md-fab-actions>
           <md-button
-            ng-click="vm.select(filter)"
+            ng-click="$ctrl.select(filter)"
             aria-label="{{ filter.name }}"
-            ng-repeat="filter in vm.filters | filter:{ name: '!' + vm.selected.name }"
+            ng-repeat="filter in $ctrl.filters | filter:{ name: '!' + $ctrl.selected.name }"
             class="md-fab md-raised md-mini">
             <md-tooltip md-direction="left" md-autohide="false">
               {{ filter.name }}

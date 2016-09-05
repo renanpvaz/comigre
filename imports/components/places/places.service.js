@@ -1,7 +1,9 @@
+'use strict';
+
 import { Places } from '../../api/places/places.js';
 import Injectable from '../../common/injectable';
 
-class MapService extends Injectable {
+class PlacesService extends Injectable {
   constructor($mdToast, $window) {
     'ngInject';
 
@@ -79,4 +81,4 @@ class MapService extends Injectable {
   }
 }
 
-export default MapService;
+export default PlacesService;
