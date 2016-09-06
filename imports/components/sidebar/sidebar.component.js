@@ -1,10 +1,12 @@
+'use strict';
+
 import template from './sidebar.html';
 import controller from './sidebar.ctrl';
 
-const sidebarComponent = {
+const SidebarComponent = {
+  bindings: {},
   template,
-  controller,
-  controllerAs: 'vm'
+  controller
 };
 
-export default sidebarComponent;
+export default SidebarComponent;

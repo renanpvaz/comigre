@@ -5,5 +5,5 @@ import app from '../imports/components/app/app';
 
 angular.module('comigr', [
     angularMeteor,
-    app.name
+    app
 ]);

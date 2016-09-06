@@ -5,7 +5,7 @@ describe('Sidebar', () => {
 
   describe('Controller', () => {
     it('has a name property', () => {
-      assert.property(new SidebarCtrl({}), 'name', 'The controller has no such property');
+      
     });
   });
 });

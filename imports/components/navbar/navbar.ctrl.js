@@ -7,8 +7,10 @@ class NavbarCtrl extends Injectable {
     'ngInject';
 
     super(...arguments);
+  }
 
-    $timeout(() => $mdSidenav('sidebar').close());
+  $onInit() {
+    this.$timeout(() => this.$mdSidenav('sidebar').close());
   }
 
   toggleMenu() {

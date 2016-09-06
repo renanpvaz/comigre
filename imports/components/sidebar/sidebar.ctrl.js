@@ -1,10 +1,13 @@
+'use strict';
+
 class SidebarCtrl {
   constructor($mdSidenav) {
     'ngInject';
 
-    this.name = 'sidebar';
     this.$mdSidenav = $mdSidenav;
+  }
 
+  $onInit() {
     this.sections = [
       { name:'Trabalhos', icon: 'work' },
       { name:'Instituições', icon: 'account_balance' },

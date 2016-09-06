@@ -6,24 +6,23 @@ import angularMeteor from 'angular-meteor';
 import './app.less';
 import template from './app.html';
 
-import sidebar from '../sidebar/sidebar';
-import navbar from '../navbar/navbar';
+import sidebar from '../sidebar/index';
+import navbar from '../navbar/index';
 import places from '../places/index';
-
-const name = 'app';
 
 class AppCtrl {
   constructor() { }
 }
 
 export default angular
-  .module(name, [
+  .module('app', [
     angularMeteor,
     places,
-    sidebar.name,
-    navbar.name
+    sidebar,
+    navbar
   ])
-  .component(name, {
+  .component('app', {
     template,
     controller: AppCtrl
-  });
+  })
+  .name;

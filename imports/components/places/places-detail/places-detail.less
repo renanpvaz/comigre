@@ -1,5 +1,12 @@
 places-detail {
-  min-width: 400px;
+
+  @media (min-width: 600px) {
+    min-width: 400px;
+
+    .md-toolbar-tools {
+      font-size: 17px;
+    }
+  }
 
   md-dialog md-content *:first-child {
     margin-top: 0px;

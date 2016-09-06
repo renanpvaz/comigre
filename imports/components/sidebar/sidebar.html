@@ -1,10 +1,10 @@
 <md-sidenav
   md-component-id="sidebar"
   class="md-sidenav-left"
-  md-swipe-left="vm.onSwipeLeft()">
+  md-swipe-left="$ctrl.onSwipeLeft()">
     <md-content flex layout-padding>
       <ul>
-        <list-item ng-repeat="section in vm.sections">
+        <list-item ng-repeat="section in $ctrl.sections">
           <menu-link section="section">
             <a class="md-button md-accent">
               <span>{{ section.name }}</span>
