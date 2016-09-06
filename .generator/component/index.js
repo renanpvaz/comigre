@@ -1,7 +1,8 @@
 'use strict';
 
 import angular from 'angular';
-import <%= name %>Component from './<%= name %>.component';
+
+import <%= name %>Component from './<%= dashedName %>.component';
 
 const <%= name %> = angular
   .module('<%= name %>', [])

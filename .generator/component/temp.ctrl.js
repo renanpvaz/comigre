@@ -3,8 +3,6 @@
 class <%= upCaseName %>Ctrl {
   constructor() {
     'ngInject';
-
-    this.name = '<%= name %>';
   }
 }
 

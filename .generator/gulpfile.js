@@ -22,7 +22,8 @@ let paths = {
 };
 
 gulp.task('component', () => {
-  const cap = (val) => val.charAt(0).toUpperCase() + val.slice(1);
+  const cap = val => val.charAt(0).toUpperCase() + val.slice(1);
+  const toDash = str => str.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
   const name = yargs.argv.name;
   const parentPath = yargs.argv.parent || '';
   const destPath = path.join(resolveToComponents(), parentPath, name);
@@ -30,7 +31,8 @@ gulp.task('component', () => {
   return gulp.src(paths.blankTemplates)
     .pipe(template({
       name: name,
-      upCaseName: cap(name)
+      upCaseName: cap(name),
+      dashedName: toDash(name)
     }))
     .pipe(rename((path) => {
       path.basename = path.basename.replace('temp', name);

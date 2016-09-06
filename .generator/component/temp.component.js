@@ -1,14 +1,13 @@
 'use strict';
 
-import template from './<%= name %>.html';
-import controller from './<%= name %>.ctrl';
-import './<%= name %>.less';
+import template from './<%= dashedName %>.html';
+import controller from './<%= dashedName %>.ctrl';
+import './<%= dashedName %>.less';
 
-const <%= name %>Component = {
+const <%= upCaseName %>Component = {
   bindings: {},
   template,
-  controller,
-  controllerAs: 'vm'
+  controller
 };
 
-export default <%= name %>Component;
+export default <%= upCaseName %>Component;
