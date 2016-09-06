@@ -21,17 +21,14 @@ const places = angular
   ])
   .component('places', PlacesComponent)
   .service('PlacesService', PlacesService)
-  .config(($stateProvider, $urlRouterProvider) => {
+  .config($stateProvider => {
     'ngInject';
 
     $stateProvider
       .state('places', {
-        parent: 'app',
         url: '/locais',
         component: 'places'
       });
-
-    $urlRouterProvider.otherwise('/locais');
   })
   .name;
 
