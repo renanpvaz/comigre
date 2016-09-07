@@ -4,7 +4,7 @@ import Injectable from '../../common/injectable';
 import { Places } from '../../api/places/places';
 
 class PlacesCtrl extends Injectable {
-  constructor($scope, $reactive, PlacesService) {
+  constructor($scope, $reactive, PlacesService, $stateParams, $timeout) {
     'ngInject';
 
     super(...arguments);
@@ -29,6 +29,12 @@ class PlacesCtrl extends Injectable {
             $in: this.getReactively('types')
           }
         }, { limit: 20 });
+      },
+
+      place() {
+        return Places.findOne({
+          _id: this.$stateParams.id
+        });
       }
     });
   }

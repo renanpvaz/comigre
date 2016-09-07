@@ -26,7 +26,7 @@ const places = angular
 
     $stateProvider
       .state('places', {
-        url: '/locais',
+        url: '/locais?id',
         component: 'places'
       });
   })
