@@ -1,19 +1,30 @@
 places-detail {
-
-  @media (min-width: 600px) {
-    min-width: 400px;
-
-    .md-toolbar-tools {
-      font-size: 17px;
-    }
+  md-dialog .md-dialog-content {
+    padding: 13px;
   }
 
-  md-dialog md-content *:first-child {
-    margin-top: 0px;
+  small.md-subhead {
+    font-size: 15px;
+    color: #737373;
   }
 
   .material-icons {
     margin-right: 15px;
+  }
+
+  .detail-icon {
+    color: #737373;
+    padding-top: 3%;
+    padding-left: 2%;
+    font-size: 26px;
+
+    @media (max-width: 600px) {
+      padding-top: 5%;
+    }
+  }
+
+  .detail-item {
+    padding: 0 8px 20px 8px;
   }
 
   md-toolbar.md-default-theme:not(.md-menu-toolbar),

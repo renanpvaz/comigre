@@ -4,7 +4,7 @@ import { Places } from '../../../api/places/places.js';
 import Injectable from '../../../common/injectable';
 
 class PlacesDetailCtrl extends Injectable {
-  constructor($mdDialog, $interval) {
+  constructor($mdDialog, $interval, $mdMedia) {
     'ngInject';
 
     super(...arguments);

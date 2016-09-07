@@ -1,40 +1,50 @@
   <form>
-    <md-toolbar>
+    <md-toolbar ng-class="$ctrl.$mdMedia('xs') ? 'md-whiteframe-5dp' : ''">
       <div class="md-toolbar-tools">
-        <h2>{{ $ctrl.details.name }}</h2>
+        <md-button class="md-icon-button" ng-click="$ctrl.close()">
+          <i class="material-icons">arrow_back</i>
+        </md-button>
+        <h2>Detalhes</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="$ctrl.close()">
-          <i class="material-icons md-primary">close</i>
+          <i class="material-icons">close</i>
         </md-button>
       </div>
     </md-toolbar>
-
     <md-dialog-content>
-      <div class="md-dialog-content" >
+      <div class="md-dialog-content">
         <div layout="row" layout-align="center center" ng-if="$ctrl.isLoading()">
           <md-progress-circular md-diameter="60" value="{{$ctrl.progress}}" md-mode="determinate">
           </md-progress-circular>
         </div>
         <div ng-if="!$ctrl.isLoading()" layout="column" layout-padding>
-          <div ng-if="$ctrl.place.details.photos">
-            <!-- <img ng-src="https://maps.googleapis.com/maps/api/place/photo?photo_reference={{ $ctrl.place.photos[0].photo_reference }}" /> -->
-          </div>
-          <div flex ng-if="$ctrl.details.formattedWebsite">
-            <div layout="row">
-              <i class="material-icons md-primary">call</i>
-              <span>{{ $ctrl.details.formatted_phone_number }}</span>
+          <div flex ng-if="$ctrl.details.formatted_phone_number">
+            <div class="detail-item" layout="row" layout-align="center start">
+              <i flex="10" class="material-icons detail-icon">call</i>
+              <div flex layout="column">
+                <small flex class="md-subhead">Telefone</small>
+                <span flex>{{ $ctrl.details.formatted_phone_number }}</span>
+              </div>
             </div>
           </div>
+          <md-divider ng-if="$ctrl.details.formatted_phone_number"></md-divider>
           <div flex>
-            <div layout="row">
-              <i class="material-icons md-primary">room</i>
-              <span>{{ $ctrl.details.vicinity }}</span>
+            <div class="detail-item" layout="row" layout-align="center start">
+              <i flex="10" class="material-icons detail-icon">room</i>
+              <div flex layout="column">
+                <small flex class="md-subhead">Endereço</small>
+                <span flex>{{ $ctrl.details.vicinity }}</span>
+              </div>
             </div>
           </div>
+          <md-divider></md-divider>
           <div flex ng-if="$ctrl.details.formattedWebsite">
-            <div layout="row">
-              <i class="material-icons">open_in_new</i>
-              <span>{{ $ctrl.details.formattedWebsite }}</span>
+            <div class="detail-item" layout="row" layout-align="center start">
+              <i flex="10" class="material-icons detail-icon">open_in_new</i>
+              <div flex layout="column">
+                <small flex class="md-subhead">Website</small>
+                <span flex>{{ $ctrl.details.formattedWebsite }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -42,8 +52,5 @@
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
-      <md-button ng-click="answer('useful')">
-        OK
-      </md-button>
     </md-dialog-actions>
   </form>
