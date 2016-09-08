@@ -15,7 +15,6 @@ class PlacesService extends Injectable {
   findGeolocation(center, callback) {
     if ('geolocation' in this.$window.navigator) {
       const self = this;
-
       const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -33,7 +32,7 @@ class PlacesService extends Injectable {
             .highlightAction(true);
 
           self.$mdToast.show(errorToast)
-            .then(res => self.findGeolocation(center));
+            .then(res => self.findGeolocation(center, callback));
         },
 
         success(position) {
@@ -41,8 +40,11 @@ class PlacesService extends Injectable {
           const successToast = toast.textContent('Localização obtida');
 
           callback(latitude, longitude);
-
-          self.center = center;
+          
+          self.center = {
+            lat: latitude,
+            lng: longitude
+          };
 
           self.$mdToast.show(successToast);
         }

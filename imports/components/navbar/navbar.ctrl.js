@@ -3,7 +3,7 @@
 import Injectable from '../../common/injectable';
 
 class NavbarCtrl extends Injectable {
-  constructor($mdSidenav, $timeout, $mdMedia, $mdDialog) {
+  constructor($mdSidenav, $timeout, $mdMedia) {
     'ngInject';
 
     super(...arguments);
