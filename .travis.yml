@@ -14,6 +14,7 @@ notifications:
 before_script:
 - meteor npm install
 - meteor add dispatch:mocha-phantomjs
+- chmod +x update-gh-pages.sh
 script:
 - meteor test --once --driver-package dispatch:mocha-phantomjs
 - meteor build $HOME/build
