@@ -3,12 +3,13 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 
+import login from '../login/index';
 import NavbarComponent from './navbar.component';
 
 const navbar = angular
   .module('navbar', [
     ngMaterial,
-    'accounts.ui'
+    login
   ])
   .component('navbar', NavbarComponent)
   .name;
