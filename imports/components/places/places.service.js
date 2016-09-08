@@ -12,7 +12,7 @@ class PlacesService extends Injectable {
     this.center = {};
   }
 
-  findGeolocation(center) {
+  findGeolocation(center, callback) {
     if ('geolocation' in this.$window.navigator) {
       const self = this;
 
@@ -40,9 +40,8 @@ class PlacesService extends Injectable {
           const { latitude, longitude } = position.coords;
           const successToast = toast.textContent('Localização obtida');
 
-          center.lat = latitude;
-          center.lng = longitude;
-          center.zoom = 15;
+          callback(latitude, longitude);
+
           self.center = center;
 
           self.$mdToast.show(successToast);
@@ -60,6 +59,7 @@ class PlacesService extends Injectable {
         if (!error) {
 
           result.forEach((gPlace) => {
+            const { lat, lng } = gPlace.geometry.location;
             const isInCollection = places
               .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
@@ -67,8 +67,12 @@ class PlacesService extends Injectable {
               Places.insert({
                 message: gPlace.name,
                 googleId: gPlace.place_id, // jshint ignore:line
-                lat: gPlace.geometry.location.lat,
-                lng: gPlace.geometry.location.lng,
+                lat,
+                lng,
+                loc : {
+                  type: 'Point',
+                  coordinates: [ lng, lat ]
+                },
                 types: gPlace.types
               });
             }
