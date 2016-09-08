@@ -3,7 +3,7 @@ import angularMeteor from 'angular-meteor';
 
 import app from '../imports/components/app/app';
 
-angular.module('comigr', [
+angular.module('comigre', [
     angularMeteor,
     app
 ]);
