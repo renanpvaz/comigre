@@ -24,3 +24,5 @@ jshint@1.1.6
 http@1.2.9
 pbastowski:angular-babel
 shell-server
+accounts-password
+dotansimha:accounts-ui-angular

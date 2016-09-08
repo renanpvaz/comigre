@@ -7,7 +7,8 @@ import NavbarComponent from './navbar.component';
 
 const navbar = angular
   .module('navbar', [
-    ngMaterial
+    ngMaterial,
+    'accounts.ui'
   ])
   .component('navbar', NavbarComponent)
   .name;
