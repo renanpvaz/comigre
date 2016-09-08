@@ -16,7 +16,7 @@ before_script:
 - meteor add dispatch:mocha-phantomjs
 script:
 - meteor test --once --driver-package dispatch:mocha-phantomjs
-- meteor build $HOME/build.tgz
+- meteor build $HOME/build
 after_success: "./update-gh-pages.sh"
 env:
   global:
