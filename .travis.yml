@@ -13,12 +13,5 @@ notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 before_script:
 - meteor npm install
-- meteor add dispatch:mocha-phantomjs
-- chmod +x update-gh-pages.sh
 script:
-- meteor test --once --driver-package dispatch:mocha-phantomjs
 - meteor build $HOME/build
-after_success: "./update-gh-pages.sh"
-env:
-  global:
-    secure: vScK212g5Mk63I4XWTRfIaXM+ywjBfdNceLLKhoN1ULqz9YtbsUQcL6Q00EBFUApKYcoUqvtLQMK+7snt10uPjJrFiNjMl0SBUcKe2Bb/xEyjU7oLsPBZy2/6YgXVH/9vU0eMg6UJboECOMfCtVWvbfJ0f18D6ZK8aey08spRmCOgILHjCqw8FaARVnc49xmv5HVa+W5WRl320Q4c2PIcPtPs8nMDa+/KewuKG1fr14l+/llp1iirX/zT4WFLmF4tVU7czWJhM6OYLacoKGLuiPYQV6NBfqUZBWusfrET/IOg/HiesaQ28amRvaa0pspOUTdKbA/ASl9dupYXwt1ImokqBRDrz5oxRMNHpUbLn8yUS4LUley9n3I9cMzLF7R59TGu5/PiVuVhRmVag7FkCnKd3JVhUEmV/NNGGDaeJWHId52NxfgV+ey3X24OdPOpNJ8sg11OSbIHNZSW7R6olRlWpQR/1GQQdaAyR/xTbSIxP48Lf6+yP1cFgWMmupFpEvlM6aBcVlxBCAUCbfJRL2KNUfUXOLDdxlLuabQCKz6jfeAYglD2lx2tF+VrpRs63VEYgLjvwfcVj1+YYNHm5g7+xlJ/nRhorK8YZHvEXgQaXpUWAZoEAgJ5T5TlZZ5aKzSvTK4QzPSK01DtboiziUAeI2W/1BvvjprsJYs+cQ=
