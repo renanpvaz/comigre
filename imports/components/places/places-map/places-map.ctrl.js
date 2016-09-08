@@ -16,6 +16,7 @@ class PlacesMapCtrl extends Injectable {
     this.defaults = {
       zoomControlPosition: 'topright',
       zoomControl: !this.$mdMedia('xs'),
+      tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       tileLayerOptions: {
         detectRetina: this.$mdMedia('xs')
       }

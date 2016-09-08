@@ -3,6 +3,7 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 import uiRouter from 'angular-ui-router';
+import 'leaflet';
 
 import PlacesComponent from './places.component';
 import PlacesService from './places.service';
