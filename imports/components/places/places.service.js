@@ -12,10 +12,9 @@ class PlacesService extends Injectable {
     this.center = {};
   }
 
-  findGeolocation(center) {
+  findGeolocation(center, callback) {
     if ('geolocation' in this.$window.navigator) {
       const self = this;
-
       const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -33,17 +32,19 @@ class PlacesService extends Injectable {
             .highlightAction(true);
 
           self.$mdToast.show(errorToast)
-            .then(res => self.findGeolocation(center));
+            .then(res => self.findGeolocation(center, callback));
         },
 
         success(position) {
           const { latitude, longitude } = position.coords;
           const successToast = toast.textContent('Localização obtida');
 
-          center.lat = latitude;
-          center.lng = longitude;
-          center.zoom = 15;
-          self.center = center;
+          callback(latitude, longitude);
+          
+          self.center = {
+            lat: latitude,
+            lng: longitude
+          };
 
           self.$mdToast.show(successToast);
         }
@@ -60,6 +61,7 @@ class PlacesService extends Injectable {
         if (!error) {
 
           result.forEach((gPlace) => {
+            const { lat, lng } = gPlace.geometry.location;
             const isInCollection = places
               .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
@@ -67,8 +69,12 @@ class PlacesService extends Injectable {
               Places.insert({
                 message: gPlace.name,
                 googleId: gPlace.place_id, // jshint ignore:line
-                lat: gPlace.geometry.location.lat,
-                lng: gPlace.geometry.location.lng,
+                lat,
+                lng,
+                loc : {
+                  type: 'Point',
+                  coordinates: [ lng, lat ]
+                },
                 types: gPlace.types
               });
             }

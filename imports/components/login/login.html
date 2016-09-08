@@ -1,0 +1,28 @@
+<form>
+  <md-toolbar ng-class="$ctrl.$mdMedia('xs') ? 'md-whiteframe-5dp' : ''">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" ng-click="$ctrl.close()">
+        <i class="material-icons">arrow_back</i>
+      </md-button>
+      <h2>Logar</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="$ctrl.close()">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  
+  <md-dialog-content layout="column" layout-padding>
+    <md-input-container>
+      <label>Email</label>
+      <input type="email" ng-model="$ctrl.credentials.email">
+    </md-input-container>
+    <md-input-container>
+      <label>Senha</label>
+      <input ng-model="$ctrl.credentials.password">
+    </md-input-container>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+  </md-dialog-actions>
+</form>

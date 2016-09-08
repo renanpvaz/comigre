@@ -4,7 +4,7 @@ import Injectable from '../../common/injectable';
 import { Places } from '../../api/places/places';
 
 class PlacesCtrl extends Injectable {
-  constructor($scope, $reactive, PlacesService) {
+  constructor($scope, $reactive, PlacesService, $stateParams, $timeout) {
     'ngInject';
 
     super(...arguments);
@@ -20,7 +20,11 @@ class PlacesCtrl extends Injectable {
       zoom: 5
     };
 
-    this.PlacesService.findGeolocation(this.mapCenter);
+    this.subscribe('nearbyPlaces', () => [this.getReactively('mapCenter')]);
+
+    this.PlacesService.findGeolocation(this.mapCenter, (lat, lng) => {
+      this.mapCenter = { zoom: 15, lat, lng };
+    });
 
     this.helpers({
       places() {
@@ -28,7 +32,13 @@ class PlacesCtrl extends Injectable {
           types: {
             $in: this.getReactively('types')
           }
-        }, { limit: 20 });
+        });
+      },
+
+      place() {
+        return Places.findOne({
+          _id: this.$stateParams.id
+        });
       }
     });
   }

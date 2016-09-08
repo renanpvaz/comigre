@@ -1,5 +1,15 @@
-comigr {
+app {
+  .additional-link,
+  .login-close-text,
+  .login-link-text {
+    text-decoration: none !important;
+  }
 
+  #login-dropdown-list {
+    right: -1px;
+    left: initial !important;
+    z-index: 2;
+  }
 }
 
 md-dialog {
@@ -9,3 +19,4 @@ md-dialog {
 @import "../sidebar/sidebar.less";
 @import "../navbar/navbar.less";
 @import "../places/places.less";
+@import "../login/login.less";

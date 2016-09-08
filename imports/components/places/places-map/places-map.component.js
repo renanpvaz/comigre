@@ -4,7 +4,8 @@ import controller from './places-map.ctrl';
 const PlacesMapComponent = {
   bindings: {
     geoCenter: '<',
-    places: '<'
+    places: '<',
+    selectedPlace: '<'
   },
   template,
   controller
