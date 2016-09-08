@@ -8,10 +8,10 @@ if ('serviceWorker' in navigator) {
 
 const CACHE_NAME = 'comigre-cache';
 const urlsToCache = [
-  '/packages/modules.js?hash=*',
-  'http://a.tile.osm.org/*/*/*.png',
-  'http://b.tile.osm.org/*/*/*.png',
-  'http://c.tile.osm.org/*/*/*.png',
+  location.hostname === 'localhost' ? '/packages/modules.js?hash=*' : '/*.js?meteor_js_resource=true',
+  'https://a.tile.openstreetmap.org/*/*/*.png',
+  'https://b.tile.openstreetmap.org/*/*/*.png',
+  'https://c.tile.openstreetmap.org/*/*/*.png',
   'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.css',
   'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -21,7 +21,7 @@ const urlsToCache = [
 this.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache));
+      .then(cache => cache.addAll(urlsToCache))
   );
 });
 
