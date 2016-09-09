@@ -8,13 +8,14 @@ if ('serviceWorker' in navigator) {
 
 const CACHE_NAME = 'comigre-cache';
 const urlsToCache = [
+  '/',
   'https://a.tile.openstreetmap.org/*/*/*.png',
   'https://b.tile.openstreetmap.org/*/*/*.png',
   'https://c.tile.openstreetmap.org/*/*/*.png'
 ];
 
 const urlsToPrefetch = [
-  '/packages/modules.js?hash=*',
+  '/',
   'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.css',
   'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
