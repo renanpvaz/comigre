@@ -1,10 +1,10 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-import Injectable from '../../common/injectable';
+import Injectable from '../../../common/injectable';
 
 class LoginCtrl extends Injectable {
-  constructor($scope, $reactive, $state) {
+  constructor($scope, $reactive, $state, $mdDialog) {
     'ngInject';
 
     super(...arguments);
@@ -21,13 +21,17 @@ class LoginCtrl extends Injectable {
     this.error = '';
   }
 
+  close() {
+    this.$mdDialog.hide();
+  }
+
   login() {
     Meteor.loginWithPassword(this.credentials.email, this.credentials.password,
       this.$bindToContext((err) => {
         if (err) {
           this.error = err;
         } else {
-          this.$state.go('places');
+          console.log('auth failed');
         }
       })
     );

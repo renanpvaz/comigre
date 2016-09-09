@@ -6,7 +6,7 @@ import ngMaterial from 'angular-material';
 import loginComponent from './login.component';
 
 const login = angular
-  .module('login', [ngMaterial])
+  .module('auth.login', [ngMaterial])
   .component('login', loginComponent)
   .name;
 

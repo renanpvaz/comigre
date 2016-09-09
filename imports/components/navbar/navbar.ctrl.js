@@ -12,7 +12,7 @@ class NavbarCtrl extends Injectable {
 
   openLoginDialog(event) {
     this.$mdDialog.show({
-      template: `<login></login>`,
+      template: `<auth></auth>`,
       parent: this.$rootElement,
       scope: this.$scope,
       preserveScope: true,
@@ -24,6 +24,12 @@ class NavbarCtrl extends Injectable {
 
   isLoggedIn() {
     return !!Meteor.userId();
+  }
+
+  getUserEmail() {
+    if (Meteor.user()) {
+      return Meteor.user().emails[0].address;
+    }
   }
 
   $onInit() {

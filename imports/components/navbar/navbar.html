@@ -7,23 +7,26 @@
       class="logo" src="images/logo.png">
     </img>
     <span flex></span>
-    <md-button ng-if="$ctrl.isLoggedIn()" class="md-icon-button" aria-label="User">
-      <i class="material-icons account-circle">account_circle</i>
-    </md-button>
-    <md-button
-      class="md-warn"
-      ng-if="!$ctrl.isLoggedIn()"
-      ng-click="$ctrl.openLoginDialog(event)"
-      aria-label="Login">
-      Entrar
-    </md-button>
-    |
-    <md-button
-      class="md-warn"
-      ng-if="!$ctrl.isLoggedIn()"
-      ng-click="$ctrl.openLoginDialog(event)"
-      aria-label="Login">
-      Cadastrar
-    </md-button>
+    <div ng-if="$ctrl.isLoggedIn()">
+      <small>{{ $ctrl.getUserEmail() }}</small>
+      <md-button  class="md-icon-button" aria-label="User">
+        <i class="material-icons account-circle">account_circle</i>
+      </md-button>
+    </div>
+    <div ng-if="!$ctrl.isLoggedIn()">
+      <md-button
+        class="md-warn"
+        ng-click="$ctrl.openLoginDialog(event)"
+        aria-label="Login">
+        Entrar
+      </md-button>
+      <span>|</span>
+      <md-button
+        class="md-warn"
+        ng-click="$ctrl.openLoginDialog(event)"
+        aria-label="Login">
+        Cadastrar
+      </md-button>
+    </div>
   </div>
 </md-toolbar>
