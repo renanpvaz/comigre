@@ -2,7 +2,7 @@
 
 const CACHE_NAME = 'comigre-cache';
 const urlsToCache = [
-  '/'
+  '/',
   'https://a.tile.openstreetmap.org/*/*/*.png',
   'https://b.tile.openstreetmap.org/*/*/*.png',
   'https://c.tile.openstreetmap.org/*/*/*.png'
