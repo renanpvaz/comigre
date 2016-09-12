@@ -3,10 +3,6 @@
   "name": "Comigre",
   "start_url": "./?utm_source=web_app_manifest",
   "icons": [{
-        "src": "images/webapp-logo.png",
-        "sizes": "42x42",
-        "type": "image/png"
-      }, {
         "src": "images/icons/icon-128x128.png",
         "sizes": "128x128",
         "type": "image/png"
