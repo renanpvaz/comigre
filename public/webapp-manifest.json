@@ -1,0 +1,14 @@
+{
+  "short_name": "Comigre",
+  "name": "Comigre",
+  "start_url": "./?utm_source=web_app_manifest",
+  "icons": [{
+        "src": "images/webapp-logo.png",
+        "sizes": "42x42",
+        "type": "image/png"
+      }],
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF",
+  "theme_color": "#2E3AA1"
+}
