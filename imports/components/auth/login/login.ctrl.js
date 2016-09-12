@@ -29,9 +29,10 @@ class LoginCtrl extends Injectable {
     Meteor.loginWithPassword(this.credentials.email, this.credentials.password,
       this.$bindToContext((err) => {
         if (err) {
+          console.log(err);
           this.error = err;
         } else {
-          console.log('auth failed');
+          console.log('login succeeded');
         }
       })
     );

@@ -26,7 +26,7 @@ class RegisterCtrl {
         if (err) {
           this.error = err;
         } else {
-          console.log('register failed');
+          console.log('register succeeded');
         }
       })
     );
