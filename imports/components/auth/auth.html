@@ -1,7 +1,2 @@
-<login ng-if="$ctrl.login"></login>
+<login></login>
 <register ng-if="$ctrl.register"></register>
-
-<md-dialog-content ng-if="!$ctrl.login && !$ctrl.register" layout="column" layout-padding layout-align="center center">
-  <md-button ng-click="$ctrl.register = true">Criar conta</md-button>
-  <md-button ng-click="$ctrl.login = true">Acessar conta</md-button>
-</md-dialog-content>

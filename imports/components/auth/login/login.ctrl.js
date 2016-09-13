@@ -33,6 +33,7 @@ class LoginCtrl extends Injectable {
           this.error = err;
         } else {
           console.log('login succeeded');
+          this.close();
         }
       })
     );
