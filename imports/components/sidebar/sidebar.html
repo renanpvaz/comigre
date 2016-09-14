@@ -2,6 +2,14 @@
   md-component-id="sidebar"
   class="md-sidenav-left"
   md-swipe-left="$ctrl.onSwipeLeft()">
+  <md-toolbar class="md-tall md-hue-2">
+    <div layout="row" class="md-toolbar-tools-bottom inset">
+      <img src="/images/user-avatar.png" class="user-avatar"/>
+        <div class="user-info">
+          <h5>Nome do usuário</h5>
+          <h6>{{ $ctrl.getUserEmail() }}</h6>
+        </div>
+    </md-toolbar>
     <md-content flex layout-padding>
       <ul>
         <list-item ng-repeat="section in $ctrl.sections">

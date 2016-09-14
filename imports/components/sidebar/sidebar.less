@@ -1,6 +1,6 @@
 sidebar {
   .material-icons {
-    color: #f1eded;
+    color: #1b1931;
     margin-right: 10px;
     margin-top: 12px;
     float: right;
@@ -9,6 +9,14 @@ sidebar {
 
   .md-button {
     text-align: left;
+  }
+
+  .md-button.md-accent {
+    color: #1b1931;
+  }
+
+  .md-button:not([disabled]):hover {
+    background-color: none;
   }
 
   md-backdrop.md-opaque {
@@ -24,5 +32,42 @@ sidebar {
   ._md-closed {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0px, 0px);
+  }
+
+  md-toolbar {
+    .md-button.md-default-theme {
+      border-radius: 99%; // round toolbar buttons
+    }
+  }
+
+  md-toolbar.md-tall {
+    height: 100px;
+    min-height: 110px;
+    max-height: 128px;
+  }
+
+  md-toolbar.md-hue-2:not(.md-menu-toolbar) {
+    background-color: #1b1931;
+    color: #fff;
+}
+
+  .user-avatar {
+    width: 20%;
+    height: 20%;
+    border-radius: 100%;
+    margin-top: 6%;
+    margin-left: 6%;
+  }
+
+  .user-info {
+    width: 70%;
+    margin-top:  2%;
+    margin-left: 8%;
+    line-height: 0px;
+  }
+
+  .user-info h5,
+  .user-info h6 {
+    font-weight: normal;
   }
 }
