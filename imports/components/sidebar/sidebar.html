@@ -2,25 +2,33 @@
   md-component-id="sidebar"
   class="md-sidenav-left"
   md-swipe-left="$ctrl.onSwipeLeft()">
-  <md-toolbar class="md-tall md-hue-2">
-    <div layout="row" class="md-toolbar-tools-bottom inset">
-      <img src="/images/user-avatar.png" class="user-avatar"/>
-        <div class="user-info">
-          <h5>Nome do usuário</h5>
-          <h6>{{ $ctrl.getUserEmail() }}</h6>
-        </div>
-    </md-toolbar>
-    <md-content flex layout-padding>
-      <ul>
-        <list-item ng-repeat="section in $ctrl.sections">
-          <menu-link section="section">
-            <a class="md-button md-accent">
-              <span>{{ section.name }}</span>
-            </a>
-            <i class="material-icons md-primary">{{ section.icon }}</i>
-            </menu-link>
-            <md-divider class="md-accent"></md-divider>
-        </list-item>
-      </ul>
-    </md-content>
+
+  <md-toolbar class="md-hue-2" ng-class="!$ctrl.isLoggedIn() ?  'md-tall' : ''">
+    <div layout="row" layout-align="start center">
+      <span flex></span>
+      <i flex class="material-icons user-avatar">account_circle</i>
+      <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
+        <h5>Você não está autenticado</h5>
+        <h6 ng-click="$ctrl.openLoginDialog(event)">Entrar</h6>
+      </div>
+      <div flex="80" class="user-info" ng-if="$ctrl.isLoggedIn()">
+        <h6>{{ $ctrl.getUser().emails[0].address }}</h6>
+      </div>
+    </div>
+  </md-toolbar>
+
+  <md-content flex layout-padding>
+    <ul>
+      <list-item ng-repeat="section in $ctrl.sections">
+        <menu-link section="section">
+          <a class="md-button md-accent">
+            <span>{{ section.name }}</span>
+          </a>
+          <i class="material-icons md-primary">{{ section.icon }}</i>
+        </menu-link>
+        <md-divider class="md-accent"></md-divider>
+      </list-item>
+    </ul>
+  </md-content>
+
 </md-sidenav>

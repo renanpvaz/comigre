@@ -1,12 +1,13 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
+import Injectable from '../../common/injectable';
 
-class SidebarCtrl {
-  constructor($mdSidenav) {
+class SidebarCtrl extends Injectable {
+  constructor($mdSidenav, $mdDialog, $rootElement, $scope, $mdMedia) {
     'ngInject';
 
-    this.$mdSidenav = $mdSidenav;
+    super(...arguments);
   }
 
   $onInit() {
@@ -18,6 +19,20 @@ class SidebarCtrl {
     ];
   }
 
+  openLoginDialog(event) {
+    this.$mdSidenav('sidebar').close();
+
+    this.$mdDialog.show({
+      template: `<login></login>`,
+      parent: this.$rootElement,
+      scope: this.$scope,
+      preserveScope: true,
+      clickOutsideToClose: true,
+      fullscreen: this.$mdMedia('xs'),
+      event
+    });
+  }
+
   onSwipeLeft() {
     this.$mdSidenav('sidebar').close();
   }
@@ -26,10 +41,8 @@ class SidebarCtrl {
     return !!Meteor.userId();
   }
 
-  getUserEmail() {
-    if (Meteor.user()) {
-      return Meteor.user().emails[0].address;
-    }
+  getUser() {
+    return Meteor.user();
   }
 }
 

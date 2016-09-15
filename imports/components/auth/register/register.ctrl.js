@@ -21,13 +21,17 @@ class RegisterCtrl {
     return `\\b${this.user.password}\\b`;
   }
 
+  goBack() {
+    this.$state.go('places');
+  }
+
   register() {
     Accounts.createUser(this.user,
       this.$bindToContext((err) => {
         if (err) {
           console.log(err);
         } else {
-          this.$state.go('places');
+          this.goBack();
         }
       })
     );

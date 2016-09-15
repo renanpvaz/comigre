@@ -1,6 +1,11 @@
+<md-toolbar class="md-hue-2">
+  <md-button class="md-icon-button" ng-click="$ctrl.close()">
+    <i class="material-icons">arrow_back</i>
+  </md-button>
+</md-toolbar>
+
 <md-dialog-content layout="column" layout-padding layout-align="center center">
-  <span flex></span>
-  <img flex class="logo-icon" src="images/icon.svg"></img>
+  <img flex flex-xs="50" class="logo-icon" src="images/icon.svg"></img>
   <span flex></span>
   <div layout="row" layout-xs="column">
     <md-input-container>
@@ -16,9 +21,9 @@
 
 <md-dialog-actions layout="column" layout-align="center center" layout-padding>
   <md-button flex ng-click="$ctrl.login()">confirmar</md-button>
-  <span flex>
+  <span flex ng-click="$ctrl.goToRegister()">
     Não possui uma conta ainda?
-    <a href="#">Clique aqui</a>
+    <a ui-sref="register">Clique aqui</a>
   </span>
   <span flex></span>
 </md-dialog-actions>
