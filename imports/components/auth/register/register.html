@@ -1,33 +1,48 @@
-<form>
-  <md-toolbar ng-class="$ctrl.$mdMedia('xs') ? 'md-whiteframe-5dp' : ''">
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" ng-click="$ctrl.close()">
-        <i class="material-icons">arrow_back</i>
-      </md-button>
-      <h2>Criar nova conta</h2>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="$ctrl.close()">
-        <i class="material-icons">close</i>
-      </md-button>
-    </div>
-  </md-toolbar>
+<md-toolbar>
+  <div class="md-toolbar-tools"></div>
+</md-toolbar>
 
-  <md-dialog-content layout="column" layout-padding>
-    <md-input-container>
-      <label>Email</label>
-      <input type="email" ng-model="$ctrl.credentials.email">
-    </md-input-container>
-    <md-input-container>
-      <label>Senha</label>
-      <input type="password" ng-model="$ctrl.credentials.password" required>
-    </md-input-container>
-    <md-input-container>
-      <label>Redigite a senha</label>
-      <input type="password" ng-model="$ctrl.credentials.passwordRetype" required>
-    </md-input-container>
-  </md-dialog-content>
+<md-content layout="row" layout-padding layout-fill  layout-align="center center" layout-align-xs="center start">
+  <md-card flex="40" flex-xs="95">
+    <md-card-content>
+      <h2>Criar uma conta</h2>
+      <form name="userRegister">
+        <div layout="column">
 
-  <md-dialog-actions layout="row" layout-align="center center">
-    <md-button ng-click="$ctrl.register()">confirmar</md-button>
-  </md-dialog-actions>
-</form>
+          <md-input-container flex>
+            <label>Name</label>
+            <input type="text" md-maxlength="70" ng-model="$ctrl.user.name" required>
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Email</label>
+            <input type="email" md-maxlength="130" ng-model="$ctrl.user.email" required>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Senha</label>
+            <input type="password" name="password" md-maxlength="30" ng-model="$ctrl.user.password" required>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Digite a senha novamente</label>
+            <input name="passwordRetype"
+              type="password"
+              ng-pattern="$ctrl.getPattern()"
+              ng-model="$ctrl.user.passwordRetype"
+              required>
+
+            <div ng-messages="userRegister.passwordRetype.$error" role="alert" multiple>
+              <div ng-message="pattern">As senhas não coicidem</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <md-dialog-actions layout="row" layout-align="center center">
+          <md-button ng-click="$ctrl.register()">confirmar</md-button>
+        </md-dialog-actions>
+      </form>
+
+    </md-card-content>
+  </md-card>
+</md-content>

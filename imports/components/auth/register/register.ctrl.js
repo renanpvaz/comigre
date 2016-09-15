@@ -3,37 +3,34 @@
 import { Accounts } from 'meteor/accounts-base';
 
 class RegisterCtrl {
-  constructor($mdDialog, $scope, $reactive) {
+  constructor($scope, $reactive, $state) {
     'ngInject';
 
     $reactive(this).attach($scope);
-    this.$mdDialog = $mdDialog;
+    this.$state = $state;
   }
 
   $onInit() {
-    this.credentials = {
-      email: '',
+    this.user = {
       password: '',
       passwordRetype: ''
     };
+  }
 
-    this.error = '';
+  getPattern() {
+    return `\\b${this.user.password}\\b`;
   }
 
   register() {
-    Accounts.createUser(this.credentials,
+    Accounts.createUser(this.user,
       this.$bindToContext((err) => {
         if (err) {
-          this.error = err;
+          console.log(err);
         } else {
-          console.log('register succeeded');
+          this.$state.go('places');
         }
       })
     );
-  }
-
-  close() {
-    this.$mdDialog.hide();
   }
 }
 
