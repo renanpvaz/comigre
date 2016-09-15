@@ -45,7 +45,7 @@ class PlacesCtrl extends Injectable {
 
   onFilter(filter) {
     this.types = filter.types;
-    this.PlacesService.getNewPlaces(this.places, filter);
+    this.PlacesService.getNewPlaces(filter);
   }
 }
 

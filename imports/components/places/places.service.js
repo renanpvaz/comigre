@@ -40,7 +40,7 @@ class PlacesService extends Injectable {
           const successToast = toast.textContent('Localização obtida');
 
           callback(latitude, longitude);
-          
+
           self.center = {
             lat: latitude,
             lng: longitude
@@ -55,15 +55,18 @@ class PlacesService extends Injectable {
     }
   }
 
-  getNewPlaces(places, filter) {
+  getNewPlaces(filter) {
     Meteor.call('getPlacesFromGoogle', this.center, filter.types,
       (error, result) => {
         if (!error) {
 
           result.forEach((gPlace) => {
             const { lat, lng } = gPlace.geometry.location;
-            const isInCollection = places
-              .some(i => i.googleId === gPlace.place_id); // jshint ignore:line
+            const isInCollection = Places.find({
+                types: {
+                  $in: filter.types
+                }
+              }).some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
             if (!isInCollection) {
               Places.insert({
