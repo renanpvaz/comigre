@@ -21,6 +21,11 @@ class LoginCtrl extends Injectable {
     this.error = '';
   }
 
+  goToRegister() {
+    this.close();
+    this.$state.go('register');
+  }
+
   close() {
     this.$mdDialog.hide();
   }

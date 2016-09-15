@@ -3,11 +3,14 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 
+import auth from '../auth/index';
+
 import SidebarComponent from './sidebar.component';
 
 const sidebar = angular
   .module('sidebar', [
-    ngMaterial
+    ngMaterial,
+    auth
   ])
   .component('sidebar', SidebarComponent)
   .config(($mdThemingProvider) => {

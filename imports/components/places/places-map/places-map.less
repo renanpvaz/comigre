@@ -7,6 +7,14 @@ places-map {
   .leaflet-bottom.leaflet-right {
     z-index: 1;
   }
+
+  .leaflet-fade-anim .leaflet-tile,
+  .leaflet-fade-anim .leaflet-popup {
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+  }
 }
 
 md-dialog,

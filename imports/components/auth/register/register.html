@@ -5,23 +5,29 @@
 <md-content layout="row" layout-padding layout-fill  layout-align="center center" layout-align-xs="center start">
   <md-card flex="40" flex-xs="95">
     <md-card-content>
-      <h2>Criar uma conta</h2>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="$ctrl.goBack()">
+          <i class="material-icons">arrow_back</i>
+        </md-button>
+        <h2>Criar uma conta</h2>
+      </div>
+
       <form name="userRegister">
         <div layout="column">
 
           <md-input-container flex>
             <label>Name</label>
-            <input type="text" md-maxlength="70" ng-model="$ctrl.user.name" required>
+            <input type="text" ng-maxlength="70" ng-model="$ctrl.user.name" required>
           </md-input-container>
 
           <md-input-container flex>
             <label>Email</label>
-            <input type="email" md-maxlength="130" ng-model="$ctrl.user.email" required>
+            <input type="email" ng-maxlength="130" ng-model="$ctrl.user.email" required>
           </md-input-container>
 
           <md-input-container>
             <label>Senha</label>
-            <input type="password" name="password" md-maxlength="30" ng-model="$ctrl.user.password" required>
+            <input type="password" name="password" ng-maxlength="30" ng-model="$ctrl.user.password" required>
           </md-input-container>
 
           <md-input-container>
