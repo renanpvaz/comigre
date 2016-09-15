@@ -62,11 +62,10 @@ class PlacesService extends Injectable {
 
           result.forEach((gPlace) => {
             const { lat, lng } = gPlace.geometry.location;
-            const isInCollection = Places.find({
-                types: {
-                  $in: filter.types
-                }
-              }).fetch().some(i => i.googleId === gPlace.place_id); // jshint ignore:line
+            const isInCollection = !!Places
+              .find({ googleId: gPlace.place_id })
+              .fetch()
+              .length; // jshint ignore:line
 
             if (!isInCollection) {
               Places.insert({

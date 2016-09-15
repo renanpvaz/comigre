@@ -1,0 +1,18 @@
+engines:
+  eslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 65
+ratings:
+  paths:
+  - imports/**
+  - public/sw.js
+  - client/**
+  - server/**
+
+exclude_paths:
+- .generator/
