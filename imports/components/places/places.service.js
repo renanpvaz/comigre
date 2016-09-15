@@ -31,6 +31,8 @@ class PlacesService extends Injectable {
             .textContent('Erro ao localizar, tentando novamente')
             .highlightAction(true);
 
+          console.log(err);
+
           self.$mdToast.show(errorToast)
             .then(res => self.findGeolocation(center, callback));
         },
@@ -39,14 +41,14 @@ class PlacesService extends Injectable {
           const { latitude, longitude } = position.coords;
           const successToast = toast.textContent('Localização obtida');
 
-          callback(latitude, longitude);
-
           self.center = {
             lat: latitude,
             lng: longitude
           };
 
           self.$mdToast.show(successToast);
+
+          return callback(latitude, longitude);
         }
       };
 
