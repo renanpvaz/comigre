@@ -3,7 +3,7 @@
   class="md-sidenav-left"
   md-swipe-left="$ctrl.onSwipeLeft()">
 
-  <md-toolbar class="md-hue-2" ng-class="!$ctrl.isLoggedIn() ?  'md-tall' : ''">
+  <md-toolbar class="md-hue-3" ng-class="!$ctrl.isLoggedIn() ?  'md-tall' : ''">
     <div layout="row" layout-align="start center">
       <span flex></span>
       <i flex class="material-icons user-avatar">account_circle</i>
@@ -21,7 +21,7 @@
     <ul>
       <list-item ng-repeat="section in $ctrl.sections">
         <menu-link section="section">
-          <a class="md-button md-accent">
+          <a class="md-button md-primary md-hue-3">
             <span>{{ section.name }}</span>
           </a>
           <i class="material-icons md-primary">{{ section.icon }}</i>
