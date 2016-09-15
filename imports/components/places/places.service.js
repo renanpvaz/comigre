@@ -66,7 +66,7 @@ class PlacesService extends Injectable {
                 types: {
                   $in: filter.types
                 }
-              }).some(i => i.googleId === gPlace.place_id); // jshint ignore:line
+              }).fetch().some(i => i.googleId === gPlace.place_id); // jshint ignore:line
 
             if (!isInCollection) {
               Places.insert({
