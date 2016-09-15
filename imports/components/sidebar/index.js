@@ -82,7 +82,7 @@ const sidebar = angular
           '700': '#000a0f',
           '800': '#fff',
           '900': '#fff',
-          'A100': '#1b1931', // Content
+          'A100': '#fff', // Content
           'A200': '#00a7f4',
           'A400': '#0fb3ff',
           'A700': '#fff'

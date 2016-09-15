@@ -1,5 +1,7 @@
 'use strict';
 
+import { Meteor } from 'meteor/meteor';
+
 class SidebarCtrl {
   constructor($mdSidenav) {
     'ngInject';
@@ -18,6 +20,16 @@ class SidebarCtrl {
 
   onSwipeLeft() {
     this.$mdSidenav('sidebar').close();
+  }
+
+  isLoggedIn() {
+    return !!Meteor.userId();
+  }
+
+  getUserEmail() {
+    if (Meteor.user()) {
+      return Meteor.user().emails[0].address;
+    }
   }
 }
 
