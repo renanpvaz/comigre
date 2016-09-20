@@ -15,5 +15,6 @@
     "jsdom": "9.4.1",
     "jsdom-global": "2.0.0",
     "yargs": "^3.9.0"
-  }
+  },
+  "dependencies": {}
 }

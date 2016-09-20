@@ -1,0 +1,60 @@
+<md-toolbar>
+  <div class="md-toolbar-tools"></div>
+</md-toolbar>
+
+<md-content layout="row" layout-padding layout-fill  layout-align="center start" layout-align-xs="center start">
+  <md-card flex="80" flex-xs="95">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button">
+            <i class="material-icons">event</i>
+        </md-button>
+        <h2>Cadastre um evento</h2>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <form name="userRegister">
+        <div layout="row" layout-wrap>
+          <md-input-container flex="100">
+            <label>Nome</label>
+            <input type="text" ng-maxlength="70" ng-model="$ctrl.user.name" required>
+          </md-input-container>
+
+          <md-input-container flex="100">
+            <label>Descrição</label>
+            <textarea ng-model="user.biography" ng-maxlength="150" rows="3"></textarea>
+          </md-input-container>
+
+          <div class="md-toolbar-tools">
+            <h3>Localização</h3>
+          </div>
+
+          <md-input-container flex="70">
+            <label>Endereço</label>
+            <input type="text" ng-maxlength="70" ng-model="$ctrl.user.name" required>
+          </md-input-container>
+
+          <md-input-container flex="30">
+            <label>Número</label>
+            <input type="text" ng-maxlength="70" ng-model="$ctrl.user.name" required>
+          </md-input-container>
+
+          <md-input-container flex="100">
+            <label>CEP</label>
+            <input name="postalCode"
+              ng-blur="$ctrl.fetchAddress($ctrl.cep)"
+              ng-model="$ctrl.cep"
+              required
+              ng-pattern="/^[0-9]{8}$/"
+              md-maxlength="8">
+          </md-input-container>
+        </div>
+
+        <md-dialog-actions layout="row" layout-align="center center">
+          <md-button ng-click="$ctrl.register()">confirmar</md-button>
+        </md-dialog-actions>
+      </form>
+
+    </md-card-content>
+  </md-card>
+</md-content>

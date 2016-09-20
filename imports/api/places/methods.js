@@ -2,6 +2,8 @@
 
 import { Meteor } from 'meteor/meteor';
 
+import cep from 'cep-promise';
+
 const baseUrl = 'https://maps.googleapis.com/maps/api/place/';
 const key = Meteor.settings.public.googlePlacesAPIKey;
 
@@ -30,5 +32,9 @@ Meteor.methods({
     });
 
     return response.data.result;
+  },
+
+  getAddress(input) {
+    return cep(input);
   }
 });

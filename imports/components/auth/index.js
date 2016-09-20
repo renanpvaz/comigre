@@ -6,11 +6,13 @@ import authComponent from './auth.component';
 
 import login from './login/index';
 import register from './register/index';
+import eventsRegister from '../events-register/index';
 
 const auth = angular
-  .module('auth', [ 
+  .module('auth', [
     login,
-    register
+    register,
+    eventsRegister
   ])
   .component('auth', authComponent)
   .name;
