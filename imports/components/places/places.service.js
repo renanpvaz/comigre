@@ -15,6 +15,8 @@ class PlacesService extends Injectable {
   findGeolocation(center, callback) {
     if ('geolocation' in this.$window.navigator) {
       const self = this;
+      const fab = angular.element('places-filter md-fab-trigger > .md-fab');
+      const removeClass = () => setTimeout(() => fab.removeClass('raised'), 3500);
       const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -33,8 +35,10 @@ class PlacesService extends Injectable {
 
           console.log(err);
 
+          fab.addClass('raised');
           self.$mdToast.show(errorToast)
             .then(res => self.findGeolocation(center, callback));
+          removeClass();
         },
 
         success(position) {
@@ -46,7 +50,9 @@ class PlacesService extends Injectable {
             lng: longitude
           };
 
+          fab.addClass('raised');
           self.$mdToast.show(successToast);
+          removeClass();
 
           return callback(latitude, longitude);
         }
