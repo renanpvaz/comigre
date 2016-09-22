@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import Injectable from '../../common/injectable';
 
 class SidebarCtrl extends Injectable {
-  constructor($mdSidenav, $mdDialog, $rootElement, $scope, $mdMedia) {
+  constructor($mdSidenav, $scope, $mdMedia, $location) {
     'ngInject';
 
     super(...arguments);
@@ -17,20 +17,6 @@ class SidebarCtrl extends Injectable {
       { name:'Eventos', icon: 'event' },
       { name:'Cursos', icon: 'school' }
     ];
-  }
-
-  openLoginDialog(event) {
-    this.$mdSidenav('sidebar').close();
-
-    this.$mdDialog.show({
-      template: `<login></login>`,
-      parent: this.$rootElement,
-      scope: this.$scope,
-      preserveScope: true,
-      clickOutsideToClose: true,
-      fullscreen: this.$mdMedia('xs'),
-      event
-    });
   }
 
   onSwipeLeft() {

@@ -11,14 +11,7 @@ class RegisterCtrl {
   }
 
   $onInit() {
-    this.user = {
-      password: '',
-      passwordRetype: ''
-    };
-  }
-
-  getPattern() {
-    return `\\b${this.user.password}\\b`;
+    this.user = {};
   }
 
   goBack() {

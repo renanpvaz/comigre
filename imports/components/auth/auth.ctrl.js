@@ -1,8 +1,10 @@
 'use strict';
 
 class AuthCtrl {
-  constructor() {
+  constructor($mdMedia) {
     'ngInject';
+
+    this.$mdMedia = $mdMedia;
   }
 }
 

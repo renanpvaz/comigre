@@ -12,6 +12,16 @@ const login = angular
     uiRouter
   ])
   .component('login', loginComponent)
+  .config($stateProvider => {
+    'ngInject';
+
+    $stateProvider
+      .state('login', {
+        url: '^/login',
+        parent: 'auth',
+        component: 'login'
+      });
+  })
   .name;
 
 export default login;

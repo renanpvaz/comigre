@@ -9,7 +9,7 @@
       <i flex class="material-icons user-avatar">account_circle</i>
       <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
         <h5>Você não está autenticado</h5>
-        <h6 ng-click="$ctrl.openLoginDialog(event)">Entrar</h6>
+        <h6 ui-sref="login">Entrar</h6>
       </div>
       <div flex="80" class="user-info" ng-if="$ctrl.isLoggedIn()">
         <h6>{{ $ctrl.getUser().emails[0].address }}</h6>

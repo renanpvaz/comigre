@@ -7,7 +7,7 @@ import ngMessages from 'angular-messages';
 import registerComponent from './register.component';
 
 const register = angular
-  .module('register', [
+  .module('auth.register', [
     uiRouter,
     ngMessages
   ])
@@ -17,7 +17,8 @@ const register = angular
 
     $stateProvider
       .state('register', {
-        url: '/cadastrar',
+        url: '^/criar-conta',
+        parent: 'auth',
         component: 'register'
       });
   })

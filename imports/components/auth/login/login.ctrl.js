@@ -21,15 +21,6 @@ class LoginCtrl extends Injectable {
     this.error = '';
   }
 
-  goToRegister() {
-    this.close();
-    this.$state.go('register');
-  }
-
-  close() {
-    this.$mdDialog.hide();
-  }
-
   login() {
     Meteor.loginWithPassword(this.credentials.email, this.credentials.password,
       this.$bindToContext((err) => {
@@ -37,8 +28,7 @@ class LoginCtrl extends Injectable {
           console.log(err);
           this.error = err;
         } else {
-          console.log('login succeeded');
-          this.close();
+          this.$state.go('places');
         }
       })
     );
