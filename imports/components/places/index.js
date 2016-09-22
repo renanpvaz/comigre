@@ -3,7 +3,6 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 import uiRouter from 'angular-ui-router';
-import 'leaflet';
 
 import PlacesComponent from './places.component';
 import PlacesService from './places.service';
@@ -27,7 +26,8 @@ const places = angular
 
     $stateProvider
       .state('places', {
-        url: '/locais?id',
+        url: '^/locais?id',
+        parent: 'app',
         component: 'places'
       });
   })

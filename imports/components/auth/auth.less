@@ -1,20 +1,19 @@
 auth {
-  md-toolbar {
-    margin-bottom: 12px;
-
-    :not(.md-menu-toolbar) {
-      background-color: white;
-    }
-  }
-
-  md-dialog-content.layout-padding {
-    padding: 0 21px;
+  .form-pane {
+    background-color: #fff;
   }
 
   md-input-container {
-    margin: 10px 18px 0 18px;
+    font-size: 22px;
+  }
+
+  md-input-container:not(.md-input-invalid).md-input-focused {
+    label {
+      color: #de1661;
+    }
+
+    .md-input {
+      border-color: #de1661;
+    }
   }
 }
-
-@import "login/login.less";
-@import "register/register.less";

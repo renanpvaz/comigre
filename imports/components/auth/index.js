@@ -1,20 +1,24 @@
 'use strict';
 
 import angular from 'angular';
+import uiRouter from 'angular-ui-router';
 
 import authComponent from './auth.component';
 
-import login from './login/index';
-import register from './register/index';
-import eventsRegister from '../events-register/index';
-
 const auth = angular
   .module('auth', [
-    login,
-    register,
-    eventsRegister
+    uiRouter
   ])
   .component('auth', authComponent)
+  .config($stateProvider => {
+    'ngInject';
+
+    $stateProvider
+      .state('auth', {
+        url: '/auth',
+        component: 'auth'
+      });
+  })
   .name;
 
 export default auth;

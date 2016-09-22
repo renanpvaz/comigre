@@ -1,2 +1,18 @@
-<login></login>
-<register ng-if="$ctrl.register"></register>
+<div layout="row" layout-fill>
+  <md-content class="form-pane" flex layout="row" layout-fill  layout-align="center center" layout-align-xs="center start">
+    <div layout="column" layout-align="center center">
+      <md-input-container>
+        <label>E-mail</label>
+        <input type="email" ng-model="$ctrl.credentials.email">
+      </md-input-container>
+      <md-input-container>
+        <label>Senha</label>
+        <input type="password" ng-model="$ctrl.credentials.password">
+      </md-input-container>
+      <md-button layout-fill flex>confirmar</md-button>
+    </div>
+  </md-content>
+  <md-content flex="60" layout="column" layout-align="center center">
+    <img flex style="max-width: 80%" src="https://www.mapbox.com/studio/img/signin.svg?_=v2016-09-19-18-37-58" />
+  </md-content>
+</div>

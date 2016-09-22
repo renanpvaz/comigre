@@ -27,10 +27,17 @@ export default angular
     template,
     controller: AppCtrl
   })
-  .config(($locationProvider, $urlRouterProvider) => {
+  .config(($locationProvider, $urlRouterProvider, $stateProvider) => {
     'ngInject';
 
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/locais');
+
+    $stateProvider
+      .state('app', {
+        redirectTo: 'places',
+        url: '/app',
+        component: 'app'
+      });
   })
   .name;

@@ -2,6 +2,7 @@
 
 import angular from 'angular';
 import 'angular-simple-logger';
+import 'leaflet';
 import 'ui-leaflet';
 
 import PlacesMapComponent from './places-map.component';
