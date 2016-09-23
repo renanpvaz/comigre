@@ -3,10 +3,9 @@
   class="md-sidenav-left"
   md-swipe-left="$ctrl.onSwipeLeft()">
 
-  <md-toolbar class="md-hue-3" ng-class="!$ctrl.isLoggedIn() ?  'md-tall' : ''">
-    <div layout="row" layout-align="start center">
-      <span flex></span>
-      <i flex class="material-icons user-avatar">account_circle</i>
+  <md-toolbar class="md-hue-3 md-tall">
+    <div layout="row" layout-align="center center" layout-fill>
+      <md-icon flex md-font-library="material-icons user-avatar">account_circle</md-icon>
       <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
         <h5>Você não está autenticado</h5>
         <h6 ui-sref="login">Entrar</h6>
@@ -16,19 +15,21 @@
       </div>
     </div>
   </md-toolbar>
-
-  <md-content flex layout-padding>
-    <ul>
-      <list-item ng-repeat="section in $ctrl.sections">
-        <menu-link section="section">
-          <a class="md-button md-primary md-hue-3">
-            <span>{{ section.name }}</span>
-          </a>
-          <i class="material-icons md-primary">{{ section.icon }}</i>
-        </menu-link>
-        <md-divider class="md-accent"></md-divider>
-      </list-item>
-    </ul>
+<!--
+        <md-list-item>
+          <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
+          <p>Messages</p>
+          <div class="md-secondary">2</div>
+        </md-list-item>
+ -->
+  <md-content>
+    <md-list>
+      <md-subheader class="md-no-sticky"></md-subheader>
+      <md-list-item ng-repeat="section in $ctrl.sections" ng-click="null">
+        <md-icon md-font-library="material-icons">{{ section.icon }}</md-icon>
+        <p>{{ section.name }}</p>
+      </md-list-item>
+    </md-list>
   </md-content>
 
 </md-sidenav>
