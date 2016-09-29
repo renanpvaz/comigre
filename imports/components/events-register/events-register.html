@@ -56,7 +56,7 @@
 
   <md-card flex layout="column">
 
-    <md-card-title flex>
+    <md-card-title>
       <md-card-title-media>
         <md-button class="md-icon-button">
           <i class="material-icons">place</i>
@@ -67,50 +67,69 @@
       </md-card-title-text>
     </md-card-title>
 
-    <md-card-content layout="row" layout-padding flex>
-      <form flex layout="column" layout-align="space-between" layout-padding>
+    <md-card-content layout-padding>
+      <div>
+        <form>
+          <div layout="row" layout-xs="column">
+            <md-input-container flex="30" class="md-block">
+              <label>CEP</label>
+              <input name="postalCode"
+                ng-blur="$ctrl.fetchAddress()"
+                ng-model="$ctrl.place.cep"
+                required
+                ng-pattern="/^[0-9]{8}$/"
+                md-maxlength="8">
+            </md-input-container>
 
-        <div flex layout="row" layout-xs="column" layout-align="space-between">
-          <md-input-container flex class="md-block">
-            <label>CEP</label>
-            <input name="postalCode"
-              ng-blur="$ctrl.fetchAddress()"
-              ng-model="$ctrl.place.cep"
-              required
-              ng-pattern="/^[0-9]{8}$/"
-              md-maxlength="8">
-          </md-input-container>
+            <div flex="10" flex-offset="5" layout="row" layout-align="end center">
+              <md-progress-circular
+                ng-if="$ctrl.loading !== undefined"
+                flex
+                ng-disabled="!$ctrl.loading"
+                md-diameter="20">
+              </md-progress-circular>
+            </div>
+          </div>
 
-          <md-input-container flex class="md-block">
-            <label>Estado</label>
-            <input type="text" ng-maxlength="70" ng-model="$ctrl.place.state" required>
-          </md-input-container>
-        </div>
+          <div layout="row" layout-xs="column">
+            <md-input-container flex="10" class="md-block">
+              <label>Estado</label>
+              <input type="text" ng-maxlength="70" ng-model="$ctrl.place.state" required>
+            </md-input-container>
 
-        <div flex layout="row" layout-xs="column" layout-align="space-between">
-          <md-input-container flex class="md-block">
-            <label>Cidade</label>
-            <input type="text" ng-maxlength="70" ng-model="$ctrl.place.city" required>
-          </md-input-container>
+            <md-input-container flex>
+              <label>Cidade</label>
+              <input type="text" ng-maxlength="70" ng-model="$ctrl.place.city" required>
+            </md-input-container>
 
-          <md-input-container flex class="md-block">
-            <label>Bairro</label>
-            <input type="text" ng-maxlength="70" ng-model="$ctrl.place.neighborhood" required>
-          </md-input-container>
-        </div>
+            <md-input-container flex>
+              <label>Bairro</label>
+              <input type="text" ng-maxlength="70" ng-model="$ctrl.place.neighborhood" required>
+            </md-input-container>
+          </div>
 
-        <div flex layout="row" layout-xs="column" layout-align="space-between">
-          <md-input-container flex class="md-block">
-            <label>Rua</label>
-            <input type="text" ng-maxlength="70" ng-model="$ctrl.place.street" required>
-          </md-input-container>
-        </div>
-      </form>
+          <div layout="row" layout-xs="column">
+            <md-input-container flex class="md-block">
+              <label>Rua</label>
+              <input type="text" ng-maxlength="70" ng-model="$ctrl.place.street" required>
+            </md-input-container>
+
+            <md-input-container flex="30" class="md-block">
+              <label>Número</label>
+              <input type="number" ng-maxlength="70" ng-model="$ctrl.place.number" required>
+            </md-input-container>
+          </div>
+        </form>
+      </div>
     </md-card-content>
 
-    <md-card-actions flex layout="row" layout-align="end center">
-      <md-button>Action 1</md-button>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button ng-click="$ctrl.register()">Action 1</md-button>
       <md-button>Action 2</md-button>
     </md-card-actions>
   </md-card>
+
+  <md-toolbar class="toolbar-footer">
+    <div class="md-toolbar-tools"></div>
+  </md-toolbar>
 </md-content>
