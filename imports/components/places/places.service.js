@@ -1,5 +1,7 @@
 'use strict';
 
+import angular from 'angular';
+
 import { Places } from '../../api/places/places.js';
 import Injectable from '../../common/injectable';
 

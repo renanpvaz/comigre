@@ -10,6 +10,7 @@ import template from './app.html';
 import sidebar from '../sidebar/index';
 import navbar from '../navbar/index';
 import places from '../places/index';
+import eventsRegister from '../events-register/index';
 
 class AppCtrl {
   constructor() { }
@@ -21,7 +22,8 @@ export default angular
     uiRouter,
     places,
     sidebar,
-    navbar
+    navbar,
+    eventsRegister
   ])
   .component('app', {
     template,

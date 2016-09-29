@@ -3,17 +3,25 @@
 import { Meteor } from 'meteor/meteor';
 
 class EventsRegisterCtrl {
-  constructor($http) {
+  constructor($scope) {
     'ngInject';
 
-    this.$http = $http;
+    this.$scope = $scope;
+  }
+
+  $onInit() {
+    this.place = {};
   }
 
   fetchAddress() {
-    Meteor.call('getAddress', this.cep,
-      (error, result) => {
-        console.log(result);
+    Meteor.call('getAddress', this.place.cep,
+      (error, place) => {
         console.log(error);
+
+        if (place) {
+          this.place = place;
+          this.$scope.$digest();
+        }
       });
   }
 }
