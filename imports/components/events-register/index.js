@@ -17,7 +17,7 @@ const eventsRegister = angular
 
     $stateProvider
       .state('event', {
-        url: '/evento',
+        url: '^/evento',
         parent: 'app',
         component: 'eventsRegister'
       });

@@ -14,7 +14,7 @@ class SidebarCtrl extends Injectable {
     this.sections = [
       { name:'Trabalhos', icon: 'work' },
       { name:'Instituições', icon: 'account_balance' },
-      { name:'Eventos', icon: 'event' },
+      // { name:'Eventos', icon: 'event' },
       { name:'Cursos', icon: 'school' }
     ];
   }
