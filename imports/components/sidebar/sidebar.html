@@ -35,7 +35,7 @@
         <md-icon md-font-library="material-icons">settings</md-icon>
         <p>Configurações</p>
       </md-list-item>
-      <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
+      <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="$ctrl.logout()">
         <md-icon md-font-library="material-icons">exit_to_app</md-icon>
         <p>Sair</p>
       </md-list-item>

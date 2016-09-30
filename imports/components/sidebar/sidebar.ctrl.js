@@ -30,6 +30,10 @@ class SidebarCtrl extends Injectable {
   getUser() {
     return Meteor.user();
   }
+
+  logout(){
+    return Meteor.logout();
+  }
 }
 
 export default SidebarCtrl;
