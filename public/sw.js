@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'comigre-cache';
+const CACHE_NAME = 'comigre-cache-v1';
 const urlsToCache = [
   'https://a.tile.openstreetmap.org/*/*/*.png',
   'https://b.tile.openstreetmap.org/*/*/*.png',
