@@ -30,7 +30,7 @@
         <md-icon md-font-library="material-icons">{{ section.icon }}</md-icon>
         <p>{{ section.name }}</p>
       </md-list-item>
-      <md-divider></md-divider>
+      <md-divider ng-if="$ctrl.isLoggedIn()"></md-divider>
       <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
         <md-icon md-font-library="material-icons">settings</md-icon>
         <p>Configurações</p>
