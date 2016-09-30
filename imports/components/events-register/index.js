@@ -7,7 +7,9 @@ import eventsRegisterComponent from './events-register.component';
 
 const eventsRegister = angular
   .module('eventsRegister', [
-    uiRouter
+    uiRouter,
+    'nemLogging',
+    'ui-leaflet'
   ])
   .component('eventsRegister', eventsRegisterComponent)
   .config($stateProvider => {
