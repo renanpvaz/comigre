@@ -5,12 +5,13 @@
 
   <md-toolbar class="md-hue-3 md-tall">
     <div layout="row" layout-align="center center" layout-fill>
-      <md-icon flex md-font-library="material-icons user-avatar">account_circle</md-icon>
+      <img src="images/avatar.png" class="user-avatar">
       <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
         <h5>Você não está autenticado</h5>
         <h6 ui-sref="login">Entrar</h6>
       </div>
       <div flex="80" class="user-info" ng-if="$ctrl.isLoggedIn()">
+        <h5>Bem-vindo(a),</h5>
         <h6>{{ $ctrl.getUser().emails[0].address }}</h6>
       </div>
     </div>
@@ -23,13 +24,21 @@
         </md-list-item>
  -->
   <md-content>
-    <md-list>
-      <md-subheader class="md-no-sticky"></md-subheader>
+    <md-subheader class="md-no-sticky"></md-subheader>
+    <md-list class="list">
       <md-list-item ng-repeat="section in $ctrl.sections" ng-click="null">
         <md-icon md-font-library="material-icons">{{ section.icon }}</md-icon>
         <p>{{ section.name }}</p>
       </md-list-item>
-    </md-list>
+      <md-divider></md-divider>
+      <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
+        <md-icon md-font-library="material-icons">settings</md-icon>
+        <p>Configurações</p>
+      </md-list-item>
+      <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
+        <md-icon md-font-library="material-icons">exit_to_app</md-icon>
+        <p>Sair</p>
+      </md-list-item>
   </md-content>
 
 </md-sidenav>
