@@ -39,12 +39,12 @@
       <form layout="column">
         <md-input-container flex>
           <label>Nome</label>
-          <input type="text" ng-maxlength="70" ng-model="$ctrl.user.name" required>
+          <input type="text" ng-maxlength="70" ng-model="$ctrl.event.name" required>
         </md-input-container>
         <span flex></span>
         <md-input-container flex="60">
           <label>Descrição</label>
-          <textarea ng-model="user.biography" ng-maxlength="150" rows="3"></textarea>
+          <textarea ng-model="$ctrl.event.description" ng-maxlength="150" rows="3"></textarea>
         </md-input-container>
       </form>
     </md-card-content>
@@ -124,8 +124,8 @@
     </md-card-content>
 
     <md-card-actions layout="row" layout-align="end center">
-      <md-button ng-click="$ctrl.register()">Action 1</md-button>
-      <md-button>Action 2</md-button>
+      <md-button ng-click="$ctrl.openMap()">Selecionar no mapa</md-button>
+      <md-button ng-click="$ctrl.register()">Salvar</md-button>
     </md-card-actions>
   </md-card>
 

@@ -35,6 +35,7 @@ Meteor.methods({
   },
 
   getAddress(input = 0) {
+    console.log(input);
     return cep(input);
   }
 });

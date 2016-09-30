@@ -9,7 +9,7 @@ const urlsToCache = [
 
 const urlsToPrefetch = [
   '/',
-  'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc.5/angular-material.min.css',
   'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://unpkg.com/leaflet@0.7.7/dist/leaflet.css'
