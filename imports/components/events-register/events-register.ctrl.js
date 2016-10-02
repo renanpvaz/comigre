@@ -3,46 +3,22 @@
 import { Meteor } from 'meteor/meteor';
 import { Places } from '../../api/places/places';
 
-class EventsRegisterCtrl {
-  constructor($scope, $http, $rootElement, $mdMedia, $mdDialog, leafletData) {
+import Injectable from '../../common/injectable';
+
+class EventsRegisterCtrl extends Injectable {
+  constructor($scope, $rootElement, $mdMedia, $mdDialog, EventsRegisterService) {
     'ngInject';
 
-    this.$scope = $scope;
-    this.$http = $http;
-    this.$rootElement = $rootElement;
-    this.$mdMedia = $mdMedia;
-    this.$mdDialog = $mdDialog;
-    this.leafletData = leafletData;
+    super(...arguments);
   }
 
   $onInit() {
-    this.baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
     this.place = {};
     this.event = {};
 
     this.$scope.$on('leafletDirectiveMap.click', (event, args) => {
-      const { lat, lng } = args.leafletEvent.latlng;
-
-      this.$http.get(`${this.baseUrl}?latlng=${lat},${lng}`)
-        .then(response => {
-          if (response.data.status === 'OK') {
-            const address = response.data.results[0].formatted_address.split(',');
-
-            this.$mdDialog.hide();
-
-            this.place = {
-              street: address[0],
-              number: address[1].split(' - ')[0],
-              neighborhood: address[1].split(' - ')[1],
-              city: address[2].split(' - ')[0],
-              state: address[2].split(' - ')[1]
-            };
-
-            console.log(response.data.results[0]);
-          }
-        });
-
-
+      this.EventsRegisterService.inverseGeocode(args.leafletEvent.latlng)
+        .then(place => this.place = place);
     });
   }
 
@@ -53,7 +29,8 @@ class EventsRegisterCtrl {
     };
 
     this.$mdDialog.show({
-      template: `<div style="width: 100%;height: 100%;">
+      template: `
+      <div style="width: 100%;height: 100%;">
         <leaflet
           width="100%"
           height="100%">
@@ -69,28 +46,8 @@ class EventsRegisterCtrl {
   }
 
   register() {
-    const key = Meteor.settings.public.googlePlacesAPIKey;
-    const street = this.place.street.split(' ').join('+');
-    const url = `${this.baseUrl}?address=${this.place.number}+${street}+${this.place.state}&key=${key}`;
-
-    this.$http.get(url)
-      .then(response => {
-        if (response.data.status === 'OK') {
-          const { lat, lng } = response.data.results[0].geometry.location;
-
-          Places.insert({
-            message: this.event.name,
-            detailId: 1,
-            lat,
-            lng,
-            loc : {
-              type: 'Point',
-              coordinates: [ lng, lat ]
-            },
-            types:['event']
-          });
-        }
-      });
+    this.EventsRegisterService.geocode(this.place)
+      .then(console.log);
   }
 
   fetchAddress() {
