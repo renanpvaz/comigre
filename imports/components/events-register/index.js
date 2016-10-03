@@ -5,16 +5,16 @@ import uiRouter from 'angular-ui-router';
 
 import eventsRegisterComponent from './events-register.component';
 
-import EventsRegisterService from './events-register.service';
+import placesRegister from '../places/places-register/index';
 
 const eventsRegister = angular
   .module('eventsRegister', [
     uiRouter,
+    placesRegister,
     'nemLogging',
     'ui-leaflet'
   ])
   .component('eventsRegister', eventsRegisterComponent)
-  .service('EventsRegisterService', EventsRegisterService)
   .config($stateProvider => {
     'ngInject';
 

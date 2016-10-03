@@ -10,6 +10,7 @@ import PlacesService from './places.service';
 import placesFilter from './places-filter/index';
 import placesMap from './places-map/index';
 import placesDetail from './places-detail/index';
+import placesRegister from './places-register/index';
 
 const places = angular
   .module('places', [
@@ -17,7 +18,8 @@ const places = angular
     uiRouter,
     placesFilter,
     placesMap,
-    placesDetail
+    placesDetail,
+    placesRegister
   ])
   .component('places', PlacesComponent)
   .service('PlacesService', PlacesService)

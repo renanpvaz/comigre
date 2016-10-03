@@ -2,9 +2,9 @@
 
 import angular from 'angular';
 
-import Injectable from '../../common/injectable';
+import Injectable from '../../../common/injectable';
 
-class EventsRegisterService extends Injectable {
+class PlacesRegisterService extends Injectable {
   constructor($http, $mdDialog) {
     'ngInject';
 
@@ -49,6 +49,8 @@ class EventsRegisterService extends Injectable {
           this.address = response.data.results[0].address_components; // jshint ignore:line
           this.$mdDialog.hide();
 
+          console.log(this.address);
+
           return {
             street: this.getComponent('route'),
             number: parseInt(this.getComponent('street_number').split('-')[0]),
@@ -71,4 +73,4 @@ class EventsRegisterService extends Injectable {
   }
 }
 
-export default EventsRegisterService;
+export default PlacesRegisterService;
