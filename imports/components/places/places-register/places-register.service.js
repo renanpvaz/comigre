@@ -5,7 +5,7 @@ import angular from 'angular';
 import Injectable from '../../../common/injectable';
 
 class PlacesRegisterService extends Injectable {
-  constructor($http, $mdDialog) {
+  constructor($http) {
     'ngInject';
 
     super(...arguments);
@@ -47,8 +47,6 @@ class PlacesRegisterService extends Injectable {
       .then(response => {
         if (response.data.status === 'OK') {
           this.address = response.data.results[0].address_components; // jshint ignore:line
-          this.$mdDialog.hide();
-
           console.log(this.address);
 
           return {
@@ -56,7 +54,8 @@ class PlacesRegisterService extends Injectable {
             number: parseInt(this.getComponent('street_number').split('-')[0]),
             neighborhood: this.getComponent('sublocality'),
             city: this.getComponent('locality'),
-            state: this.getComponent('administrative_area_level_1')
+            state: this.getComponent('administrative_area_level_1'),
+            cep: this.getComponent('postal_code')
           };
         }
       });

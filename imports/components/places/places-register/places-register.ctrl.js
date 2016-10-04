@@ -15,7 +15,8 @@ class PlacesRegisterCtrl extends Injectable {
     this.place = {};
     this.center = {
       lat: -15.893,
-      lng: -52.2599
+      lng: -52.2599,
+      zoom: 5
     };
     this.events = {
       markers: {
@@ -26,12 +27,23 @@ class PlacesRegisterCtrl extends Injectable {
     this.$scope.$on('leafletDirectiveMarker.dragend', (event, args) => {
       this.center.lat = args.model.lat;
       this.center.lng = args.model.lng;
+      this.inverseGeocode();
     });
 
-    this.$scope.$on('leafletDirectiveMap.click', (event, args) => {
-      this.PlacesRegisterService.inverseGeocode(args.leafletEvent.latlng)
-        .then(place => this.place = place);
+    this.$scope.$on('leafletDirectiveMap.dblclick', (event, args) => {
+      this.center = args.leafletEvent.latlng;
+      this.inverseGeocode().then(this.$mdDialog.hide);
     });
+  }
+
+  geocode() {
+    return this.PlacesRegisterService.geocode(this.place)
+      .then(coords => this.center = coords);
+  }
+
+  inverseGeocode() {
+    return this.PlacesRegisterService.inverseGeocode(this.center)
+      .then(place => this.place = place);
   }
 
   openMap(event) {
@@ -42,8 +54,6 @@ class PlacesRegisterCtrl extends Injectable {
       draggable: true,
       message: 'Local selecionado'
     }];
-
-    this.center.zoom = 8;
 
     this.$mdDialog.show({
       template: `
@@ -59,21 +69,20 @@ class PlacesRegisterCtrl extends Injectable {
       controller: () => this,
       scope: this.$scope,
       controllerAs: '$ctrl',
+      preserveScope : true,
       clickOutsideToClose: true,
       fullscreen: this.$mdMedia('xs'),
       targetEvent: event
-    });
+    }).finally(console.log);
   }
 
   register() {
-    this.PlacesRegisterService.geocode(this.place)
-      .then(coords => {
-        this.center = coords;
-        this.onConfirm({
-          place: this.place,
-          coords: this.center
-        });
+    this.geocode().then(() => {
+      this.onConfirm({
+        place: this.place,
+        coords: this.center
       });
+    });
   }
 
   fetchAddress() {
@@ -91,11 +100,7 @@ class PlacesRegisterCtrl extends Injectable {
           this.place.number = number;
           this.$scope.$digest();
 
-          this.PlacesRegisterService.geocode(this.place)
-            .then(coords => {
-              this.center = coords;
-              console.log(coords);
-            });
+          this.geocode().then(console.log);
         }
       });
   }
