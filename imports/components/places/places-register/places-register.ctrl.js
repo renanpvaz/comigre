@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 
 import Injectable from '../../../common/injectable';
 
-class EventsRegisterCtrl extends Injectable {
+class PlacesRegisterCtrl extends Injectable {
   constructor($scope, $rootElement, $mdMedia, $mdDialog, PlacesRegisterService) {
     'ngInject';
 
@@ -12,12 +12,21 @@ class EventsRegisterCtrl extends Injectable {
   }
 
   $onInit() {
-    this.place = {
-      coords: {
-        lat: -15.893,
-        lng: -52.2599
+    this.place = {};
+    this.center = {
+      lat: -15.893,
+      lng: -52.2599
+    };
+    this.events = {
+      markers: {
+        enable: ['dragend']
       }
     };
+
+    this.$scope.$on('leafletDirectiveMarker.dragend', (event, args) => {
+      this.center.lat = args.model.lat;
+      this.center.lng = args.model.lng;
+    });
 
     this.$scope.$on('leafletDirectiveMap.click', (event, args) => {
       this.PlacesRegisterService.inverseGeocode(args.leafletEvent.latlng)
@@ -27,24 +36,28 @@ class EventsRegisterCtrl extends Injectable {
 
   openMap(event) {
     this.markers = [{
-      lat: this.place.coords.lat,
-      lng: this.place.coords.lng,
-      zoom: 8,
+      lat: this.center.lat,
+      lng: this.center.lng,
       focus: true,
-      message: 'Local'
+      draggable: true,
+      message: 'Local selecionado'
     }];
+
+    this.center.zoom = 8;
 
     this.$mdDialog.show({
       template: `
       <div style="width: 100%;height: 100%;">
         <leaflet
-          lf-center="$ctrl.place.coords"
+          lf-center="$ctrl.center"
           markers="$ctrl.markers"
+          event-broadcast="$ctrl.events"
           width="100%"
           height="100%">
         </leaflet>
       </div>`,
       controller: () => this,
+      scope: this.$scope,
       controllerAs: '$ctrl',
       clickOutsideToClose: true,
       fullscreen: this.$mdMedia('xs'),
@@ -55,8 +68,11 @@ class EventsRegisterCtrl extends Injectable {
   register() {
     this.PlacesRegisterService.geocode(this.place)
       .then(coords => {
-        this.place.coords = coords;
-        this.onConfirm({ place: this.place });
+        this.center = coords;
+        this.onConfirm({
+          place: this.place,
+          coords: this.center
+        });
       });
   }
 
@@ -74,9 +90,15 @@ class EventsRegisterCtrl extends Injectable {
           this.place = place;
           this.place.number = number;
           this.$scope.$digest();
+
+          this.PlacesRegisterService.geocode(this.place)
+            .then(coords => {
+              this.center = coords;
+              console.log(coords);
+            });
         }
       });
   }
 }
 
-export default EventsRegisterCtrl;
+export default PlacesRegisterCtrl;
