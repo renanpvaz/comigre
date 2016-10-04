@@ -16,7 +16,7 @@
       </div>
     </div>
   </md-toolbar>
-  
+
   <md-content>
     <md-subheader class="md-no-sticky"></md-subheader>
     <md-list class="list">
@@ -27,6 +27,10 @@
       <md-list-item ui-sref="event">
         <md-icon md-font-library="material-icons">event</md-icon>
         <p>Eventos</p>
+      </md-list-item>
+      <md-list-item ui-sref="guide">
+        <md-icon md-font-library="material-icons">book</md-icon>
+        <p>Guia de informações</p>
       </md-list-item>
       <md-divider ng-if="$ctrl.isLoggedIn()"></md-divider>
       <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
