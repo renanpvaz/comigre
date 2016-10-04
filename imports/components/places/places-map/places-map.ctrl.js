@@ -1,7 +1,7 @@
 import Injectable from '../../../common/injectable';
 
 class PlacesMapCtrl extends Injectable {
-  constructor($scope, $mdMedia, $mdDialog, leafletData, $rootElement) {
+  constructor($scope, $mdMedia, $mdDialog, $rootElement) {
     'ngInject';
 
     super(...arguments);
@@ -17,7 +17,6 @@ class PlacesMapCtrl extends Injectable {
       zoomControlPosition: 'topright',
       zoomControl: !this.$mdMedia('xs'),
       tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      // tileLayer: 'http://a.tiles.mapbox.com/v3/mapbox.world-light/{z}/{x}/{y}.png',
       tileLayerOptions: {
         detectRetina: this.$mdMedia('xs'),
         unloadInvisibleTiles: true

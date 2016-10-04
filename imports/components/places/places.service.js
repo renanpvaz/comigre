@@ -17,7 +17,9 @@ class PlacesService extends Injectable {
   findGeolocation(center, callback) {
     if ('geolocation' in this.$window.navigator) {
       const self = this;
-      const fab = angular.element('places-filter md-fab-trigger > .md-fab');
+      const fab = angular.element(
+        this.$window.document.querySelector('places-filter md-fab-trigger > .md-fab')
+      );
       const removeClass = () => setTimeout(() => fab.removeClass('raised'), 3500);
       const options = {
         enableHighAccuracy: true,

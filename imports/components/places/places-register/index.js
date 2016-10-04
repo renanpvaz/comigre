@@ -1,8 +1,11 @@
 'use strict';
 
 import angular from 'angular';
+import 'angular-simple-logger';
+import 'leaflet';
+import 'ui-leaflet';
 
-import placesRegisterComponent from './places-register.component';
+import PlacesRegisterComponent from './places-register.component';
 
 import PlacesRegisterService from './places-register.service';
 
@@ -11,7 +14,7 @@ const placesRegister = angular
     'nemLogging',
     'ui-leaflet'
   ])
-  .component('placesRegister', placesRegisterComponent)
+  .component('placesRegister', PlacesRegisterComponent)
   .service('PlacesRegisterService', PlacesRegisterService)
   .name;
 

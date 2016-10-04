@@ -54,7 +54,11 @@
     </md-card-actions>
   </md-card>
 
-  <places-register flex on-confirm="$ctrl.onSelectPlace(place)"></places-register>
+  <places-register
+    flex layout="column"
+    layout-align="center center"
+    on-confirm="$ctrl.onSelectPlace(place)">
+  </places-register>
 
   <md-toolbar class="toolbar-footer">
     <div class="md-toolbar-tools"></div>
