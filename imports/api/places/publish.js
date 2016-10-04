@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 
-import { Places } from './places';
+import { Places } from './collection';
 
 if (Meteor.isServer) {
   Meteor.publish('nearbyPlaces', ({ lng, lat }) => {
