@@ -47,17 +47,13 @@ class PlacesRegisterCtrl extends Injectable {
   }
 
   openMap(event) {
-    this.markers = [{
-      lat: this.center.lat,
-      lng: this.center.lng,
-      focus: true,
-      draggable: true,
-      message: 'Local selecionado'
-    }];
-
-    this.$mdDialog.show({
+    const height = this.$mdMedia('xs') ? '125%' : '100%';
+    const dialog = {
       template: `
-      <div style="width: 100%;height: 100%;">
+      <div layout-fill style="width: 100%;height:${height}">
+        <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
+          <i class="material-icons">close</i>
+        </md-button>
         <leaflet
           lf-center="$ctrl.center"
           markers="$ctrl.markers"
@@ -73,7 +69,22 @@ class PlacesRegisterCtrl extends Injectable {
       clickOutsideToClose: true,
       fullscreen: this.$mdMedia('xs'),
       targetEvent: event
-    }).finally(console.log);
+    };
+
+    if (!this.center.zoom) {
+      this.center.zoom = 8;
+    }
+
+    this.markers = [{
+      lat: this.center.lat,
+      lng: this.center.lng,
+      focus: true,
+      draggable: true,
+      message: this.center.zoom === 5 ?
+        'Arraste até o local' : 'Local selecionado'
+    }];
+
+    this.$mdDialog.show(dialog);
   }
 
   register() {
@@ -87,6 +98,10 @@ class PlacesRegisterCtrl extends Injectable {
 
   fetchAddress() {
     const number = this.place.number;
+
+    if (!this.place.cep) {
+      return;
+    }
 
     this.loading = true;
 

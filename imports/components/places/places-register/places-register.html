@@ -13,17 +13,17 @@
   <md-card-content layout-padding>
     <div>
       <form>
-        <div layout="row" layout-xs="column">
-          <md-input-container flex="30" class="md-block">
+        <div layout="row">
+          <md-input-container flex="30" flex-xs="70" class="md-block">
             <label>CEP</label>
             <input name="postalCode"
                 ng-blur="$ctrl.fetchAddress()"
                 ng-model="$ctrl.place.cep"
-                ng-pattern="/^[0-9]{8}$/"
-                md-maxlength="8">
+                ng-pattern="/^[0-9]$/"
+                ng-maxlength="8">
           </md-input-container>
 
-          <div flex="10" flex-offset="5" layout="row" layout-align="end center">
+          <div flex="10" flex-offset="5" flex-xs="30" layout="row" layout-align="end center">
             <md-progress-circular
                 ng-if="$ctrl.loading !== undefined"
                 flex
@@ -34,7 +34,7 @@
         </div>
 
         <div layout="row" layout-xs="column">
-          <md-input-container flex="10" class="md-block">
+          <md-input-container flex="10" flex-xs="50" class="md-block">
             <label>Estado</label>
             <input type="text" ng-maxlength="70" ng-model="$ctrl.place.state" required>
           </md-input-container>
@@ -56,7 +56,7 @@
             <input type="text" ng-maxlength="70" ng-model="$ctrl.place.street" required>
           </md-input-container>
 
-          <md-input-container flex="30" class="md-block">
+          <md-input-container flex="30" flex-xs="50" class="md-block">
             <label>Número</label>
             <input type="number" ng-maxlength="70" ng-model="$ctrl.place.number" required>
           </md-input-container>
