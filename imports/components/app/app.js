@@ -11,6 +11,7 @@ import sidebar from '../sidebar/index';
 import navbar from '../navbar/index';
 import places from '../places/index';
 import eventsRegister from '../events-register/index';
+import guides from '../guides/index';
 
 class AppCtrl {
   constructor() { }
@@ -23,7 +24,8 @@ export default angular
     places,
     sidebar,
     navbar,
-    eventsRegister
+    eventsRegister,
+    guides
   ])
   .component('app', {
     template,

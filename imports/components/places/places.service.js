@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 
-import { Places } from '../../api/places/places.js';
+import { Places } from '../../api/places/collection.js';
 import Injectable from '../../common/injectable';
 
 class PlacesService extends Injectable {

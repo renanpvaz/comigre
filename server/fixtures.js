@@ -1,7 +1,7 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-import { Places } from '../imports/api/places/places.js';
+import { Places } from '../imports/api/places/collection.js';
 
 Meteor.startup(() => {
   if (Places.find().count() === 0) {

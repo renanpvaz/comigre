@@ -1,7 +1,7 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-import { Places } from '../../api/places/places';
+import { Places } from '../../api/places/collection';
 
 import Injectable from '../../common/injectable';
 

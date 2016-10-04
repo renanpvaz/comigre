@@ -1,7 +1,7 @@
 'use strict';
 
 import Injectable from '../../common/injectable';
-import { Places } from '../../api/places/places';
+import { Places } from '../../api/places/collection';
 
 class PlacesCtrl extends Injectable {
   constructor($scope, $reactive, PlacesService, $stateParams, $timeout) {

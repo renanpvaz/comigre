@@ -1,6 +1,6 @@
 'use strict';
 
-import { Places } from '../../../api/places/places.js';
+import { Places } from '../../../api/places/collection.js';
 import Injectable from '../../../common/injectable';
 
 class PlacesDetailCtrl extends Injectable {
