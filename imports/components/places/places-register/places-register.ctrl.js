@@ -88,12 +88,8 @@ class PlacesRegisterCtrl extends Injectable {
   }
 
   register() {
-    this.geocode().then(() => {
-      this.onConfirm({
-        place: this.place,
-        coords: this.center
-      });
-    });
+    this.place.coords = this.center;
+    this.onConfirm({ place: this.place });
   }
 
   fetchAddress() {

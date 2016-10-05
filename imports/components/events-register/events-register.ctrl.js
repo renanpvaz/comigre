@@ -17,9 +17,8 @@ class EventsRegisterCtrl extends Injectable {
     this.event = {};
   }
 
-  onSelectPlace(place, coords) {
+  onSelectPlace(place) {
     console.log(place);
-    console.log(coords);
   }
 
   register() {
