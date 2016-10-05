@@ -1,11 +1,13 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-import { Places } from '../imports/api/places/collection.js';
+import { Places } from '../imports/api/places/collection';
+import { Guides } from '../imports/api/guides/collection';
 
 Meteor.startup(() => {
-  if (Places.find().count() === 0) {
-    const places = [{
+  if (!Places.find().count()) {
+    [
+      {
         lat: -29.842,
         lng: -51.1462,
         message: 'Sapucaia',
@@ -37,8 +39,23 @@ Meteor.startup(() => {
           'city_hall',
           'health'
         ]
-    }];
+      }
+    ].forEach(Places.insert);
+  }
 
-    places.forEach((i) => Places.insert(i));
+  if (!Guides.find().count()) {
+    [
+      {
+        title: 'Guia muito informativo',
+        content: `
+          Informações bem úteis que podem ajudar os usuários
+        `
+      }, {
+        title: 'Guia não muito informativo',
+        content: `
+          Informações pouco úteis que não irão ajudar os usuários
+        `
+      }
+    ].forEach(g => Guides.insert(g));
   }
 });
