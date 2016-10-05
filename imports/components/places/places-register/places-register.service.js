@@ -2,14 +2,11 @@
 
 import angular from 'angular';
 
-import Injectable from '../../../common/injectable';
-
-class PlacesRegisterService extends Injectable {
+class PlacesRegisterService {
   constructor($http) {
     'ngInject';
 
-    super(...arguments);
-
+    this.$http = $http;
     this.baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
   }
 
@@ -55,7 +52,7 @@ class PlacesRegisterService extends Injectable {
             neighborhood: this.getComponent('sublocality'),
             city: this.getComponent('locality'),
             state: this.getComponent('administrative_area_level_1'),
-            cep: this.getComponent('postal_code')
+            cep: this.getComponent('postal_code').replace('-', '')
           };
         }
       });

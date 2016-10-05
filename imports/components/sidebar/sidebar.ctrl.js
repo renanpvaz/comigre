@@ -12,14 +12,13 @@ class SidebarCtrl extends Injectable {
 
   $onInit() {
     this.sections = [
-      { name:'Trabalhos', icon: 'work' },
-      { name:'Instituições', icon: 'account_balance' },
-      // { name:'Eventos', icon: 'event' },
-      { name:'Cursos', icon: 'school' }
+      { name:'Mapa', icon: 'place', state: 'places' },
+      { name:'Guia de informações', icon: 'book', state: 'guide' },
+      { name:'Eventos', icon: 'event', state: 'event' }
     ];
   }
 
-  onSwipeLeft() {
+  close() {
     this.$mdSidenav('sidebar').close();
   }
 
