@@ -4,86 +4,14 @@
 
 <md-content layout="row" layout-wrap layout-padding layout-align="center start">
 
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
+  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column" ng-repeat="guide in $ctrl.guides">
     <md-card-title flex>
-    <!--<md-card-title-media>
-        <md-button class="md-icon-button">
-          <i class="material-icons">delete</i>
-        </md-button>
-      </md-card-title-media>-->
       <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
+        <span class="md-headline">{{guide.title}}</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
-    <md-card-title flex>
-      <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
-    <md-card-title flex>
-      <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
-    <md-card-title flex>
-      <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
-    <md-card-title flex>
-      <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column">
-    <md-card-title flex>
-      <md-card-title-text>
-        <span class="md-headline">Exemplo</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content flex>
-      <p>
-        Exemplo
-      </p>
+      <p> {{guide.content}} </p>
     </md-card-content>
   </md-card>
 
