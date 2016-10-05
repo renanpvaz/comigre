@@ -2,6 +2,6 @@
 
 import { Meteor } from 'meteor/meteor';
 
-import { Events } from './collection';
+import { Guides } from './collection';
 
 Meteor.publish('guides', () => Guides.find());
