@@ -2,9 +2,9 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import EventsRegisterCtrl from './events-register.ctrl';
+import PlacesRegisterCtrl from './places-register.ctrl';
 
-describe('EventsRegister', () => {
+describe('PlacesRegister', () => {
 
   describe('Controller', () => {
     it('test some controller method', () => {
