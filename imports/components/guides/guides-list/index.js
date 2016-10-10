@@ -5,13 +5,13 @@ import angular from 'angular';
 import guidesListComponent from './guides-list.component';
 
 const guidesList = angular
-  .module('guidesList', [])
+  .module('guides.list', [])
   .component('guidesList', guidesListComponent)
   .config($stateProvider => {
     'ngInject';
 
     $stateProvider
-      .state('guidesList', {
+      .state('guides.list', {
         url: '^/guias',
         parent: 'guides',
         component: 'guidesList'

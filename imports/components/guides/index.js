@@ -18,8 +18,8 @@ const guides = angular
     'ngInject';
 
     $stateProvider
-      .state('guide', {
-        redirectTo: 'guidesList',
+      .state('guides', {
+        redirectTo: 'guides.list',
         url: '^/guia',
         parent: 'app',
         component: 'guides'
