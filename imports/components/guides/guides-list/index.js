@@ -11,9 +11,9 @@ const guidesList = angular
     'ngInject';
 
     $stateProvider
-      .state('guides', {
+      .state('guidesList', {
         url: '^/guias',
-        parent: 'guide',
+        parent: 'guides',
         component: 'guidesList'
       });
   })

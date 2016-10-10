@@ -6,9 +6,12 @@ import uiRouter from 'angular-ui-router';
 import guidesComponent from './guides.component';
 import './guides.less';
 
+import guidesList from './guides-list/index';
+
 const guides = angular
   .module('guides', [
-    uiRouter
+    uiRouter,
+    guidesList
   ])
   .component('guides', guidesComponent)
   .config($stateProvider => {
@@ -16,13 +19,10 @@ const guides = angular
 
     $stateProvider
       .state('guide', {
+        redirectTo: 'guidesList',
         url: '^/guia',
-        redirectTo: 'login',
         parent: 'app',
         component: 'guides'
-        resolve: {
-          guides: ($scope) => $scope.$ctrl.guides
-        }
       });
   })
   .name;
