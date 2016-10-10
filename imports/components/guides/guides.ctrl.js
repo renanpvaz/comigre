@@ -1,7 +1,8 @@
 'use strict';
 
-class GuidesCtrl extends Injectable {
+class GuidesCtrl {
   constructor() {
+    'ngInject';
 
   }
 }
