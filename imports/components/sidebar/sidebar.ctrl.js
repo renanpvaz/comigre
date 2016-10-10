@@ -13,7 +13,7 @@ class SidebarCtrl extends Injectable {
   $onInit() {
     this.sections = [
       { name:'Mapa', icon: 'place', state: 'places' },
-      { name:'Guia de informações', icon: 'book', state: 'guide' },
+      { name:'Guia de informações', icon: 'book', state: 'guides.list' },
       { name:'Eventos', icon: 'event', state: 'event' }
     ];
   }
