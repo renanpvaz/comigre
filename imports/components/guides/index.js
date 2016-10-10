@@ -17,8 +17,12 @@ const guides = angular
     $stateProvider
       .state('guide', {
         url: '^/guia',
+        redirectTo: 'login',
         parent: 'app',
         component: 'guides'
+        resolve: {
+          guides: ($scope) => $scope.$ctrl.guides
+        }
       });
   })
   .name;

@@ -2,11 +2,11 @@
 
 import angular from 'angular';
 
-import GuidesDetailComponent from './guides-detail.component';
+import guidesDetailComponent from './guides-detail.component';
 
 const guidesDetail = angular
-  .module('guides-detail', [])
-  .component('guides-detail', GuidesDetailComponent)
+  .module('guidesDetail', [])
+  .component('guidesDetail', guidesDetailComponent)
   .name;
 
 export default guidesDetail;

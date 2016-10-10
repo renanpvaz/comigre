@@ -3,10 +3,10 @@
 import template from './guides.html';
 import controller from './guides.ctrl';
 
-const GuidesComponent = {
+const guidesComponent = {
   bindings: {},
   template,
   controller
 };
 
-export default GuidesComponent;
+export default guidesComponent;

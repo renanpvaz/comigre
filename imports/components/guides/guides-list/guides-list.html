@@ -1,0 +1,10 @@
+<md-card flex-gt-sm="30" flex-gt-xs="40" flex="100" layout="column" ng-repeat="guide in $ctrl.guides">
+  <md-card-title flex>
+    <md-card-title-text>
+      <span class="md-headline">{{ guide.title }}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content flex>
+    <p> {{ guide.content }} </p>
+  </md-card-content>
+</md-card>
