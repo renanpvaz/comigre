@@ -85,10 +85,6 @@ class PlacesService extends Injectable {
                 googleId: gPlace.place_id, // jshint ignore:line
                 lat,
                 lng,
-                loc : {
-                  type: 'Point',
-                  coordinates: [ lng, lat ]
-                },
                 types: gPlace.types
               });
             }

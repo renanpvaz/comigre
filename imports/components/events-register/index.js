@@ -2,6 +2,7 @@
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMaterial from 'angular-messages';
 
 import eventsRegisterComponent from './events-register.component';
 
@@ -12,7 +13,8 @@ const eventsRegister = angular
     uiRouter,
     placesRegister,
     'nemLogging',
-    'ui-leaflet'
+    'ui-leaflet',
+    ngMaterial
   ])
   .component('eventsRegister', eventsRegisterComponent)
   .config($stateProvider => {

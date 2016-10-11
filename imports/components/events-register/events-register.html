@@ -36,15 +36,21 @@
     </md-card-title>
 
     <md-card-content layout="column" layout-padding flex>
-      <form layout="column">
+      <form name="$ctrl.form" layout="column">
         <md-input-container flex>
           <label>Nome</label>
-          <input type="text" ng-maxlength="70" ng-model="$ctrl.event.name" required>
+          <input type="text" name="name" ng-maxlength="30" ng-model="$ctrl.event.name" required>
+          <div ng-messages="$ctrl.form.name.$error" ng-show="$ctrl.form.name.$dirty">
+            <div ng-message="maxlength">O nome é muito longo</div>
+          </div>
         </md-input-container>
         <span flex></span>
         <md-input-container flex="60">
           <label>Descrição</label>
-          <textarea ng-model="$ctrl.event.description" ng-maxlength="150" rows="3"></textarea>
+          <textarea name="description" ng-model="$ctrl.event.description" ng-maxlength="150" rows="3"></textarea>
+          <div ng-messages="$ctrl.form.description.$error" ng-show="$ctrl.form.description.$dirty">
+            <div ng-message="maxlength">O nome é muito longo</div>
+          </div>
         </md-input-container>
       </form>
     </md-card-content>

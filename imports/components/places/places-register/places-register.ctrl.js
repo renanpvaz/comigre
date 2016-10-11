@@ -88,8 +88,10 @@ class PlacesRegisterCtrl extends Injectable {
   }
 
   register() {
-    this.place.coords = this.center;
-    this.onConfirm({ place: this.place });
+    if (this.form.$valid) {
+      this.place.coords = this.center;
+      this.onConfirm({ place: this.place });
+    }
   }
 
   fetchAddress() {

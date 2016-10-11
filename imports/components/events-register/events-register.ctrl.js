@@ -1,6 +1,7 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
+import { Events } from '../../api/events/collection';
 import { Places } from '../../api/places/collection';
 
 import Injectable from '../../common/injectable';
@@ -18,11 +19,23 @@ class EventsRegisterCtrl extends Injectable {
   }
 
   onSelectPlace(place) {
-    console.log(place);
+    const eventId = this.register();
+
+    if (eventId) {
+      Places.insert({
+        message: this.event.name,
+        detailsId: eventId,
+        lat: place.coords.lat,
+        lng: place.coords.lng,
+        types: ['event']
+      });
+    }
   }
 
   register() {
-
+    if (this.form.$valid) {
+      return Events.insert(this.event);
+    }
   }
 }
 
