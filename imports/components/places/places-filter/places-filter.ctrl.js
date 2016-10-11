@@ -25,6 +25,17 @@ class PlacesFilterCtrl {
     this.select(this.filters[0]);
   }
 
+  $onChanges() {
+    if (!this.selectedPlace) {
+      return;
+    }
+
+    this.select(this.filters.find(filter => {
+        return filter.types.some(type => this.selectedPlace.types.includes(type));
+      })
+    );
+  }
+
   select(filter) {
     this.selected = filter;
     this.onSelect({ filter });

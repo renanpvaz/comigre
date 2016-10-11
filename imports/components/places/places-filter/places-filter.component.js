@@ -5,7 +5,8 @@ import controller from './places-filter.ctrl';
 
 const PlacesFilterComponent = {
   bindings: {
-    onSelect: '&'
+    onSelect: '&',
+    selectedPlace: '<'
   },
   template,
   controller
