@@ -1,13 +1,13 @@
 sudo: false
 language: node_js
-node_js: 4.5.0
+node_js: 4.6.0
 before_install:
 - curl https://install.meteor.com | /bin/sh
 - export PATH="$HOME/.meteor:$PATH"
 cache:
   directories:
   - node_modules
-  - ".meteor/local/plugin-cache"
+  - .meteor/local/plugin-cache
   - public/
 notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI

@@ -30,7 +30,8 @@ class PlacesFilterCtrl {
       return;
     }
 
-    this.select(this.filters.find(filter => {
+    this.select(
+      this.filters.find(filter => {
         return filter.types.some(type => this.selectedPlace.types.includes(type));
       })
     );
