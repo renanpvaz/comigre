@@ -50,19 +50,22 @@ class PlacesRegisterCtrl extends Injectable {
     const height = this.$mdMedia('xs') ? '125%' : '100%';
     const dialog = {
       template: `
-      <div layout-fill style="width: 100%;height:${height}">
-        <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
-          <i class="material-icons">close</i>
-        </md-button>
-        <leaflet
-          lf-center="$ctrl.center"
-          markers="$ctrl.markers"
-          event-broadcast="$ctrl.events"
-          width="100%"
-          height="100%">
-        </leaflet>
-      </div>`,
+      <md-dialog class="map-dialog">
+        <div layout-fill style="width: 100%;height:${height}">
+          <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
+            <i class="material-icons">close</i>
+          </md-button>
+          <leaflet
+            lf-center="$ctrl.center"
+            markers="$ctrl.markers"
+            event-broadcast="$ctrl.events"
+            width="100%"
+            height="100%">
+          </leaflet>
+        </div>
+      </md-dialog>`,
       controller: () => this,
+      autoWrap: false,
       scope: this.$scope,
       controllerAs: '$ctrl',
       preserveScope : true,
@@ -105,7 +108,6 @@ class PlacesRegisterCtrl extends Injectable {
 
     Meteor.call('getAddress', this.place.cep,
       (error, place) => {
-        console.log(error);
         this.loading = undefined;
 
         if (place) {
