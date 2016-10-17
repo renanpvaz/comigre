@@ -1,13 +1,13 @@
 'use strict';
 
-import Injectable from '../../common/injectable';
+import assign from 'angular-assign';
 import { Places } from '../../api/places/collection';
 
-class PlacesCtrl extends Injectable {
+class PlacesCtrl {
   constructor($scope, $reactive, PlacesService, $stateParams, $timeout) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

@@ -1,13 +1,11 @@
-'use strict';
-
 import { Meteor } from 'meteor/meteor';
-import Injectable from '../../common/injectable';
+import assign from 'angular-assign';
 
-class NavbarCtrl extends Injectable {
+class NavbarCtrl {
   constructor($mdSidenav, $timeout, $mdMedia) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

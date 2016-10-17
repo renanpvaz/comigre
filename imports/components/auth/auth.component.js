@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './auth.html';
 import controller from './auth.ctrl';
 

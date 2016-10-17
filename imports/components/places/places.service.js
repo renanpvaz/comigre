@@ -1,15 +1,13 @@
-'use strict';
-
 import angular from 'angular';
 
 import { Places } from '../../api/places/collection.js';
-import Injectable from '../../common/injectable';
+import assign from 'angular-assign';
 
-class PlacesService extends Injectable {
+class PlacesService {
   constructor($mdToast, $window) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
 
     this.center = {};
   }

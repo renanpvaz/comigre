@@ -8,7 +8,6 @@
   "maxlen": 100,
   "newcap": true,
   "quotmark": "single",
-  "strict": true,
   "undef": true,
   "eqnull": true,
   "varstmt": true,

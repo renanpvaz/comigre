@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './sidebar.html';
 import controller from './sidebar.ctrl';
 

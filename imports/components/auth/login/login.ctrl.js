@@ -1,13 +1,11 @@
-'use strict';
-
+import assign from 'angular-assign';
 import { Meteor } from 'meteor/meteor';
-import Injectable from '../../../common/injectable';
 
-class LoginCtrl extends Injectable {
+class LoginCtrl {
   constructor($scope, $reactive, $state, $mdDialog) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

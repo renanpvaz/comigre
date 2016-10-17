@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './register.html';
 import controller from './register.ctrl';
 

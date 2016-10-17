@@ -1,13 +1,12 @@
-'use strict';
+import assign from 'angular-assign';
 
-import Injectable from '../../../common/injectable';
 import { Guides } from '../../../api/guides/collection';
 
-class GuidesListCtrl extends Injectable {
+class GuidesListCtrl {
   constructor($scope, $reactive) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

@@ -1,10 +1,10 @@
-import Injectable from '../../../common/injectable';
+import assign from 'angular-assign';
 
-class PlacesMapCtrl extends Injectable {
+class PlacesMapCtrl {
   constructor($scope, $mdMedia, $mdDialog, $rootElement) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

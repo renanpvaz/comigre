@@ -1,13 +1,12 @@
-'use strict';
+import assign from 'angular-assign';
 
 import { Places } from '../../../api/places/collection.js';
-import Injectable from '../../../common/injectable';
 
-class PlacesDetailCtrl extends Injectable {
+class PlacesDetailCtrl {
   constructor($mdDialog, $interval, $mdMedia) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

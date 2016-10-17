@@ -1,5 +1,3 @@
-'use strict';
-
 class PlacesFilterCtrl {
   constructor() {
     'ngInject';
