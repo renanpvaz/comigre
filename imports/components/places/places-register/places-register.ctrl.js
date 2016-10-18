@@ -1,14 +1,12 @@
-'use strict';
+import assign from 'angular-assign';
 
 import { Meteor } from 'meteor/meteor';
 
-import Injectable from '../../../common/injectable';
-
-class PlacesRegisterCtrl extends Injectable {
+class PlacesRegisterCtrl {
   constructor($scope, $rootElement, $mdMedia, $mdDialog, PlacesRegisterService) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {
@@ -47,23 +45,8 @@ class PlacesRegisterCtrl extends Injectable {
   }
 
   openMap(event) {
-    const height = this.$mdMedia('xs') ? '125%' : '100%';
     const dialog = {
-      template: `
-      <md-dialog class="map-dialog">
-        <div layout-fill style="width: 100%;height:${height}">
-          <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
-            <i class="material-icons">close</i>
-          </md-button>
-          <leaflet
-            lf-center="$ctrl.center"
-            markers="$ctrl.markers"
-            event-broadcast="$ctrl.events"
-            width="100%"
-            height="100%">
-          </leaflet>
-        </div>
-      </md-dialog>`,
+      template: this.getDialogTemplate(),
       controller: () => this,
       autoWrap: false,
       scope: this.$scope,
@@ -74,19 +57,7 @@ class PlacesRegisterCtrl extends Injectable {
       targetEvent: event
     };
 
-    if (!this.center.zoom) {
-      this.center.zoom = 8;
-    }
-
-    this.markers = [{
-      lat: this.center.lat,
-      lng: this.center.lng,
-      focus: true,
-      draggable: true,
-      message: this.center.zoom === 5 ?
-        'Arraste até o local' : 'Local selecionado'
-    }];
-
+    this.markers = this.getCenterMarker();
     this.$mdDialog.show(dialog);
   }
 
@@ -118,6 +89,46 @@ class PlacesRegisterCtrl extends Injectable {
           this.geocode().then(console.log);
         }
       });
+  }
+
+  getCenterMarker() {
+    if (!this.center.zoom) {
+      this.center.zoom = 8;
+    }
+
+    return [
+      {
+        lat: this.center.lat,
+        lng: this.center.lng,
+        focus: true,
+        draggable: true,
+        message: this.center.zoom === 5 ?
+          'Arraste até o local' : 'Local selecionado'
+      }
+    ];
+  }
+
+  getDialogTemplate() {
+    const height = this.$mdMedia('xs') ? '125%' : '100%';
+
+    return `
+      <md-dialog class="map-dialog">
+        <div layout-fill style="width: 100%;height:${height}">
+          <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
+            <i class="material-icons">close</i>
+          </md-button>
+          <leaflet
+            lf-center="$ctrl.center"
+            markers="$ctrl.markers"
+            event-broadcast="$ctrl.events"
+            width="100%"
+            height="100%">
+          </leaflet>
+        </div>
+      </md-dialog>
+    `
+    .replace(/ /g, '')
+    .replace(/\n/g, '');
   }
 }
 

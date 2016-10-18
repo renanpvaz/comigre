@@ -1,16 +1,14 @@
-'use strict';
-
 import { Meteor } from 'meteor/meteor';
 import { Events } from '../../api/events/collection';
 import { Places } from '../../api/places/collection';
 
-import Injectable from '../../common/injectable';
+import assign from 'angular-assign';
 
-class EventsRegisterCtrl extends Injectable {
+class EventsRegisterCtrl {
   constructor($mdDialog, $state) {
     'ngInject';
 
-    super(...arguments);
+    assign(arguments).to(this);
   }
 
   $onInit() {

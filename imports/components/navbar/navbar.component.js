@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './navbar.html';
 import controller from './navbar.ctrl';
 

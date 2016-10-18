@@ -1,5 +1,3 @@
-'use strict';
-
 import angular from 'angular';
 
 import guidesListComponent from './guides-list.component';

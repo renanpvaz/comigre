@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './guides-list.html';
 import controller from './guides-list.ctrl';
 

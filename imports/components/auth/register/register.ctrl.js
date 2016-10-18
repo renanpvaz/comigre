@@ -1,5 +1,3 @@
-'use strict';
-
 import { Accounts } from 'meteor/accounts-base';
 
 class RegisterCtrl {

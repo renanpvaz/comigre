@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './places.html';
 import controller from './places.ctrl';
 import './places.less';

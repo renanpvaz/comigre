@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './events-register.html';
 import controller from './events-register.ctrl';
 

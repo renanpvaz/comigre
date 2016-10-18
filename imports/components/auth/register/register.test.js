@@ -1,5 +1,3 @@
-'use strict';
-
 import { assert } from 'meteor/practicalmeteor:chai';
 
 import RegisterCtrl from './register.ctrl';
