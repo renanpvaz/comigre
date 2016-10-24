@@ -5,11 +5,13 @@ import guidesComponent from './guides.component';
 import './guides.less';
 
 import guidesList from './guides-list/index';
+import guidesDetail from './guides-detail/index';
 
 const guides = angular
   .module('guides', [
     uiRouter,
-    guidesList
+    guidesList,
+    guidesDetail
   ])
   .component('guides', guidesComponent)
   .config($stateProvider => {
