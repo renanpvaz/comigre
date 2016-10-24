@@ -13,5 +13,3 @@ notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 before_script:
 - meteor npm install
-script:
-- meteor build $HOME/build
