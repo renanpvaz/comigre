@@ -52,6 +52,37 @@
             <div ng-message="maxlength">O nome é muito longo</div>
           </div>
         </md-input-container>
+
+        <div layout="row" layout-xs="column">
+
+          <md-input-container flex="50" flex-xs="100">
+            <label>Data</label>
+            <input name="date"
+              ui-mask="99/99/9999"
+              ui-options="{ addDefaultPlaceholder: false }"
+              ng-model="$ctrl.event.date" required>
+
+            <div ng-messages="$ctrl.form.description.$error" ng-show="$ctrl.form.date.$dirty">
+              <div ng-message="maxlength">O nome é muito longo</div>
+            </div>
+          </md-input-container>
+
+          <div flex layout="row" layout-xs="column">
+            <md-input-container flex="70" flex-xs="100">
+              <label>Hora</label>
+              <input ui-mask="99:99"
+                ng-disabled="$ctrl.event.allDay"
+                ui-options="{ addDefaultPlaceholder: false }"
+                ng-model="$ctrl.event.time"
+                ng-required="!$ctrl.event.allDay">
+            </md-input-container>
+
+            <md-input-container flex>
+              <md-switch ng-model="$ctrl.event.allDay">Dia inteiro</md-switch>
+            </md-input-container>
+          </div>
+
+        </div>
       </form>
     </md-card-content>
   </md-card>

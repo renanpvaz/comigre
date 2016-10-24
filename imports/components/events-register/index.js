@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngMaterial from 'angular-messages';
+import uiMask from 'angular-ui-mask';
 
 import eventsRegisterComponent from './events-register.component';
 
@@ -9,6 +10,7 @@ import placesRegister from '../places/places-register/index';
 const eventsRegister = angular
   .module('eventsRegister', [
     uiRouter,
+    uiMask,
     placesRegister,
     'nemLogging',
     'ui-leaflet',
