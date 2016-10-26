@@ -16,21 +16,17 @@ class PlacesDetailCtrl {
   $onChanges() {
     const place = Places.findOne({ _id: this.id });
 
-    this.$interval(() => this.progress += 10, 100);
+    this.loading = true;
 
     Meteor.call('getPlaceDetail', place.googleId,
       (error, details) => {
-        this.progress = 100;
         this.details = details;
+        this.loading = false;
 
         if (details.website) {
           this.details.formattedWebsite = details.website.substr(7);
         }
       });
-  }
-
-  isLoading() {
-    return this.progress < 100;
   }
 
   close() {
