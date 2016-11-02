@@ -11,23 +11,31 @@ class PlacesService {
   }
 
   findGeolocation(center, callback) {
-    if ('geolocation' in this.$window.navigator) {
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-
-      const success = (position) => {
-        const { latitude: lat, longitude: lng } = position.coords;
-        this.center = { lat, lng };
-
-        return callback(lat, lng);
-      };
-
-      this.$window.navigator.geolocation
-        .getCurrentPosition(success, console.error, options);
+    if (!('geolocation' in this.$window.navigator)) {
+      return;
     }
+
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    const success = (position) => {
+      const { latitude: lat, longitude: lng } = position.coords;
+      this.center = { lat, lng };
+
+      return callback(lat, lng);
+    };
+
+    const error = (err) => {
+      console.error(err);
+
+      findGeolocation(center, callback);
+    };
+
+    this.$window.navigator.geolocation
+      .getCurrentPosition(success, error, options);
   }
 
   isSaved(id) {
