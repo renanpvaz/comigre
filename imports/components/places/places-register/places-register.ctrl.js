@@ -3,7 +3,7 @@ import assign from 'angular-assign';
 import { Meteor } from 'meteor/meteor';
 
 class PlacesRegisterCtrl {
-  constructor($scope, $rootElement, $mdMedia, $mdDialog, PlacesRegisterService) {
+  constructor($scope, $rootElement, $mdMedia, $mdDialog, PlacesRegisterService, $window) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -48,13 +48,19 @@ class PlacesRegisterCtrl {
     const dialog = {
       template: this.getDialogTemplate(),
       controller: () => this,
-      autoWrap: false,
       scope: this.$scope,
       controllerAs: '$ctrl',
       preserveScope : true,
       clickOutsideToClose: true,
       fullscreen: this.$mdMedia('xs'),
       targetEvent: event
+    };
+
+    this.defaults = {
+      tileLayerOptions: {
+        detectRetina: this.$mdMedia('xs'),
+        unloadInvisibleTiles: true
+      }
     };
 
     this.markers = this.getCenterMarker();
@@ -112,23 +118,20 @@ class PlacesRegisterCtrl {
     const height = this.$mdMedia('xs') ? '125%' : '100%';
 
     return `
-      <md-dialog class="map-dialog">
-        <div layout-fill style="width: 100%;height:${height}">
-          <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
-            <i class="material-icons">close</i>
-          </md-button>
-          <leaflet
-            lf-center="$ctrl.center"
-            markers="$ctrl.markers"
-            event-broadcast="$ctrl.events"
-            width="100%"
-            height="100%">
-          </leaflet>
-        </div>
-      </md-dialog>
-    `
-    .replace(/ /g, '')
-    .replace(/\n/g, '');
+      <div layout-fill style="width: 100%;height:${height}">
+        <md-button ng-click="$ctrl.$mdDialog.hide()" class="md-icon-button close-map">
+          <i class="material-icons">close</i>
+        </md-button>
+        <leaflet
+          lf-center="$ctrl.center"
+          markers="$ctrl.markers"
+          defaults="$ctrl.defaults"
+          event-broadcast="$ctrl.events"
+          width="100%"
+          height="100%">
+        </leaflet>
+      </div>
+    `;
   }
 }
 

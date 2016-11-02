@@ -12,9 +12,11 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div class="md-dialog-content">
-        <div layout="row" layout-align="center center" ng-if="$ctrl.isLoading()">
-          <md-progress-circular md-diameter="60" value="{{$ctrl.progress}}" md-mode="determinate">
+      <div class="md-dialog-content" ng-if="!$ctrl.loading">
+        <div layout="row" layout-align="center center" ng-if="$ctrl.loading">
+          <md-progress-circular
+              md-mode="indeterminate"
+              md-diameter="60">
           </md-progress-circular>
         </div>
         <div ng-if="!$ctrl.isLoading()" layout="column" layout-padding>
