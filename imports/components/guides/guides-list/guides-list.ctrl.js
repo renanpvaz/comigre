@@ -12,8 +12,6 @@ class GuidesListCtrl {
   $onInit() {
     this.$reactive(this).attach(this.$scope);
 
-    this.subscribe('allGuides');
-
     this.helpers({
       guides() {
         return Guides.find();
