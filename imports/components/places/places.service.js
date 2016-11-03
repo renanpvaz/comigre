@@ -30,8 +30,7 @@ class PlacesService {
 
     const error = (err) => {
       console.error(err);
-
-      findGeolocation(center, callback);
+      this.findGeolocation(center, callback);
     };
 
     this.$window.navigator.geolocation

@@ -8,13 +8,13 @@
       <md-fab-actions>
           <md-button
             ng-click="$ctrl.select(filter)"
-            aria-label="{{ filter.name }}"
-            ng-repeat="filter in $ctrl.filters | filter:{ name: '!' + $ctrl.selected.name }"
+            aria-label="{{:: filter.name }}"
+            ng-repeat="filter in ::$ctrl.filters | filter:{ name: '!' + $ctrl.selected.name }"
             class="md-fab md-raised md-mini">
             <md-tooltip md-direction="left" md-autohide="false">
-              {{ filter.name }}
+              {{:: filter.name }}
             </md-tooltip>
-            <md-icon md-font-library="material-icons">{{ filter.icon }}</md-icon>
+            <md-icon md-font-library="material-icons">{{:: filter.icon }}</md-icon>
           </md-button>
       </md-fab-actions>
   </md-fab-speed-dial>

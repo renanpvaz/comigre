@@ -3,7 +3,7 @@ import assign from 'angular-assign';
 import { Meteor } from 'meteor/meteor';
 
 class SidebarCtrl {
-  constructor($mdSidenav, $scope, $mdMedia, $location) {
+  constructor($mdSidenav, $scope, $mdMedia, $state) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -15,6 +15,11 @@ class SidebarCtrl {
       { name:'Guia de informações', icon: 'book', state: 'guides.list' },
       { name:'Eventos', icon: 'event', state: 'event' }
     ];
+  }
+
+  goTo(stateName) {
+    this.close();
+    this.$state.go(stateName);
   }
 
   close() {

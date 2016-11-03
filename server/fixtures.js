@@ -11,13 +11,6 @@ Meteor.startup(() => {
         lat: -29.842,
         lng: -51.1462,
         message: 'Sapucaia',
-        loc: {
-            type: 'Point',
-            coordinates: [
-                -51.1462,
-                -29.842
-            ]
-        },
         types: [
           'local_government_office',
           'city_hall',
@@ -27,20 +20,13 @@ Meteor.startup(() => {
         lat : -29.9189,
         lng : -51.1781,
         message : 'Canoas',
-        loc: {
-            type: 'Point',
-            coordinates: [
-                -51.1781,
-                -29.9189
-            ]
-        },
         types: [
           'local_government_office',
           'city_hall',
           'health'
         ]
       }
-    ].forEach(Places.insert);
+    ].forEach(p => Places.insert(p));
   }
 
   if (!Guides.find().count()) {
