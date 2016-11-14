@@ -1,32 +1,65 @@
 <md-sidenav
+  layout="row"
   md-component-id="sidebar"
   class="md-sidenav-left"
   md-swipe-left="$ctrl.close()">
 
-  <md-toolbar class="md-hue-3 md-tall">
-    <div layout="row" layout-align="center center" layout-fill>
-      <img src="images/avatar.png" class="user-avatar">
-      <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
-        <h5>Você não está autenticado</h5>
-        <h6 ui-sref="login">Entrar</h6>
-      </div>
-      <div flex="80" class="user-info" ng-if="$ctrl.isLoggedIn()">
-        <h5>Bem-vindo(a),</h5>
-        <h6>{{ $ctrl.getUser().emails[0].address }}</h6>
-      </div>
-    </div>
-  </md-toolbar>
-
-  <md-content>
-    <md-subheader class="md-no-sticky"></md-subheader>
+  <md-content class="languages" flex="17">
     <md-list class="list">
+      <md-list-item>
+        <md-icon class="md-avatar-icon md-icon-button">
+          <span>pt</span>
+        </md-icon>
+      </md-list-item>
+      <md-list-item>
+        <md-icon class="md-avatar-icon md-icon-button">
+          <span>en</span>
+        </md-icon>
+      </md-list-item>
+      <md-list-item>
+        <md-icon class="md-avatar-icon md-icon-button">
+          <span>fr</span>
+        </md-icon>
+      </md-list-item>
+      <md-list-item>
+        <md-icon class="md-avatar-icon md-icon-button">
+          <span>es</span>
+        </md-icon>
+      </md-list-item>
+
+      <md-list-item class="account-circle">
+        <md-icon
+          md-font-library="material-icons"
+          class="md-avatar-icon md-icon-button">account_circle</md-icon>
+      </md-list-item>
+    </md-list>
+  </md-content>
+
+  <md-content flex>
+    <md-toolbar class="md-hue-3 md-tall">
+      <div layout="row" layout-align="center center" layout-fill>
+        <img class="logo" src="images/logo.png">
+        </img>
+        <!-- <img src="images/avatar.png" class="user-avatar">
+        <div flex="80" class="user-info" ng-if="!$ctrl.isLoggedIn()">
+          <h5>Você não está autenticado</h5>
+          <h6 ui-sref="login">Entrar</h6>
+        </div>
+        <div flex="80" class="user-info" ng-if="$ctrl.isLoggedIn()">
+          <h5>Bem-vindo(a),</h5>
+          <h6>{{ $ctrl.getUser().emails[0].address }}</h6>
+        </div> -->
+      </div>
+    </md-toolbar>
+
+    <md-list>
       <md-list-item
         ng-repeat="section in ::$ctrl.sections"
-        ng-click="$ctrl.close()"
-        ui-sref="{{:: section.state }}">
-        <md-icon md-font-library="material-icons">{{:: section.icon }}</md-icon>
+        ng-click="$ctrl.goTo(section.state)">
         <p>{{:: section.name }}</p>
+        <md-icon md-font-library="material-icons">keyboard_arrow_right</md-icon>
       </md-list-item>
+
       <md-divider ng-if="$ctrl.isLoggedIn()"></md-divider>
       <md-list-item ng-if="$ctrl.isLoggedIn()" ng-click="null">
         <md-icon md-font-library="material-icons">settings</md-icon>
@@ -36,5 +69,7 @@
         <md-icon md-font-library="material-icons">exit_to_app</md-icon>
         <p>Sair</p>
       </md-list-item>
+    </md-list>
+
   </md-content>
 </md-sidenav>
