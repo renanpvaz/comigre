@@ -11,11 +11,12 @@ class GuidesDetailCtrl {
 
   $onInit() {
     this.$reactive(this).attach(this.$scope);
+    console.log(this.$stateParams.id);
 
     this.helpers({
       guide() {
         return Guides.findOne({
-          _id: this.$stateParams.id
+          _id: this.getReactively('$stateParams.id')
         });
       }
     });
