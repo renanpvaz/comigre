@@ -1,31 +1,27 @@
 sidebar {
 
-  .material-icons {
-    color: #bdbed0;
-    margin-left: 12px;
-    margin-top: 12px;
-    float: right;
-  }
-
-  md-list-item:hover {
-    color: white;
-
-    .material-icons {
-      color: white;
-    }
-  }
-
   md-content {
     background-color: #2f1247;
     color: #bdbed0;
 
-    md-list-item ._md-list-item-inner > p {
-      padding-left: 10px;
+    md-list-item {
+
+      p {
+        padding-left: 10px;
+      }
+
+      .material-icons {
+        color: #bdbed0;
+        margin-left: 12px;
+        margin-top: 12px;
+        float: right;
+      }
     }
   }
 
   md-content.languages {
     background-color: #1e0034;
+    padding-top: 5%;
 
     md-list-item {
       padding: 0;
@@ -42,11 +38,26 @@ sidebar {
         margin-left: 14%;
       }
 
+      .language-button:hover {
+        font-weight: bold;
+        color: #1e0034;
+        background-color: #bdbed0;
+        cursor: pointer;
+        transition: 0.2s ease-in all;
+      }
+
       &.account-circle {
         position: absolute;
         bottom: 0;
-        margin-bottom: 20px;
         margin-left: -10%;
+
+        &.logged-in {
+          margin-bottom: 70px;
+        }
+
+        &.not-logged-in {
+          margin-bottom: 45px;
+        }
 
         .material-icons {
           border: none;
@@ -91,6 +102,41 @@ sidebar {
       background-color: #2f1247;
     }
   }
+
+  #user-area {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+
+    h4, h5, h6 {
+      padding-left: 20px;
+      font-weight: normal;
+      line-height: 2px;
+    }
+
+    h4 {
+      padding-bottom: 8px;
+      font-weight: bold;
+    }
+
+    h5:hover {
+      cursor: pointer;
+      color: #CBCAD0;
+    }
+
+    .material-icons {
+      color: #bdbed0;
+      float: left;
+      font-size: 14px;
+      line-height: 2px;
+    }
+
+    .material-icons:hover {
+      color: #CBCAD0;
+    }
+  }
+
 }
 
 md-backdrop {
