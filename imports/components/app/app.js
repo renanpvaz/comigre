@@ -5,7 +5,6 @@ import uiRouter from 'angular-ui-router';
 import './app.less';
 import template from './app.html';
 
-import sidebar from '../sidebar/index';
 import navbar from '../navbar/index';
 import places from '../places/index';
 import eventsRegister from '../events-register/index';
@@ -20,7 +19,6 @@ export default angular
     angularMeteor,
     uiRouter,
     places,
-    sidebar,
     navbar,
     eventsRegister,
     guides
