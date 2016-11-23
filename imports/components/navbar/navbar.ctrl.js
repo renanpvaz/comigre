@@ -2,18 +2,30 @@ import { Meteor } from 'meteor/meteor';
 import assign from 'angular-assign';
 
 class NavbarCtrl {
-  constructor($mdSidenav, $timeout, $mdMedia) {
+  constructor($timeout, $mdMedia) {
     'ngInject';
 
     assign(arguments).to(this);
   }
 
   $onInit() {
-    this.$timeout(() => this.$mdSidenav('sidebar').close());
+    this.open = false;
   }
 
-  toggleMenu() {
-    this.$mdSidenav('sidebar').toggle();
+  toggleProfileDropdown(){
+    this.open = !this.open;
+  }
+
+  isLoggedIn() {
+    return !!Meteor.userId();
+  }
+
+  getUser() {
+    return Meteor.user();
+  }
+
+  logout(){
+    return Meteor.logout();
   }
 }
 

@@ -1,11 +1,37 @@
-<md-toolbar class="md-hue-2">
-  <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" layout="row" layout-align="center center" ng-click="$ctrl.toggleMenu()" aria-label="Menu">
-      <i flex class="material-icons">menu</i>
-    </md-button>
-    <img ng-style="{ 'max-width': $ctrl.$mdMedia('xs') ? '50%' : '100%' }"
-      class="logo" src="images/logo.png">
-    </img>
-    <span flex></span>
-  </div>
-</md-toolbar>
+<nav class="navbar">
+
+  <img src="images/logo.png" class="logo"></img>
+
+  <ul class="nav-list">
+    <li class="nav-list-item">Empregos</li>
+    <li class="nav-list-item" ui-sref="event">Eventos</li>
+    <li class="nav-list-item">Cursos</li>
+    <li class="nav-list-item">Moradias</li>
+    <li class="nav-list-item">Intituições</li>
+  </ul>
+
+  <span class="log-in" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">Entrar</span>
+  <span href="#" class="username" ng-if="$ctrl.isLoggedIn()" ng-click="$ctrl.toggleProfileDropdown()">{{ $ctrl.getUser().username }}</span>
+
+  <ul ng-if="$ctrl.open && $ctrl.isLoggedIn()" class="dropdown-user-profile">
+    <li>
+      <div class="navbar-content">
+        <div class="clearfix ">
+          <div class="col col-4 avatar">
+            <img src="http://placehold.it/80x80" alt="Alternate Text" class="img-responsive" />
+          </div>
+          <div class="col col-8 info">
+            <span class="name">{{ $ctrl.getUser().username }}</span>
+            <p class="text-muted small mail">{{ $ctrl.getUser().emails[0].address }}</p>
+              <a href="#" class="button">Ver perfil</a>
+            </div>
+        </div>
+      </div>
+      <ul class="navbar-footer">
+        <hr class="divider"></hr>
+        <li class="navbar-footer-content" ng-click="$ctrl.logout()">Sair</a></li>
+      </ul>
+    </li>
+  </ul>
+
+</nav>
