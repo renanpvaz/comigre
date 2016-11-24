@@ -1,6 +1,6 @@
 import assign from 'angular-assign';
 
-import { Places } from '../../../api/places/collection.js';
+import { Places } from '../../../../api/places/collection.js';
 
 class PlacesDetailCtrl {
   constructor($mdDialog, $interval, $mdMedia) {

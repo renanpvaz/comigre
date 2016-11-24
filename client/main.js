@@ -6,7 +6,7 @@ import uiRouter from 'angular-ui-router';
 
 import './main.less';
 
-import app from '../imports/components/app/app';
+import app from '../imports/ui/components/app/app';
 
 angular.module('comigre', [
     angularMeteor,

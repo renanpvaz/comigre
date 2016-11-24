@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import { Places } from '../../api/places/collection.js';
+import { Places } from '../../../api/places/collection';
 
 class PlacesService {
   constructor($window) {

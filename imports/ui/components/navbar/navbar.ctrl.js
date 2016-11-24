@@ -1,19 +1,18 @@
 import { Meteor } from 'meteor/meteor';
-import assign from 'angular-assign';
 
 class NavbarCtrl {
-  constructor($timeout, $mdMedia) {
+  constructor() {
     'ngInject';
-
-    assign(arguments).to(this);
   }
 
   $onInit() {
-    this.open = false;
+    this.dropdownIsOpen = false;
   }
 
-  toggleProfileDropdown(){
-    this.open = !this.open;
+  toggleDropdown() {
+    if (this.isLoggedIn()) {
+      this.dropdownIsOpen = !this.dropdownIsOpen;
+    }
   }
 
   isLoggedIn() {
@@ -24,7 +23,7 @@ class NavbarCtrl {
     return Meteor.user();
   }
 
-  logout(){
+  logout() {
     return Meteor.logout();
   }
 }

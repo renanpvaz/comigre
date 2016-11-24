@@ -1,0 +1,39 @@
+<nav class="bg-white clearfix flex black z3 fixed">
+
+  <img class="inline-block left border-right" src="images/logo.png"></img>
+
+  <div class="flex flex-center">
+    <a href="#" class="inline-block px2 black">Empregos</a>
+    <a class="inline-block px2 black" ui-sref="event">Eventos</a>
+    <a href="#" class="inline-block px2 black">Cursos</a>
+    <a href="#" class="inline-block px2 black">Moradias</a>
+    <a href="#" class="inline-block px2 black">Intituições</a>
+    <span class="flex"></span>
+
+    <span class="px3" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">
+      Entrar
+    </span>
+
+    <span class="px3" ng-if="$ctrl.isLoggedIn()" ng-click="$ctrl.toggleDropdown()">
+      {{ $ctrl.getUser().emails[0].address }}
+    </span>
+
+    <div class="absolute bg-white border rounded z4 right-0" ng-if="$ctrl.dropdownIsOpen" >
+      <div class="flex flex-column flex">
+        <div class="flex flex-center">
+          <img class="circle p2" src="http://placehold.it/80x80" alt="Imagem padrão" />
+
+          <div class="flex flex-column mr3 mt2">
+            <span>{{ $ctrl.getUser().username || 'Nome' }}</span>
+
+            <p class="text-muted small mail">
+              {{ $ctrl.getUser().emails[0].address || 'email@gmail.com' }}
+            </p>
+          </div>
+        </div>
+
+        <a class="center p1 black border-top" ng-click="$ctrl.logout()">Sair</a>
+      </div>
+    </div>
+  </div>
+</nav>

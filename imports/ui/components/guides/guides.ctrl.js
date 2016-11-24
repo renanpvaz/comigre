@@ -2,7 +2,7 @@ import assign from 'angular-assign';
 
 import { Guides } from '../../../api/guides/collection';
 
-class GuidesListCtrl {
+class GuidesCtrl {
   constructor($scope, $reactive) {
     'ngInject';
 
@@ -12,12 +12,8 @@ class GuidesListCtrl {
   $onInit() {
     this.$reactive(this).attach(this.$scope);
 
-    this.helpers({
-      guides() {
-        return Guides.find();
-      }
-    });
+    this.subscribe('allGuides');
   }
 }
 
-export default GuidesListCtrl;
+export default GuidesCtrl;

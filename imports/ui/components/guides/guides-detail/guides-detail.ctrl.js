@@ -1,6 +1,6 @@
 import assign from 'angular-assign';
 
-import { Guides } from '../../../api/guides/collection.js';
+import { Guides } from '../../../../api/guides/collection.js';
 
 class GuidesDetailCtrl {
   constructor($scope, $reactive, $stateParams) {

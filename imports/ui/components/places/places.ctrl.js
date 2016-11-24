@@ -1,7 +1,7 @@
 'use strict';
 
 import assign from 'angular-assign';
-import { Places } from '../../api/places/collection';
+import { Places } from '../../../api/places/collection';
 
 class PlacesCtrl {
   constructor($scope, $reactive, PlacesService, $stateParams, $timeout) {

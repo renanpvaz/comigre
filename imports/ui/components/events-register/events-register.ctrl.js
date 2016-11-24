@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import { Events } from '../../api/events/collection';
-import { Places } from '../../api/places/collection';
+import { Events } from '../../../api/events/collection';
+import { Places } from '../../../api/places/collection';
 
 import assign from 'angular-assign';
 

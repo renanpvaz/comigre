@@ -7,6 +7,7 @@ import template from './app.html';
 
 import navbar from '../navbar/index';
 import places from '../places/index';
+import auth from '../auth/index';
 import eventsRegister from '../events-register/index';
 import guides from '../guides/index';
 
@@ -20,6 +21,7 @@ export default angular
     uiRouter,
     places,
     navbar,
+    auth,
     eventsRegister,
     guides
   ])

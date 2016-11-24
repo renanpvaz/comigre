@@ -1,17 +1,13 @@
 sudo: false
 language: node_js
-node_js: 4.6.1
+node_js: 4.6.2
 before_install:
 - curl https://install.meteor.com | /bin/sh
 - export PATH="$HOME/.meteor:$PATH"
-cache:
-  directories:
-  - node_modules
-  - .meteor/local/plugin-cache
-  - public/
 notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 before_script:
+- meteor update --release 1.4.2.2
 - npm install
 script:
 - meteor build $HOME/build
