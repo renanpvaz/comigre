@@ -1,5 +1,3 @@
-'use strict';
-
 import template from './<%= dashedName %>.html';
 import controller from './<%= dashedName %>.ctrl';
 

@@ -1,5 +1,3 @@
-'use strict';
-
 class <%= upCaseName %>Ctrl {
   constructor() {
     'ngInject';

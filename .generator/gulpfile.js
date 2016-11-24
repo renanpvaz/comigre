@@ -8,7 +8,7 @@ const yargs = require('yargs');
 const gutil = require('gulp-util');
 const del = require('del');
 
-const root = '../imports/components';
+const root = '../imports/ui/components';
 
 let resolveToComponents = (glob = '') => {
   return path.join(root, glob);
@@ -26,7 +26,7 @@ gulp.task('component', () => {
   const toDash = str => str.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
   const name = yargs.argv.name;
   const parentPath = yargs.argv.parent || '';
-  const destPath = path.join(resolveToComponents(), parentPath, name);
+  const destPath = path.join(resolveToComponents(), parentPath, toDash(name));
 
   return gulp.src(paths.blankTemplates)
     .pipe(template({
@@ -35,7 +35,7 @@ gulp.task('component', () => {
       dashedName: toDash(name)
     }))
     .pipe(rename((path) => {
-      path.basename = path.basename.replace('temp', name);
+      path.basename = path.basename.replace('temp', toDash(name));
     }))
     .pipe(gulp.dest(destPath));
 });
