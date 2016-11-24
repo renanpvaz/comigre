@@ -10,9 +10,7 @@ class NavbarCtrl {
   }
 
   toggleDropdown() {
-    if (this.isLoggedIn()) {
       this.dropdownIsOpen = !this.dropdownIsOpen;
-    }
   }
 
   isLoggedIn() {
