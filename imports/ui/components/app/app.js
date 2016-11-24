@@ -9,6 +9,7 @@ import navbar from '../navbar/index';
 import places from '../places/index';
 import auth from '../auth/index';
 import eventsRegister from '../events-register/index';
+import placeRegister from '../place-register/index';
 import guides from '../guides/index';
 
 class AppCtrl {
@@ -23,6 +24,7 @@ export default angular
     navbar,
     auth,
     eventsRegister,
+    placeRegister,
     guides
   ])
   .component('app', {
