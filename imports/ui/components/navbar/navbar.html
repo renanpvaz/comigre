@@ -1,38 +1,39 @@
 <nav class="bg-white clearfix flex black z3 fixed top-0">
 
-  <img class="inline-block left border-right" src="images/logo.png"></img>
+  <img class="inline-block left border-right px1" src="images/logo.png"></img>
 
-  <div class="flex flex-center">
-    <a href="#" class="inline-block px2 black">Empregos</a>
-    <a class="inline-block px2 black" ui-sref="event">Eventos</a>
-    <a href="#" class="inline-block px2 black">Cursos</a>
-    <a href="#" class="inline-block px2 black">Moradias</a>
-    <a href="#" class="inline-block px2 black">Intituições</a>
+  <div class="flex flex-center ml2">
+    <a href="#" class="inline-block px2">Empregos</a>
+    <a class="inline-block px2" ui-sref="event">Eventos</a>
+    <a href="#" class="inline-block px2">Cursos</a>
+    <a href="#" class="inline-block px2">Moradias</a>
+    <a href="#" class="inline-block px2">Intituições</a>
     <span class="flex"></span>
 
-    <span class="px3" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">
+    <span class="px3 nav-item" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">
       Entrar
     </span>
 
-    <span class="px3" ng-if="$ctrl.isLoggedIn()" ng-click="$ctrl.toggleDropdown()">
-      {{ $ctrl.getUser().emails[0].address }}
+    <span class="px3 name-dropdown" ng-if="$ctrl.isLoggedIn()" ng-click="$ctrl.toggleDropdown()">
+      {{ $ctrl.getUser().username }}
     </span>
 
-    <div class="absolute bg-white border rounded z4 right-0" ng-if="$ctrl.dropdownIsOpen" >
+    <div class="absolute bg-white border z4 right navbar-offset px2 py1" ng-if="$ctrl.dropdownIsOpen" >
       <div class="flex flex-column flex">
-        <div class="flex flex-center">
-          <img class="circle p2" src="http://placehold.it/80x80" alt="Imagem padrão" />
+        <div class="flex flex-center info">
+          <img class="rounded py2" src="http://placehold.it/80x80" alt="Imagem padrão" />
 
-          <div class="flex flex-column mr3 mt2">
-            <span>{{ $ctrl.getUser().username || 'Nome' }}</span>
+          <div class="flex flex-column px2 flex-start">
+            <span class="name h4">{{ $ctrl.getUser().username }}</span>
 
-            <p class="text-muted small mail">
-              {{ $ctrl.getUser().emails[0].address || 'email@gmail.com' }}
-            </p>
+            <span class="name h6">{{ $ctrl.getUser().emails[0].address }}</span>
+
+            <a href="#" class="button rounded white caps px2 py1">Ver perfil</a>
+
           </div>
         </div>
 
-        <a class="center p1 black border-top" ng-click="$ctrl.logout()">Sair</a>
+        <a class="center p1 border-top nav-item" ng-click="$ctrl.logout()">Sair</a>
       </div>
     </div>
   </div>
