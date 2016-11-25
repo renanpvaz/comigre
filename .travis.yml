@@ -7,7 +7,6 @@ before_install:
 notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 before_script:
-- meteor update --release 1.4.2.2
 - npm install
 script:
 - meteor build $HOME/build

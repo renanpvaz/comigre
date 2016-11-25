@@ -10,18 +10,26 @@ class PlaceRegisterCtrl {
   }
 
   $onInit() {
+    this.selected = {};
+
     mapboxgl.accessToken = Meteor.settings.public.mapboxAccessToken;
 
     this.map = new Map({
       container: 'map',
       center: [-52.2599, -15.893],
       zoom: 3,
-      style: 'mapbox://styles/mapbox/streets-v9'
+      style: 'mapbox://styles/mapbox/basic-v9'
     });
 
     this.map.on('load', () => {
       this.getUserLocation();
       this.map.addControl(new mapboxgl.NavigationControl());
+    });
+
+    this.map.on('click', (e) => {
+      console.log(e);
+      this.selected.lat = e.lngLat.lat;
+      this.selected.lng = e.lngLat.lng;
     });
   }
 
