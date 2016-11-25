@@ -2,15 +2,16 @@
 
   <img class="inline-block left border-right px1" src="images/logo.png"></img>
 
-  <div class="flex flex-center ml2">
+  <div class="flex flex-center flex-auto ml2">
     <a href="#" class="inline-block px2">Empregos</a>
     <a class="inline-block px2" ui-sref="event">Eventos</a>
     <a href="#" class="inline-block px2">Cursos</a>
     <a href="#" class="inline-block px2">Moradias</a>
     <a href="#" class="inline-block px2">Intituições</a>
-    <span class="flex"></span>
+  </div>
 
-    <span class="px3 nav-item" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">
+  <div class="flex flex-center">
+    <span class="px3 log-in" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">
       Entrar
     </span>
 

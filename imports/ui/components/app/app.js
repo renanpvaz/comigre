@@ -9,6 +9,7 @@ import navbar from '../navbar/index';
 import places from '../places/index';
 import auth from '../auth/index';
 import eventsRegister from '../events-register/index';
+import placeTypeSelect from '../place-type-select/index';
 import placeRegister from '../place-register/index';
 import guides from '../guides/index';
 
@@ -25,6 +26,7 @@ export default angular
     auth,
     eventsRegister,
     placeRegister,
+    placeTypeSelect,
     guides
   ])
   .component('app', {
