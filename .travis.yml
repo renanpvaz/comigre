@@ -1,12 +1,23 @@
 sudo: false
+
 language: node_js
+
 node_js: 4.6.2
+
 before_install:
 - curl https://install.meteor.com | /bin/sh
 - export PATH="$HOME/.meteor:$PATH"
+
 notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
+
+cache:
+  directories:
+  - node_modules
+
 before_script:
 - npm install
+
 script:
-- meteor build $HOME/build
+- meteor add dispatch:mocha-phantomjs
+- meteor test --once --driver-package dispatch:mocha-phantomjs
