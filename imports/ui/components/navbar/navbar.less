@@ -4,15 +4,25 @@ navbar {
     width: 100%;
     box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.2);
     color: @navbar-text;
+    background-color: #fff;
   }
 
-  nav a, nav span { color: @navbar-text; }
+  nav a,
+  nav span {
+    color: @navbar-text;
+  }
 
-  nav a:hover { color: @comigre-purple; }
+  nav a:hover {
+    color: @comigre-purple;
+  }
 
-  .absolute { right: 20px; }
+  .absolute {
+    right: 20px;
+  }
 
-  .name-dropdown { margin-right: 20px; }
+  .name-dropdown {
+    margin-right: 20px;
+  }
 
   .name-dropdown:before {
     content: "";
@@ -28,16 +38,8 @@ navbar {
     padding-bottom: 8px;
     color: @navbar-text;
 
-    .name { margin-top: -5px; }
-
-    .button {
-      margin-top: 15px;
-      font-size: 10px;
-      letter-spacing: .4px;
-      font-weight: 600;
-      background: @comigre-fucsia;
-    }
-
-    .button:hover { color: white; }
+    .name {
+      margin-top: -5px;
+    }    
   }
 }

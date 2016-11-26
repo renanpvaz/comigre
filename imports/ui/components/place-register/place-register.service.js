@@ -1,8 +1,6 @@
-'use strict';
-
 import angular from 'angular';
 
-class PlacesRegisterService {
+class PlaceRegisterService {
   constructor($http) {
     'ngInject';
 
@@ -69,4 +67,4 @@ class PlacesRegisterService {
   }
 }
 
-export default PlacesRegisterService;
+export default PlaceRegisterService;

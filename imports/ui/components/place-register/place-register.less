@@ -1,10 +1,68 @@
 place-register {
-  & > section {
-    padding-left: 20%;
-    padding-right: 20%;
+  article {
+    width: 50%;
+  }
+
+  .address {
+    white-space: pre;
+    font-size: 1.2vw;
+  }
+
+  p {
+    font-size: 1.5vw;
   }
 
   h1 {
-    font-weight: 500;
+    font-size: 2.5vw;
   }
+
+	.pulse {
+		width: 10px;
+		height: 10px;
+		border: 5px solid #7fd2e6;
+
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+		background-color: #00a6cd;
+		z-index: 10;
+		position: absolute;
+	}
+
+	.dot {
+    position: absolute;
+    height: 50px;
+		width: 50px;
+		top: -25px;
+		left: -25px;
+		z-index: 2;
+		opacity: 0;
+		border: 10px solid rgba(0,166,205,1);;
+		background: transparent;
+		-webkit-border-radius: 60px;
+		-moz-border-radius: 60px;
+		border-radius: 60px;
+		-webkit-animation: flash 2s ease-out;
+		-moz-animation: flash 2s ease-out;
+		animation: flash 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+	}
+
+  @-moz-keyframes pulse {
+	 0% {-moz-transform: scale(0);opacity: 0.0;}
+	 25% {-moz-transform: scale(0);opacity: 0.1;}
+	 50% {-moz-transform: scale(0.1);opacity: 0.3;}
+	 75% {-moz-transform: scale(0.5);opacity: 0.5;}
+	 100% {-moz-transform: scale(1);opacity: 0.0;}
+  }
+
+  @-webkit-keyframes "flash" {
+	 0% {-webkit-transform: scale(0);opacity: 0.0;}
+	 25% {-webkit-transform: scale(0);opacity: 0.1;}
+	 50% {-webkit-transform: scale(0.1);opacity: 0.3;}
+	 75% {-webkit-transform: scale(0.5);opacity: 0.5;}
+	 100% {-webkit-transform: scale(1);opacity: 0.0;}
+	}
 }

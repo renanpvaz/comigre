@@ -1,18 +1,18 @@
-import { Meteor } from 'meteor/meteor';
 import assign from 'angular-assign';
-import mapboxgl, { Map, LngLat } from 'mapbox-gl/dist/mapbox-gl.js';
+import { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
 
 class PlaceRegisterCtrl {
-  constructor($window) {
+  constructor($window, $scope, PlaceRegisterService) {
     'ngInject';
 
     assign(arguments).to(this);
   }
 
   $onInit() {
-    this.selected = {};
-
-    mapboxgl.accessToken = Meteor.settings.public.mapboxAccessToken;
+    this.markerElement = document.createElement('div');
+    this.markerElement.innerHTML = `
+      <div class="dot"></div>
+      <div class="pulse"></div>`;
 
     this.map = new Map({
       container: 'map',
@@ -21,16 +21,35 @@ class PlaceRegisterCtrl {
       style: 'mapbox://styles/mapbox/basic-v9'
     });
 
-    this.map.on('load', () => {
-      this.getUserLocation();
-      this.map.addControl(new mapboxgl.NavigationControl());
-    });
+    this.map.on('load', () => this.onMapLoad());
+    this.map.on('click', (e) => this.onMapClick(e));
+  }
 
-    this.map.on('click', (e) => {
-      console.log(e);
-      this.selected.lat = e.lngLat.lat;
-      this.selected.lng = e.lngLat.lng;
-    });
+  onMapLoad() {
+    this.getUserLocation();
+    this.map.addControl(new NavigationControl());
+  }
+
+  onMapClick({ lngLat }) {
+    this.addMarker(lngLat);
+
+    this.PlaceRegisterService.inverseGeocode(lngLat).then(
+      (address) => {
+          this.address = address;
+          this.formattedAddress =
+            `${address.street} - ${address.neighborhood} ${address.city} - ${address.state}.`;
+        }
+    );
+  }
+
+  addMarker(lngLat) {
+    if (this.marker) {
+      this.marker.remove();
+    }
+
+    this.marker = new Marker(this.markerElement)
+      .setLngLat(lngLat)
+      .addTo(this.map);
   }
 
   getUserLocation() {

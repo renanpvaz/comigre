@@ -1,6 +1,28 @@
-<div id='map' style='width: 100%; height: 600px;'></div>
-<section class="flex flex-column">
-  <h1>Selecione um local</h1>
-  <span>{{ $ctrl.selected.lat }}</span>
-  <span>{{ $ctrl.selected.lng }}</span>
+<section class="navbar-offset full-height flex flex-column">
+
+  <div id='map' style='width: 100%; height: 500px'></div>
+  <div class="flex justify-center">
+
+    <article class="left-align flex flex-column">
+
+      <div class="flex items-center">
+        <span class="h1 mr1 bold fucsia">1. </span>
+        <h1 class="mt2 mb2">Cadastre um local</h1>
+      </div>
+
+
+
+      <p class="mt1">Para começar, selecione um local no mapa.</p>
+
+      <div ng-if="$ctrl.address" class="flex items-center justify-between">
+        <span  class="address bold">
+          {{ $ctrl.formattedAddress }}
+        </span>
+
+        <p class="fucsia">Continuar</p>
+      </div>
+
+    </article>
+  </div>
+
 </section>

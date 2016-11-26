@@ -6,12 +6,9 @@ import './app.less';
 import template from './app.html';
 
 import navbar from '../navbar/index';
-import places from '../places/index';
 import auth from '../auth/index';
-import eventsRegister from '../events-register/index';
 import placeTypeSelect from '../place-type-select/index';
 import placeRegister from '../place-register/index';
-import guides from '../guides/index';
 
 class AppCtrl {
   constructor() { }
@@ -21,13 +18,10 @@ export default angular
   .module('app', [
     angularMeteor,
     uiRouter,
-    places,
     navbar,
     auth,
-    eventsRegister,
     placeRegister,
     placeTypeSelect,
-    guides
   ])
   .component('app', {
     template,
@@ -41,7 +35,6 @@ export default angular
 
     $stateProvider
       .state('app', {
-        redirectTo: 'places',
         url: '/app',
         component: 'app'
       });
