@@ -9,7 +9,7 @@ class PlaceRegisterCtrl {
   }
 
   $onInit() {
-    this.markerElement = document.createElement('div');
+    this.markerElement = this.$window.document.createElement('div');
     this.markerElement.innerHTML = `
       <div class="dot"></div>
       <div class="pulse"></div>`;
