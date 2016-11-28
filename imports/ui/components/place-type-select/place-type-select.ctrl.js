@@ -4,7 +4,7 @@ class PlaceTypeSelectCtrl {
   }
 
   $onInit() {
-    this.localType = '';
+
   }
 }
 

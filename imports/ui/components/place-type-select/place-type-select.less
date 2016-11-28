@@ -1,17 +1,31 @@
 place-type-select {
+  .breadcrumbs {
+    color: #777;
+
+    span {
+      color: #DF1562;
+    }
+  }
+
   section {
     background-color: white;
     border-radius: 0.3em;
-    width: 75%;
-    float: right;
+    width: 100%;
     box-sizing: border-box;
-    padding: 1em;
-    min-height: 90%;
+    padding: 4em;
+    padding-right: 10em;
+    padding-left: 10em;
+    padding-bottom: 1em;
   }
 
   h1 {
     color: #DF1562;
     font-size: 2.5em;
+  }
+
+  span {
+    color: #777;
+    font-size: 1.15em;
   }
 
   .button {
@@ -84,5 +98,4 @@ place-type-select {
   input[type=radio]:checked ~ label  {
     color: #58AD9D;
   }
-
 }

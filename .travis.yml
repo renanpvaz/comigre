@@ -11,12 +11,8 @@ before_install:
 notifications:
   slack: comigr:FfUuSkF1HIj50eRH3DjEjJmI
 
-cache:
-  directories:
-  - node_modules
-
 before_script:
-- npm install
+- meteor npm install
 
 script:
 - meteor add dispatch:mocha-phantomjs
