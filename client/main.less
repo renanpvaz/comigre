@@ -11,9 +11,7 @@ body {
   font-family: 'Lato';
 }
 
-.navbar-offset {
-  margin-top: 4%;
-}
+
 
 a,
 a:hover {
@@ -24,16 +22,34 @@ a:hover {
   color: #DF1562;
 }
 
-.button {
-  margin-top: 15px;
-  font-size: 10px;
-  letter-spacing: .4px;
-  font-weight: 600;
-  background: #DF1562;
+.light-gray {
+  color: #eee!important;
 }
 
-.button:hover {
+.btn {
+  cursor: pointer;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  border-radius: .25rem;
+  text-align: center;
+}
+
+.btn-white {
+  background-color: white;
+  color: @comigre-fucsia;
+}
+
+.btn-fucsia {
+  background-color: @comigre-fucsia;
   color: white;
+}
+
+.cadastro-container {
+  background: white;
+  width: 65%;
+  padding: 3%;
+  position: absolute;
+  right: 3%;
 }
 
 [ui-sref],

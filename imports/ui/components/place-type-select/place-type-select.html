@@ -1,12 +1,45 @@
-<section class="full-height flex justify-center">
-  <div class="flex flex-column">
+<section class="full-height flex flex-auto justify-center">
+  <div class="flex flex-column mt4">
     <h1>O que há aqui?</h1>
-    <form>
-      <input type="radio" name="gender" checked>Vaga de emprego<br>
-      <input type="radio" name="gender">Curso profissionalizante<br>
-      <input type="radio" name="gender">Aula de português<br>
-      <input type="radio" name="gender">Evento<br>
-      <input type="radio" name="gender">Instituição<br>
-    </form>
+
+    <ul class="m0 p0 h3">
+      <li class="border-bottom">
+        <input ng-model="$ctrl.localType" type="radio" value="evento" id="event-option" name="selector">
+        <label for="event-option">Evento</label>
+
+        <div class="check"></div>
+      </li>
+
+      <li class="border-bottom">
+        <input ng-model="$ctrl.localType" type="radio" value="vagaEmprego" id="job-option" name="selector">
+        <label for="job-option">Vaga de emprego</label>
+
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li class="border-bottom">
+        <input ng-model="$ctrl.localType" type="radio" value="cursoProfissionalizante" id="technical-course-option" name="selector">
+        <label for="technical-course-option">Curso profissionalizante</label>
+
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li class="border-bottom">
+        <input ng-model="$ctrl.localType" type="radio" value="aulaPortugues" id="portuguese-class-option" name="selector">
+        <label for="portuguese-class-option">Aula de português</label>
+
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+      <li>
+        <input ng-model="$ctrl.localType" type="radio" value="moradia" id="habitation-option" name="selector">
+        <label for="habitation-option">Moradia</label>
+
+        <div class="check"><div class="inside"></div></div>
+      </li>
+
+    </ul>
+    <p class="btn btn-white right">Próximo</p>
+
   </div>
 </section>
