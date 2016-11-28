@@ -31,7 +31,7 @@ export default angular
     'ngInject';
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/locais');
+    $urlRouterProvider.otherwise('/cadastro');
 
     $stateProvider
       .state('app', {

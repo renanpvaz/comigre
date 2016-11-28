@@ -16,6 +16,11 @@ navbar {
     color: @comigre-purple;
   }
 
+  .btn {
+    margin-top: 20px;
+    font-size: 0.7rem;
+  }
+
   .absolute {
     right: 20px;
   }
@@ -27,19 +32,24 @@ navbar {
   .name-dropdown:before {
     content: "";
     position: absolute;
-    top: 27px;
+    top: 29px;
     right: 30px;
     border: 3px solid transparent;
     border-top: 3px solid @navbar-text;
     margin: 9px 0 0;
   }
 
+  .dropdown-profile {
+    background-color: #fff;
+    margin-top: 9.3%;
+  }
+
   .info {
     padding-bottom: 8px;
-    color: @navbar-text;
 
     .name {
-      margin-top: -5px;
-    }    
+      margin-top: 5px;
+      color: @navbar-text;
+    }
   }
 }
