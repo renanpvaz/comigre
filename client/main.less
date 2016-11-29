@@ -44,6 +44,12 @@ a:hover {
 .btn-fucsia-primary {
   background-color: @comigre-fucsia;
   color: white;
+  border: 1px solid #D8135F;
+}
+
+.btn-fucsia-primary:hover {
+  background-color: #D8135F;
+  border: 1px solid @comigre-fucsia;
 }
 
 .btn-fucsia-secondary {
@@ -52,15 +58,29 @@ a:hover {
   color: @comigre-fucsia;
 }
 
+.btn-fucsia-secondary:hover {
+  .btn-fucsia-primary;
+}
+
 .btn-teal-primary {
   background-color: @comigre-teal;
+  border: 1px solid #54A596;
   color: white;
+}
+
+.btn-teal-primary:hover {
+  background: #54A596;
+  border: 1px solid @comigre-teal;
 }
 
 .btn-teal-secondary {
   background-color: white;
   border: 1px solid @comigre-teal;
   color: @comigre-teal;
+}
+
+.btn-teal-secondary:hover {
+  .btn-teal-primary;
 }
 
 .btn-
