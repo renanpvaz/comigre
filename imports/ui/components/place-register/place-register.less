@@ -1,32 +1,37 @@
 place-register {
-  article {
-    width: 50%;
+  footer {
+    min-height: 12vw;
+  }
+
+  section {
+    background-color: white;
   }
 
   .address {
-    white-space: pre;
     font-size: 1.2vw;
-  }
-
-  p {
-    font-size: 1.5vw;
+    color: @text-gray;
   }
 
   h1 {
     font-size: 2.5vw;
   }
 
+  .mapboxgl-marker {
+    top: -7px;
+    left: -7px;
+  }
+
 	.pulse {
 		width: 10px;
 		height: 10px;
 		border: 5px solid #f19abb;
-
 		-webkit-border-radius: 30px;
 		-moz-border-radius: 30px;
 		border-radius: 30px;
 		background-color: #df1562;
 		z-index: 10;
 		position: absolute;
+    margin-bottom: 8px;
 	}
 
 	.dot {
@@ -50,7 +55,7 @@ place-register {
 		animation-iteration-count: infinite;
 	}
 
-  @-moz-keyframes pulse {
+  @-moz-keyframes "pulse" {
 	 0% {-moz-transform: scale(0);opacity: 0.0;}
 	 25% {-moz-transform: scale(0);opacity: 0.1;}
 	 50% {-moz-transform: scale(0.1);opacity: 0.3;}
@@ -66,3 +71,5 @@ place-register {
 	 100% {-webkit-transform: scale(1);opacity: 0.0;}
 	}
 }
+
+@import "../../config/variables.less";

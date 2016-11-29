@@ -42,20 +42,20 @@ a:hover {
 }
 
 .btn-fucsia-primary {
-  background-color: @comigre-fucsia;
-  border: 1px solid @comigre-fucsia-dark;
+  background-color: @fucsia;
+  border: 1px solid @fucsia-dark;
   color: white;
 }
 
 .btn-fucsia-primary:hover {
-  background-color: @comigre-fucsia-dark;
-  border: 1px solid @comigre-fucsia;
+  background-color: @fucsia-dark;
+  border: 1px solid @fucsia;
 }
 
 .btn-fucsia-secondary {
   background-color: white;
-  border: 1px solid @comigre-fucsia;
-  color: @comigre-fucsia;
+  border: 1px solid @fucsia;
+  color: @fucsia;
 }
 
 .btn-fucsia-secondary:hover {
@@ -63,28 +63,34 @@ a:hover {
 }
 
 .btn-teal-primary {
-  background-color: @comigre-teal;
-  border: 1px solid @comigre-teal-dark;
+  background-color: @teal;
+  border: 1px solid @teal-dark;
   color: white;
 }
 
 .btn-teal-primary:hover {
-  background: @comigre-teal-dark;
-  border: 1px solid @comigre-teal;
+  background: @teal-dark;
+  border: 1px solid @teal;
 }
 
 .btn-teal-secondary {
   background-color: white;
-  border: 1px solid @comigre-teal;
-  color: @comigre-teal;
+  border: 1px solid @teal;
+  color: @teal;
 }
 
 .btn-teal-secondary:hover {
   .btn-teal-primary;
 }
 
-.btn-
-[ui-sref],
+.btn[disabled],
+.btn[disabled]:hover {
+  cursor: auto;
+  background-color: #777;
+  border-color: #777;
+}
+
+.btn-[ui-sref],
 [ng-click] {
   cursor: pointer;
 }

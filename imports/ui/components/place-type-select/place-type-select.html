@@ -1,6 +1,6 @@
 
 <h2 class="breadcrumbs mt0">
-  Mapa > <span class="h2">Tipo</span>
+  Seleção de local > <span class="h2">Seleção de tipo</span>
 </h2>
 <section class="flex flex-column content-between">
 
@@ -13,34 +13,33 @@
       </div>
     </div>
 
-
     <ul class="m0 pl4 h3">
       <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="evento" id="event-option" name="selector">
+        <input ng-model="$ctrl.placeType" type="radio" value="0" id="event-option" name="type">
         <label for="event-option">Evento</label>
         <div class="check"></div>
       </li>
 
       <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="vagaEmprego" id="job-option" name="selector">
+        <input ng-model="$ctrl.placeType" type="radio" value="1" id="job-option" name="type">
         <label for="job-option">Vaga de emprego</label>
         <div class="check"><div class="inside"></div></div>
       </li>
 
       <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="cursoProfissionalizante" id="technical-course-option" name="selector">
+        <input ng-model="$ctrl.placeType" type="radio" value="2" id="technical-course-option" name="type">
         <label for="technical-course-option">Curso profissionalizante</label>
         <div class="check"><div class="inside"></div></div>
       </li>
 
       <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="aulaPortugues" id="portuguese-class-option" name="selector">
+        <input ng-model="$ctrl.placeType" type="radio" value="3" id="portuguese-class-option" name="type">
         <label for="portuguese-class-option">Aula de português</label>
         <div class="check"><div class="inside"></div></div>
       </li>
 
       <li>
-        <input ng-model="$ctrl.placeType" type="radio" value="moradia" id="habitation-option" name="selector">
+        <input ng-model="$ctrl.placeType" type="radio" value="4" id="habitation-option" name="type">
         <label for="habitation-option">Moradia</label>
         <div class="check"><div class="inside"></div></div>
       </li>
@@ -48,9 +47,11 @@
 
   </div>
 
-  <div class="flex flex-auto justify-between items-end mt3">
-    <p class="btn btn-teal-secondary">Voltar</p>
-    <p class="btn btn-teal-primary">Próximo</p>
+  <div class="flex flex-auto justify-between items-end mt4">
+    <button class="btn btn-teal-secondary">Voltar</button>
+    <button ng-disabled="$ctrl.placeType === undefined" class="btn btn-teal-primary">
+      Próximo
+    </button>
   </div>
 
 </section>
