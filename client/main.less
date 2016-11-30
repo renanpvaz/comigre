@@ -14,12 +14,26 @@ main {
 body {
   margin: 0;
   background-color: #fff;
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1em;
 }
 
 a,
 a:hover {
   text-decoration: none !important;
+}
+
+li {
+  list-style-type: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 .fucsia {
@@ -92,10 +106,6 @@ a:hover {
   cursor: pointer;
 }
 
-li {
-  list-style-type: none;
-}
-
 .register-card {
   background-color: white;
   border-radius: 0.3em;
@@ -107,28 +117,58 @@ li {
   display: block;
   width: 100%;
 
+  .form-title {
+    margin-top: 1rem;
+    margin-left: -1em;
+    color: @fucsia;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    .border-bottom {
+      margin-left: .5rem;
+      border-color: #d9d9d9;
+    }
+  }
+
   .form-group {
     margin-bottom: 1rem;
-  }
 
-  label {
-    display: inline-block;
-    margin-bottom: .5rem;
-    font-size: 1.02em;
-    font-weight: bold;
-    color: @text-gray;
-  }
+     label {
+      display: block;
+      margin-bottom: .5rem;
+      font-size: 1.02em;
+      font-weight: bold;
+      color: @text-gray;
+    }
 
-  .form-control {
-    display: block;
-    width: 100%;
-    padding: .5rem .75rem;
-    line-height: 1.25;
-    color: #55595c;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .20rem;
+     input,
+     textarea {
+      display: block;
+      margin-top: 1em;
+      width: 100%;
+      padding: .5rem .75rem;
+      line-height: 1.25;
+      color: #55595c;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: .12rem;
+
+      &:focus {
+        box-shadow: 0 0 0 .1em @teal;
+      }
+
+      &.ng-invalid:not(.ng-pristine) {
+        box-shadow: 0 0 0 0.1em #e87d7d;
+      }
+    }
   }
 }
 
