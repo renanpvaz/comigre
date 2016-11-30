@@ -6,18 +6,15 @@ body,
 
 main {
   height: auto;
+  background: #ECECEC;
+  box-sizing: border-box;
+  padding: 2em 3.3em;
 }
 
 body {
   margin: 0;
   background-color: #fff;
   font-family: 'Lato';
-}
-
-main {
-  background: #ECECEC;
-  box-sizing: border-box;
-  padding: 2em 3.3em;
 }
 
 a,
@@ -97,6 +94,42 @@ a:hover {
 
 li {
   list-style-type: none;
+}
+
+.register-card {
+  background-color: white;
+  border-radius: 0.3em;
+  margin: 0 4em;
+  padding: 3em 10em;
+}
+
+.register-form {
+  display: block;
+  width: 100%;
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 1.02em;
+    font-weight: bold;
+    color: @text-gray;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .20rem;
+  }
 }
 
 @import "../imports/ui/config/variables.less";

@@ -1,0 +1,75 @@
+<h2 class="breadcrumbs mt0 mx4">
+  Seleção de local > Seleção de tipo > <span class="h2">Informações</span>
+</h2>
+<section class="register-card flex flex-column content-between">
+
+  <div class="flex justify-center px4 mr1">
+
+      <form class="register-form">
+        <div class="form-group">
+          <label for="event-title">Nome do evento</label>
+          <input type="text" class="form-control" id="event-title" placeholder="Nome do evento" required>
+        </div>
+
+        <div class="form-group">
+          <label for="event-date">Data do evento</label>
+          <input type="date" class="form-control" id="event-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="event-date">Hora do evento</label>
+          <input type="time" class="form-control" id="event-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="event-descrition">Descrição do evento</label>
+          <textarea type="text" class="form-control" id="event-descrition" rows="10" placeholder="Descrição do evento" required>
+        </div>
+
+        <div class="form-group">
+          <label for="event-image">Foto do evento</label><br>
+          <input type="file" name="file" id="event-image" class="" />
+        </div>
+      </form>
+
+      <!-- Vaga de emprego>
+      <form>
+        <div class="form-group">
+          <label for="job-title">Título da vaga</label>
+          <input type="text" class="form-control" id="job-title" placeholder="Título da vaga">
+        </div>
+
+        <div class="form-group">
+          <label for="job-salary">Salário</label>
+          <input type="number" class="form-control" id="job-salary" placeholder="R$ 880,00">
+        </div>
+
+        <div class="form-group">
+          <label for="job-descrition">Descrição da vaga</label>
+          <textarea type="text" class="form-control" id="job-descrition" rows="10" placeholder="Descrição da vaga">
+        </div>
+      </form-->
+
+      <!-- Curso profissionalizante>
+      <form>
+        <div class="form-group">
+          <label for="course-title">Nome do curso</label>
+          <input type="text" class="form-control" id="course-title" placeholder="Nome do curso">
+        </div>
+
+        <div class="form-group">
+          <label for="course-descrition">Descrição do curso</label>
+          <textarea type="text" class="form-control" id="course-descrition" rows="10" placeholder="Descrição do curso">
+        </div>
+      </form-->
+
+  </div>
+
+  <div class="flex flex-auto justify-between items-end mt4">
+    <button class="btn btn-teal-secondary">Voltar</button>
+    <button ng-disabled="$ctrl.placeInfo === undefined" class="btn btn-teal-primary">
+      Próximo
+    </button>
+  </div>
+
+</section>

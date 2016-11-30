@@ -9,6 +9,7 @@ import navbar from '../navbar/index';
 import auth from '../auth/index';
 import placeTypeSelect from '../place-type-select/index';
 import placeRegister from '../place-register/index';
+import eventForm from '../event-form/index';
 
 class AppCtrl {
   constructor() { }
@@ -22,6 +23,7 @@ export default angular
     auth,
     placeRegister,
     placeTypeSelect,
+    eventForm
   ])
   .component('app', {
     template,
