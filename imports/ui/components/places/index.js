@@ -7,10 +7,10 @@ import uiRouter from 'angular-ui-router';
 import PlacesComponent from './places.component';
 import PlacesService from './places.service';
 
-import placesFilter from './places-filter/index';
-import placesMap from './places-map/index';
-import placesDetail from './places-detail/index';
-import placesRegister from './places-register/index';
+import placesFilter from './places-filter';
+import placesMap from './places-map';
+import placesDetail from './places-detail';
+import placesRegister from './places-register';
 
 const places = angular
   .module('places', [

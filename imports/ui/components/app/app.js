@@ -5,11 +5,11 @@ import uiRouter from 'angular-ui-router';
 import './app.less';
 import template from './app.html';
 
-import navbar from '../navbar/index';
-import auth from '../auth/index';
-import placeTypeSelect from '../place-type-select/index';
-import placeRegister from '../place-register/index';
-import eventForm from '../event-form/index';
+import navbar from '../navbar';
+import auth from '../auth';
+import placeTypeSelect from '../place-type-select';
+import placeRegister from '../place-register';
+import eventForm from '../event-form';
 
 class AppCtrl {
   constructor() { }
