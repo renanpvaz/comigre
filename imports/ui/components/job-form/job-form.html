@@ -58,11 +58,19 @@
 
       <div class="form-group">
         <label>Tipo de contrato
-          <div class="cookies" ng-model="$ctrl.job.contractType">
-            <button>Efetivo</button>
-            <button>Estágio</button>
-            <button>Temporário</button>
-            <button>Outro</button>
+          <div class="mt2" ng-model="$ctrl.job.contractType">
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(0)"
+              ng-click="$ctrl.setContractType(0)">Efetivo</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(1)"
+              ng-click="$ctrl.setContractType(1)">Estágio</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(2)"
+              ng-click="$ctrl.setContractType(2)">Temporário</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(3)"
+              ng-click="$ctrl.setContractType(3)">Outro</div>
           </div>
         </label>
       </div>
