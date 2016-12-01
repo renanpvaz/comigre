@@ -10,6 +10,7 @@ import auth from '../auth';
 import placeTypeSelect from '../place-type-select';
 import placeRegister from '../place-register';
 import eventForm from '../event-form';
+import jobForm from '../job-form';
 
 class AppCtrl {
   constructor() { }
@@ -23,7 +24,8 @@ export default angular
     auth,
     placeRegister,
     placeTypeSelect,
-    eventForm
+    eventForm,
+    jobForm
   ])
   .component('app', {
     template,
