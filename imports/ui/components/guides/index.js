@@ -4,8 +4,8 @@ import uiRouter from 'angular-ui-router';
 import guidesComponent from './guides.component';
 import './guides.less';
 
-import guidesList from './guides-list/index';
-import guidesDetail from './guides-detail/index';
+import guidesList from './guides-list';
+import guidesDetail from './guides-detail';
 
 const guides = angular
   .module('guides', [

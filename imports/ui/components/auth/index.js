@@ -4,8 +4,8 @@ import uiRouter from 'angular-ui-router';
 import authComponent from './auth.component';
 import './auth.less';
 
-import login from './login/index';
-import register from './register/index';
+import login from './login';
+import register from './register';
 
 const auth = angular
   .module('auth', [

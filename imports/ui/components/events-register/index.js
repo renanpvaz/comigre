@@ -5,7 +5,7 @@ import uiMask from 'angular-ui-mask';
 
 import eventsRegisterComponent from './events-register.component';
 
-import placesRegister from '../places/places-register/index';
+import placesRegister from '../places/places-register';
 
 const eventsRegister = angular
   .module('eventsRegister', [
