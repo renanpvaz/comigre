@@ -1,40 +1,24 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-
-import cep from 'cep-promise';
-
-const baseUrl = 'https://maps.googleapis.com/maps/api/place/';
-const key = Meteor.settings.public.googlePlacesAPIKey;
+import { Places } from './collection';
 
 Meteor.methods({
-  getPlacesFromGoogle(center, types) {
-    const url = `${baseUrl}nearbysearch/json`;
-    const response = HTTP.call('GET', url, {
-      params: {
-        key,
-        location: `${center.lat},${center.lng}`,
-        types: types.join('|'),
-        rankby: 'distance'
-      }
-    });
+  'places.insert'(place) {
+    const newPlace = Object.assign({
+      type: 'Point',
+      coordinates: [place.lng, place.lat],
+      createdAt: new Date()
+    }, place);
 
-    return response.data.results;
+    Places.insert(newPlace);
   },
 
-  getPlaceDetail(placeid) {
-    const url = `${baseUrl}details/json`;
-    const response = HTTP.call('GET', url, {
-      params: {
-        key,
-        placeid
-      }
-    });
+  'places.update'(place) {
 
-    return response.data.result;
   },
 
-  getAddress(input = 0) {
-    return cep(input);
+  'places.remove'(id) {
+
   }
 });
