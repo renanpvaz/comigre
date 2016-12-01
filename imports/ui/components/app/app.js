@@ -11,6 +11,7 @@ import placeTypeSelect from '../place-type-select';
 import placeRegister from '../place-register';
 import eventForm from '../event-form';
 import jobForm from '../job-form';
+import placeRegisterConfirm from '../place-register-confirm';
 
 class AppCtrl {
   constructor() { }
@@ -25,7 +26,8 @@ export default angular
     placeRegister,
     placeTypeSelect,
     eventForm,
-    jobForm
+    jobForm,
+    placeRegisterConfirm
   ])
   .component('app', {
     template,
