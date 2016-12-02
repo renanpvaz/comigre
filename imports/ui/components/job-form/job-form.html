@@ -31,6 +31,25 @@
         </label>
       </div>
 
+      <div class="form-group">
+        <label>Tipo de contrato
+          <div class="mt2" ng-model="$ctrl.job.contractType">
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(0)"
+              ng-click="$ctrl.setContractType(0)">Efetivo</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(1)"
+              ng-click="$ctrl.setContractType(1)">Estágio</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(2)"
+              ng-click="$ctrl.setContractType(2)">Temporário</div>
+            <div class="cookie"
+              ng-class="$ctrl.isContractTypeSelected(3)"
+              ng-click="$ctrl.setContractType(3)">Outro</div>
+          </div>
+        </label>
+      </div>
+
       <div class="form-title">
         <h2>Detalhes</h2>
         <div class="flex-auto border-bottom"></div>
@@ -53,25 +72,6 @@
       <div class="form-group">
         <label>Qual o tipo de jornada de trabalho?
           <input type="text" ng-model="$ctrl.job.salary" placeholder="Ex.: Jornada Integral" required>
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Tipo de contrato
-          <div class="mt2" ng-model="$ctrl.job.contractType">
-            <div class="cookie"
-              ng-class="$ctrl.isContractTypeSelected(0)"
-              ng-click="$ctrl.setContractType(0)">Efetivo</div>
-            <div class="cookie"
-              ng-class="$ctrl.isContractTypeSelected(1)"
-              ng-click="$ctrl.setContractType(1)">Estágio</div>
-            <div class="cookie"
-              ng-class="$ctrl.isContractTypeSelected(2)"
-              ng-click="$ctrl.setContractType(2)">Temporário</div>
-            <div class="cookie"
-              ng-class="$ctrl.isContractTypeSelected(3)"
-              ng-click="$ctrl.setContractType(3)">Outro</div>
-          </div>
         </label>
       </div>
 

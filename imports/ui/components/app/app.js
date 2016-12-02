@@ -15,6 +15,7 @@ import vocationalCourseForm from '../vocational-course-form';
 import portugueseClassForm from '../portuguese-class-form';
 import placeRegisterConfirm from '../place-register-confirm';
 import residenceForm from '../residence-form';
+import placesList from '../places-list';
 
 class AppCtrl {
   constructor() { }
@@ -33,7 +34,8 @@ export default angular
     vocationalCourseForm,
     portugueseClassForm,
     placeRegisterConfirm,
-    residenceForm
+    residenceForm,
+    placesList
   ])
   .component('app', {
     template,
