@@ -13,6 +13,7 @@ import eventForm from '../event-form';
 import jobForm from '../job-form';
 import vocationalCourseForm from '../vocational-course-form';
 import portugueseClassForm from '../portuguese-class-form';
+import placeRegisterConfirm from '../place-register-confirm';
 
 class AppCtrl {
   constructor() { }
@@ -29,7 +30,8 @@ export default angular
     eventForm,
     jobForm,
     vocationalCourseForm,
-    portugueseClassForm
+    portugueseClassForm,
+    placeRegisterConfirm
   ])
   .component('app', {
     template,
