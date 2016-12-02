@@ -116,6 +116,7 @@ li {
 .register-form {
   display: block;
   width: 100%;
+  margin-top: -1em;
 
   .form-title {
     margin-top: 1em;
@@ -132,7 +133,8 @@ li {
     display: flex;
 
     .border-bottom {
-      margin-left: .5em;
+      margin-left: 1em;
+      margin-top: .5em;
       border-color: #d9d9d9;
     }
   }
@@ -152,7 +154,8 @@ li {
      textarea {
       display: block;
       margin-top: 1em;
-      width: 100%;
+      width: 93%;
+      min-height: 1.5em;
       padding: .5em .75em;
       line-height: 1.25;
       color: #55595c;
@@ -178,10 +181,11 @@ li {
       color: #55595c;
       display: inline-block;
       border: none;
-      font-size: .8em;
+      font-size: 0.9em;
+      font-weight: normal;
 
       &.selected-cookie {
-        background-color: #55595c;
+        background-color: #777;
         color: #fff;
       }
     }
