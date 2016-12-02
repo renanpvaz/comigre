@@ -27,7 +27,7 @@ class ResidenceFormCtrl {
     return this.residence.amenities === type ? 'selected-cookie' : '';
   }
 
-  setResidenceAmenitiesType(type) {
+  setResidenceAmenities(type) {
     this.residence.amenities = type;
   }
 }

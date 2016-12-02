@@ -13,15 +13,15 @@
       </div>
 
       <div class="form-group">
-        <label>Nome do evento
-          <input type="text" name="name" ng-model="$ctrl.event.name" required>
+        <label>Dê um nome ao seu evento
+          <input type="text" name="name" ng-model="$ctrl.event.name" placeholder="Título do evento" required>
         </label>
       </div>
 
       <div class="form-group">
         <label>
-          Descrição do evento
-          <textarea type="text" rows="10" ng-model="$ctrl.event.description" required>
+          Descreva o evento que você está anunciando
+          <textarea type="text" rows="10" ng-model="$ctrl.event.description" placeholder="Descrição do evento" required>
         </label>
       </div>
 
@@ -31,13 +31,13 @@
       </div>
 
       <div class="form-group">
-        <label>Data
+        <label>Quando seu evento irá acontecer?
           <input type="date" name="date" ng-model="$ctrl.event.date" required>
         </label>
       </div>
 
       <div class="form-group">
-        <label>Horário de início
+        <label>Qual o horário de início do evento?
           <input type="time" ng-model="$ctrl.event.time" required>
         </label>
       </div>

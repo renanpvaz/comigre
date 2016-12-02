@@ -26,6 +26,17 @@
       </div>
 
       <div class="form-group">
+        <label>Preço mensal
+          <input type="number" ng-model="$ctrl.residence.price" placeholder="300.00" required>
+        </label>
+      </div>
+
+      <div class="form-title">
+        <h2>Detalhes</h2>
+        <div class="flex-auto border-bottom"></div>
+      </div>
+
+      <div class="form-group">
         <label>Que tipo de propriedade você está anunciando?
           <div class="mt2" ng-model="$ctrl.residence.residenceType">
             <div class="cookie"
@@ -52,17 +63,6 @@
               ng-click="$ctrl.setBedroomType(1)">Quarto compartilhado</div>
           </div>
         </label>
-      </div>
-
-      <div class="form-group">
-        <label>Preço mensal
-          <input type="number" ng-model="$ctrl.residence.price" required>
-        </label>
-      </div>
-
-      <div class="form-title">
-        <h2>Detalhes</h2>
-        <div class="flex-auto border-bottom"></div>
       </div>
 
       <div class="form-group">
