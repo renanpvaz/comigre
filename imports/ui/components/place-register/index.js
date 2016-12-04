@@ -1,23 +1,21 @@
-import { Meteor } from 'meteor/meteor';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 import placeRegisterComponent from './place-register.component';
-import PlaceRegisterService from './place-register.service';
 import './place-register.less';
 
+import placePositionSelect from '../place-position-select';
+
 const placeRegister = angular
-  .module('placeRegister', [])
+  .module('placeRegister', [
+    placePositionSelect
+  ])
   .component('placeRegister', placeRegisterComponent)
-  .service('PlaceRegisterService', PlaceRegisterService)
   .config($stateProvider => {
     'ngInject';
 
-    mapboxgl.accessToken = Meteor.settings.public.mapboxAccessToken;
-
     $stateProvider
-      .state('placeregister', {
+      .state('place-register', {
         url: '^/cadastro',
         parent: 'app',
         component: 'placeRegister'

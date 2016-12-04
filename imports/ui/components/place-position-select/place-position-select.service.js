@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-class PlaceRegisterService {
+class PlacePositionSelectService {
   constructor($http) {
     'ngInject';
 
@@ -67,4 +67,4 @@ class PlaceRegisterService {
   }
 }
 
-export default PlaceRegisterService;
+export default PlacePositionSelectService;

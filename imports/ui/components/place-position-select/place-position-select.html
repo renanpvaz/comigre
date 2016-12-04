@@ -1,0 +1,16 @@
+<div id='map' style='width: 100%; height: 500px'></div>
+
+<footer class="flex flex-column justify-center">
+  <div class="flex flex-column items-center">
+    <h1 class="mt2 mb2 fucsia">Clique no mapa para selecionar o local</h1>
+    <span ng-if="$ctrl.address" class="address bold">
+      {{ $ctrl.formattedAddress }}
+    </span>
+  </div>
+
+  <div class="flex justify-end my3 mx4">
+    <button ng-disabled="!$ctrl.address" ng-click="$ctrl.confirm()" class="btn btn-teal-primary">
+      Próximo
+    </button>
+  </div>
+</footer>

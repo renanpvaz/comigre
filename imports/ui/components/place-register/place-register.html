@@ -1,23 +1,6 @@
 <h2 class="breadcrumbs mt0">
-  <span class="h2 fucsia">Seleção de local</span>
+  <span class="h2 fucsia" ng-repeat="crumb in $ctrl.breadcrumbs">{{ crumb }}</span>
 </h2>
-
 <section class="flex flex-column content-between">
-
-  <div id='map' style='width: 100%; height: 500px'></div>
-
-  <footer class="flex flex-column justify-center">
-    <div class="flex flex-column items-center">
-      <h1 class="mt2 mb2 fucsia">Clique no mapa para selecionar o local</h1>
-      <span ng-if="$ctrl.address" class="address bold">
-        {{ $ctrl.formattedAddress }}
-      </span>
-    </div>
-
-    <div class="flex justify-end my3 mx4">
-      <button ng-disabled="!$ctrl.address" class="btn btn-teal-primary">
-        Próximo
-      </button>
-    </div>
-  </footer>
+  <place-position-select on-confirm="$ctrl.handleStepConfirm($event)" />
 </section>
