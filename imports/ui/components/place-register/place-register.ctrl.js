@@ -9,12 +9,18 @@ class PlaceRegisterCtrl {
 
   $onInit() {
     this.place = {};
+    this.step = 1;
     this.breadcrumbs = [];
   }
 
-  handleStepConfirm($event) {
+  handleConfirmStep($event) {
+    this.step++;
     Object.assign(this.place, $event);
-    console.log(this.place);
+  }
+
+  handleBackStep($event) {
+    this.step--;
+    Object.assign(this.place, $event);
   }
 }
 

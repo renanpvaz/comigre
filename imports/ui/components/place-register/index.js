@@ -5,10 +5,12 @@ import placeRegisterComponent from './place-register.component';
 import './place-register.less';
 
 import placePositionSelect from '../place-position-select';
+import placeTypeSelect from '../place-type-select';
 
 const placeRegister = angular
   .module('placeRegister', [
-    placePositionSelect
+    placePositionSelect,
+    placeTypeSelect
   ])
   .component('placeRegister', placeRegisterComponent)
   .config($stateProvider => {

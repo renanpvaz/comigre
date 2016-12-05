@@ -1,56 +1,52 @@
-<h2 class="breadcrumbs mt0 mx4">
-  Seleção de local > <span class="h2">Seleção de tipo</span>
-</h2>
-<section class="register-card flex flex-column content-between">
+<div class="flex justify-center">
 
-  <div class="flex justify-center">
-
-    <div class="flex items-center pr4">
-      <div class="flex flex-column items-center">
-        <span>R. Eurico Gaspar Dutra</span>
-        <h1 class="mt1">O que há aqui?</h1>
-      </div>
+  <div class="flex items-center pr4">
+    <div class="flex flex-column items-center">
+      <span>R. Eurico Gaspar Dutra</span>
+      <h1 class="mt1">O que há aqui?</h1>
     </div>
-
-    <ul class="m0 pl4 h3">
-      <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="0" id="event-option" name="type">
-        <label for="event-option">Evento</label>
-        <div class="check"></div>
-      </li>
-
-      <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="1" id="job-option" name="type">
-        <label for="job-option">Vaga de emprego</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="2" id="technical-course-option" name="type">
-        <label for="technical-course-option">Curso profissionalizante</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li class="border-bottom">
-        <input ng-model="$ctrl.placeType" type="radio" value="3" id="portuguese-class-option" name="type">
-        <label for="portuguese-class-option">Aula de português</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-
-      <li>
-        <input ng-model="$ctrl.placeType" type="radio" value="4" id="habitation-option" name="type">
-        <label for="habitation-option">Moradia</label>
-        <div class="check"><div class="inside"></div></div>
-      </li>
-    </ul>
-
   </div>
 
-  <div class="flex flex-auto justify-between items-end mt4">
-    <button class="btn btn-teal-secondary">Voltar</button>
-    <button ng-disabled="$ctrl.placeType === undefined" class="btn btn-teal-primary">
-      Próximo
-    </button>
-  </div>
+  <ul class="m0 pl4 h3">
+    <li class="border-bottom">
+      <input ng-model="$ctrl.type" type="radio" value="0" id="event-option" name="type">
+      <label for="event-option">Evento</label>
+      <div class="check"></div>
+    </li>
 
-</section>
+    <li class="border-bottom">
+      <input ng-model="$ctrl.type" type="radio" value="1" id="job-option" name="type">
+      <label for="job-option">Vaga de emprego</label>
+      <div class="check"><div class="inside"></div></div>
+    </li>
+
+    <li class="border-bottom">
+      <input ng-model="$ctrl.type" type="radio" value="2" id="technical-course-option" name="type">
+      <label for="technical-course-option">Curso profissionalizante</label>
+      <div class="check"><div class="inside"></div></div>
+    </li>
+
+    <li class="border-bottom">
+      <input ng-model="$ctrl.type" type="radio" value="3" id="portuguese-class-option" name="type">
+      <label for="portuguese-class-option">Aula de português</label>
+      <div class="check"><div class="inside"></div></div>
+    </li>
+
+    <li>
+      <input ng-model="$ctrl.type" type="radio" value="4" id="habitation-option" name="type">
+      <label for="habitation-option">Moradia</label>
+      <div class="check"><div class="inside"></div></div>
+    </li>
+  </ul>
+
+</div>
+
+<div class="flex flex-auto justify-between items-end mt4">
+  <button class="btn btn-teal-secondary" ng-click="$ctrl.goBack()">Voltar</button>
+  <button
+    ng-disabled="$ctrl.type === undefined"
+    ng-click="$ctrl.confirm()"
+    class="btn btn-teal-primary">
+    Próximo
+  </button>
+</div>

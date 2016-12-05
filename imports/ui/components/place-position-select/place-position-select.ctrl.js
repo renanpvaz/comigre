@@ -72,7 +72,7 @@ class PlacePositionSelectCtrl {
   }
 
   confirm() {
-    this.onConfirm({ 
+    this.onConfirm({
       $event: {
         address: this.address,
         coordinates: this.map.getCenter()

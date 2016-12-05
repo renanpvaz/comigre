@@ -1,6 +1,7 @@
 <h2 class="breadcrumbs mt0">
   <span class="h2 fucsia" ng-repeat="crumb in $ctrl.breadcrumbs">{{ crumb }}</span>
 </h2>
-<section class="flex flex-column content-between">
-  <place-position-select on-confirm="$ctrl.handleStepConfirm($event)" />
+<section class="flex flex-column content-between" ng-switch="$ctrl.step">
+  <place-position-select ng-switch-when="1" on-confirm="$ctrl.handleConfirmStep($event)"></place-position-select>
+  <place-type-select ng-switch-when="2" on-confirm="$ctrl.handleConfirmStep($event)" on-back="$ctrl.handleBackStep($event)"></place-type-select>
 </section>
