@@ -1,6 +1,8 @@
 class PlaceTypeSelectCtrl {
-  constructor() {
+  constructor(placeTypes) {
     'ngInject';
+
+    this.types = placeTypes;
   }
 
   $onInit() {

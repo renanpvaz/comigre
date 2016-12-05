@@ -1,7 +1,22 @@
-<h2 class="breadcrumbs mt0">
-  <span class="h2 fucsia" ng-repeat="crumb in $ctrl.breadcrumbs">{{ crumb }}</span>
-</h2>
-<section class="flex flex-column content-between" ng-switch="$ctrl.step">
-  <place-position-select ng-switch-when="1" on-confirm="$ctrl.handleConfirmStep($event)"></place-position-select>
-  <place-type-select ng-switch-when="2" on-confirm="$ctrl.handleConfirmStep($event)" on-back="$ctrl.handleBackStep($event)"></place-type-select>
+<h2 class="breadcrumbs mt0 mx4">
+   {{ $ctrl.steps.getBreadcrumbs() }}
+   <span class="h2 fucsia">{{ $ctrl.steps[$ctrl.step] }}</span>
+ </h2>
+<section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''" ng-switch="$ctrl.step">
+  <place-register-position
+    ng-switch-when="0"
+    on-confirm="$ctrl.handleConfirmStep($event)">
+  </place-register-position>
+  <place-register-type
+    ng-switch-when="1"
+    selected-street="$ctrl.place.address.street"
+    on-confirm="$ctrl.handleConfirmStep($event)"
+    on-back="$ctrl.handleBackStep($event)">
+  </place-register-type>
+  <place-register-info
+    ng-switch-when="2"
+    type="$ctrl.place.type"
+    on-confirm="$ctrl.handleConfirmStep($event)"
+    on-back="$ctrl.handleBackStep($event)">
+  </place-register-info>
 </section>

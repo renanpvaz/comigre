@@ -2,9 +2,9 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import PlacePositionSelectCtrl from './place-position-select.ctrl';
+import PlaceRegisterTypeCtrl from './place-register-type.ctrl';
 
-describe('PlacePositionSelect', () => {
+describe('PlaceTypeSelect', () => {
 
   describe('Controller', () => {
     it('test some controller method', () => {

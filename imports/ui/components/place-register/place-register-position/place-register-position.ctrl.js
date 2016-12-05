@@ -1,8 +1,8 @@
 import assign from 'angular-assign';
 import { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
 
-class PlacePositionSelectCtrl {
-  constructor($window, $scope, PlacePositionSelectService) {
+class PlaceRegisterPositionCtrl {
+  constructor($window, $scope, PlaceRegisterPositionService) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -33,7 +33,7 @@ class PlacePositionSelectCtrl {
   onMapClick({ lngLat }) {
     this.addMarker(lngLat);
 
-    this.PlacePositionSelectService.inverseGeocode(lngLat).then(
+    this.PlaceRegisterPositionService.inverseGeocode(lngLat).then(
       (address) => {
           this.address = address;
           this.formattedAddress =
@@ -81,4 +81,4 @@ class PlacePositionSelectCtrl {
   }
 }
 
-export default PlacePositionSelectCtrl;
+export default PlaceRegisterPositionCtrl;
