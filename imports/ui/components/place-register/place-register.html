@@ -1,6 +1,6 @@
 <h2 class="breadcrumbs mt0 mx4">
-   {{ $ctrl.steps.getBreadcrumbs() }}
-   <span class="h2 fucsia">{{ $ctrl.steps[$ctrl.step] }}</span>
+   {{ $ctrl.breadcrumbs + ' >' }}
+   <span class="h2 fucsia">{{ $ctrl.steps[$ctrl.step].breadcrumb }}</span>
  </h2>
 <section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''" ng-switch="$ctrl.step">
   <place-register-position

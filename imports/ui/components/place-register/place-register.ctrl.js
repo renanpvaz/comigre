@@ -10,23 +10,23 @@ class PlaceRegisterCtrl {
   $onInit() {
     this.place = {};
     this.step = 0;
+    this.breadcrumbs = '';
     this.steps = [
-      'Mapa',
-      'Tipo',
-      'Informações'
+      { hash: 'mapa', breadcrumb: 'Seleção de local' },
+      { hash: 'tipo', breadcrumb: 'Seleção do tipo' },
+      { hash: 'informacoes', breadcrumb: 'Informações' }
     ];
   }
-
-  getBreadcrumbs() {
-    if (this.step > 0) {
-      return this.steps.slice(0, this.step - 1).join(' > ');
-    }
-  }
-
+  
   handleConfirmStep($event) {
     this.step++;
-    this.$location.hash(this.steps[this.step].toLowerCase());
+    this.$location.hash(this.steps[this.step].hash);
     Object.assign(this.place, $event);
+
+    this.breadcrumbs = this.steps
+      .map(step => step.breadcrumb)
+      .slice(0, this.step)
+      .join(' > ');
 
     console.log(this.place);
   }
