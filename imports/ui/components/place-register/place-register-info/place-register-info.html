@@ -1,7 +1,5 @@
-<ng-switch on="$ctrl.type">
-  <event-form ng-switch-when="0"></event-form>
-  <job-form ng-switch-when="1"></job-form>
-  <residence-form ng-switch-when="2"></residence-form>
-  <portuguese-class-form ng-switch-when="3"></portuguese-class-form>
-  <vocational-course-form ng-switch-when="4"></vocational-course-form>
-</ng-switch>
+<event-form ng-if="$ctrl.type === EVENT"></event-form>
+<job-form ng-if="$ctrl.type === JOB"></job-form>
+<residence-form ng-if="$ctrl.type === RESIDENCE"></residence-form>
+<portuguese-class-form ng-if="$ctrl.type === PORTUGUESE_CLASS"></portuguese-class-form>
+<vocational-course-form ng-if="$ctrl.type === VOCATIONAL_COURSE"></vocational-course-form>

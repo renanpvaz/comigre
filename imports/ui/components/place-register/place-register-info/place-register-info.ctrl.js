@@ -1,8 +1,8 @@
 class PlaceRegisterInfoCtrl {
-  constructor(placeTypes) {
+  constructor($scope, placeTypes) {
     'ngInject';
 
-    this.types = placeTypes;
+    Object.assign($scope, placeTypes);
   }
 
   $onInit() {

@@ -1,5 +1,5 @@
 <h2 class="breadcrumbs mt0 mx4">
-   {{ $ctrl.breadcrumbs + ' >' }}
+   {{ $ctrl.breadcrumbs + ($ctrl.step > 0 ? ' >' : '') }}
    <span class="h2 fucsia">{{ $ctrl.steps[$ctrl.step].breadcrumb }}</span>
  </h2>
 <section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''" ng-switch="$ctrl.step">
@@ -10,13 +10,11 @@
   <place-register-type
     ng-switch-when="1"
     selected-street="$ctrl.place.address.street"
-    on-confirm="$ctrl.handleConfirmStep($event)"
-    on-back="$ctrl.handleBackStep($event)">
+    on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-type>
   <place-register-info
     ng-switch-when="2"
     type="$ctrl.place.type"
-    on-confirm="$ctrl.handleConfirmStep($event)"
-    on-back="$ctrl.handleBackStep($event)">
+    on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-info>
 </section>
