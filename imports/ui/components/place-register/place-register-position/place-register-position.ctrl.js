@@ -17,6 +17,7 @@ class PlaceRegisterPositionCtrl {
     this.map = new Map({
       container: 'map',
       center: [-52.2599, -15.893],
+      trackResize: true,
       zoom: 3,
       style: 'mapbox://styles/mapbox/basic-v9'
     });

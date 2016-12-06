@@ -7,11 +7,13 @@ import './place-register.less';
 import placeRegisterInfo from './place-register-info';
 import placePositionSelect from './place-register-position';
 import placeTypeSelect from './place-register-type';
+import breadcrumbs from '../breadcrumbs';
 
 const placeRegister = angular
   .module('placeRegister', [
     placePositionSelect,
     placeTypeSelect,
+    breadcrumbs,
     placeRegisterInfo
   ])
   .component('placeRegister', placeRegisterComponent)

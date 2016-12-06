@@ -1,9 +1,11 @@
-<h2 class="breadcrumbs mt0 mx4">
-   {{ $ctrl.breadcrumbs + ($ctrl.step > 0 ? ' >' : '') }}
-   <span class="h2 fucsia">{{ $ctrl.steps[$ctrl.step].breadcrumb }}</span>
- </h2>
+<breadcrumbs
+  ng-class=" $ctrl.step > 0 ? 'ml4' : ''"
+  crumbs="$ctrl.breadcrumbs"
+  on-crumb-click="$ctrl.handleCrumbClick($event)">
+</breadcrumbs>
 <section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''" ng-switch="$ctrl.step">
   <place-register-position
+    ng-cloak
     ng-switch-when="0"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-position>
