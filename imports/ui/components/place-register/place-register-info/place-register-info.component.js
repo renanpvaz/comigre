@@ -3,7 +3,8 @@ import controller from './place-register-info.ctrl';
 
 const PlaceRegisterInfoComponent = {
   bindings: {
-    type: '<'
+    type: '<',
+    onConfirm: '&'
   },
   template,
   controller

@@ -3,10 +3,30 @@ class PlaceRegisterInfoCtrl {
     'ngInject';
 
     Object.assign($scope, placeTypes);
+
+    this.types = placeTypes;
   }
 
   $onInit() {
-    console.log(this);
+    this.info = {};
+  }
+
+  handleValidity($event) {
+    this.valid = true;
+
+    switch (this.type) {
+      case this.types.EVENT:
+        this.info = $event.event;
+        break;
+    }
+  }
+
+  confirm() {
+    this.onConfirm({
+      $event: {
+        info: this.info
+      }
+    });
   }
 }
 
