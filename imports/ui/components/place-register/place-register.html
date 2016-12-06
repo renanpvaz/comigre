@@ -3,19 +3,19 @@
   crumbs="$ctrl.breadcrumbs"
   on-crumb-click="$ctrl.handleCrumbClick($event)">
 </breadcrumbs>
-<section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''" ng-switch="$ctrl.step">
+<section class="flex flex-column content-between" ng-class=" $ctrl.step > 0 ? 'register-card' : ''">
   <place-register-position
     ng-cloak
-    ng-switch-when="0"
+    ng-show="$ctrl.step === 0"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-position>
   <place-register-type
-    ng-switch-when="1"
+    ng-show="$ctrl.step === 1"
     selected-street="$ctrl.place.address.street"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-type>
   <place-register-info
-    ng-switch-when="2"
+    ng-show="$ctrl.step === 2"
     type="$ctrl.place.type"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-info>
