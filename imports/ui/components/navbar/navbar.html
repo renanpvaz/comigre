@@ -19,7 +19,7 @@
       {{ $ctrl.getUser().username }}
     </span>
 
-    <div class="dropdown-profile light-gray absolute border border-gray z4 right navbar-offset px2 py1" ng-if="$ctrl.dropdownIsOpen" >
+    <div class="dropdown-profile light-gray absolute border border-gray z4 right navbar-offset px2 py1" ng-if="$ctrl.dropdownIsOpen && $ctrl.isLoggedIn()" >
       <div class="flex flex-column flex">
         <div class="flex items-center info light-gray border-bottom">
           <img class="rounded py2" src="http://placehold.it/80x80" alt="Imagem padrão" />

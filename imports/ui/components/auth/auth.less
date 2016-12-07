@@ -1,14 +1,19 @@
 auth {
+  section {
+    height: 100%;
+  }
+
+  .presentation-pane {
+    background-color: @purple;
+  }
+
   .form-pane {
     background-color: #fff;
   }
 
-  md-input-container {
-    font-size: 22px;
-  }
-
-  .md-button {
-    margin-bottom: 5%;
-    max-width: 80%;
+  ui-view {
+    width: 100%;
   }
 }
+
+@import "../../config/variables.less";

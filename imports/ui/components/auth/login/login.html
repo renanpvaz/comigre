@@ -1,20 +1,24 @@
-<div layout="column" layout-align="center center">
-  <md-input-container>
-    <label>E-mail</label>
-    <input type="email" ng-model="$ctrl.credentials.email">
-  </md-input-container>
+<section class="flex flex-column">
 
-  <md-input-container>
-    <label>Senha</label>
-    <input type="password" ng-model="$ctrl.credentials.password">
-  </md-input-container>
+  <div class="flex items-end h1">
+    <span class="fucsia">Entre</span><span class="text-light-gray ml1">/ Cadastre-se</span>
+  </div>
 
-  <md-button ng-click="$ctrl.login()" layout-fill flex>
-    confirmar
-  </md-button>
+  <div class="flex justify-center mt4">
+    <form name="form" class="login-form">
+      <div class="login-form-group">
+        <input type="email" ng-model="$ctrl.credentials.email" placeholder="E-mail">
+      </div>
 
-  <span flex layout-padding>
-    Não possui uma conta ainda?
-    <a ui-sref="register">Clique aqui</a>
-  </span>
-</div>
+      <div class="login-form-group">
+        <input type="password" ng-model="$ctrl.credentials.password" placeholder="Senha">
+      </div>
+    </form>
+  </div>
+
+  <div class="flex justify-center items-center mt4">
+    <button class="btn btn-fucsia-secondary" ng-click="$ctrl.login()">Entrar</button>
+    <span class="ml2">Não possui uma conta ainda?<a ui-sref="register"> Clique aqui</a></span>
+  </div>
+
+</section>
