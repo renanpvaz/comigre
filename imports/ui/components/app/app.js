@@ -7,15 +7,11 @@ import template from './app.html';
 
 import navbar from '../navbar';
 import auth from '../auth';
-import placeTypeSelect from '../place-type-select';
 import placeRegister from '../place-register';
-import eventForm from '../event-form';
-import jobForm from '../job-form';
-import vocationalCourseForm from '../vocational-course-form';
-import portugueseClassForm from '../portuguese-class-form';
 import placeRegisterConfirm from '../place-register-confirm';
-import residenceForm from '../residence-form';
 import placesList from '../places-list';
+
+import * as types from '../../config/constants';
 
 class AppCtrl {
   constructor() { }
@@ -28,19 +24,14 @@ export default angular
     navbar,
     auth,
     placeRegister,
-    placeTypeSelect,
-    eventForm,
-    jobForm,
-    vocationalCourseForm,
-    portugueseClassForm,
     placeRegisterConfirm,
-    residenceForm,
     placesList
   ])
   .component('app', {
     template,
     controller: AppCtrl
   })
+  .constant('placeTypes', types)
   .config(($locationProvider, $urlRouterProvider, $stateProvider) => {
     'ngInject';
 

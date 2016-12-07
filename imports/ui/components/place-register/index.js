@@ -4,13 +4,17 @@ import uiRouter from 'angular-ui-router';
 import placeRegisterComponent from './place-register.component';
 import './place-register.less';
 
-import placePositionSelect from '../place-position-select';
-import placeTypeSelect from '../place-type-select';
+import placeRegisterInfo from './place-register-info';
+import placePositionSelect from './place-register-position';
+import placeTypeSelect from './place-register-type';
+import breadcrumbs from '../breadcrumbs';
 
 const placeRegister = angular
   .module('placeRegister', [
     placePositionSelect,
-    placeTypeSelect
+    placeTypeSelect,
+    breadcrumbs,
+    placeRegisterInfo
   ])
   .component('placeRegister', placeRegisterComponent)
   .config($stateProvider => {

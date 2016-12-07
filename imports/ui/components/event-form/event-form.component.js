@@ -2,7 +2,9 @@ import template from './event-form.html';
 import controller from './event-form.ctrl';
 
 const EventFormComponent = {
-  bindings: {},
+  bindings: {
+    onValid: '&'
+  },
   template,
   controller
 };
