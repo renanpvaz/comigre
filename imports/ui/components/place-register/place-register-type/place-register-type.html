@@ -2,38 +2,38 @@
 
   <div class="flex items-center pr4">
     <div class="flex flex-column items-center">
-      <span>{{ $ctrl.selectedStreet }}</span>
+      <span>{{ $ctrl.address.street + ', ' + $ctrl.address.number + '.' }}</span>
       <h1 class="mt1">O que há aqui?</h1>
     </div>
   </div>
 
   <ul class="m0 pl4 h3">
     <li class="border-bottom">
-      <input ng-model="$ctrl.type" type="radio" ng-value="::$ctrl.types.EVENT" id="event-option" name="type">
+      <input ng-model="$ctrl.type" type="radio" ng-value="0" id="event-option" name="type">
       <label for="event-option">Evento</label>
       <div class="check"></div>
     </li>
 
     <li class="border-bottom">
-      <input ng-model="$ctrl.type" type="radio" ng-value="::$ctrl.types.JOB" id="job-option" name="type">
+      <input ng-model="$ctrl.type" type="radio" ng-value="1" id="job-option" name="type">
       <label for="job-option">Vaga de emprego</label>
       <div class="check"><div class="inside"></div></div>
     </li>
 
     <li class="border-bottom">
-      <input ng-model="$ctrl.type" type="radio" ng-value="::$ctrl.types.VOCATIONAL_COURSE" id="technical-course-option" name="type">
+      <input ng-model="$ctrl.type" type="radio" ng-value="2" id="technical-course-option" name="type">
       <label for="technical-course-option">Curso profissionalizante</label>
       <div class="check"><div class="inside"></div></div>
     </li>
 
     <li class="border-bottom">
-      <input ng-model="$ctrl.type" type="radio" ng-value="::$ctrl.types.PORTUGUESE_CLASS" id="portuguese-class-option" name="type">
+      <input ng-model="$ctrl.type" type="radio" ng-value="3" id="portuguese-class-option" name="type">
       <label for="portuguese-class-option">Aula de português</label>
       <div class="check"><div class="inside"></div></div>
     </li>
 
     <li>
-      <input ng-model="$ctrl.type" type="radio" ng-value="::$ctrl.types.RESIDENCE" id="habitation-option" name="type">
+      <input ng-model="$ctrl.type" type="radio" ng-value="4" id="habitation-option" name="type">
       <label for="habitation-option">Moradia</label>
       <div class="check"><div class="inside"></div></div>
     </li>

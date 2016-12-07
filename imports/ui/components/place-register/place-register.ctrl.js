@@ -18,20 +18,23 @@ class PlaceRegisterCtrl {
     this.breadcrumbs = [this.steps[0]];
   }
 
+  handleRegisterConfirmation() {
+
+  }
+
   handleCrumbClick({ index }) {
     this.step = index;
   }
 
   handleConfirmStep($event) {
     this.step++;
+    console.log($event);
     Object.assign(this.place, $event);
 
     this.breadcrumbs = [
       ...this.breadcrumbs,
       this.steps[this.step]
     ];
-
-    console.log(this.place);
   }
 
   handleBackStep($event) {

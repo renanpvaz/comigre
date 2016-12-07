@@ -5,7 +5,7 @@ const PlaceRegisterTypeComponent = {
   bindings: {
     onConfirm: '&',
     onBack: '&',
-    selectedStreet: '<'
+    address: '<'
   },
   template,
   controller

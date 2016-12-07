@@ -1,9 +1,10 @@
-<event-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === EVENT"></event-form>
-<job-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === JOB"></job-form>
-<residence-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === RESIDENCE"></residence-form>
-<portuguese-class-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === PORTUGUESE_CLASS"></portuguese-class-form>
-<vocational-course-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === VOCATIONAL_COURSE"></vocational-course-form>
-
+<ng-switch on="$ctrl.type">
+  <event-form on-valid="$ctrl.handleValidity($event)" ng-switch-when="EVENT"></event-form>
+  <job-form on-valid="$ctrl.handleValidity($event)" ng-switch-when="JOB"></job-form>
+  <residence-form on-valid="$ctrl.handleValidity($event)" ng-switch-when="RESIDENCE"></residence-form>
+  <portuguese-class-form on-valid="$ctrl.handleValidity($event)" ng-switch-when="PORTUGUESE_CLASS"></portuguese-class-form>
+  <vocational-course-form on-valid="$ctrl.handleValidity($event)" ng-switch-when="VOCATIONAL_COURSE"></vocational-course-form>
+</ng-switch>
 <div class="flex flex-auto justify-between items-end mt4">
   <button class="btn btn-teal-secondary">Voltar</button>
   <button ng-disabled="!$ctrl.valid" ng-click="$ctrl.confirm()" class="btn btn-teal-primary">

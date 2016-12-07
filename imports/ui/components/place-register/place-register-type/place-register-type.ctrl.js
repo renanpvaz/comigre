@@ -1,28 +1,22 @@
+import assign from 'angular-assign';
+
 class PlaceTypeSelectCtrl {
-  constructor(placeTypes) {
+  constructor(placeTypes, $emit) {
     'ngInject';
 
-    this.types = placeTypes;
+    assign(arguments).to(this);
   }
 
   $onInit() {
-
+    this.type = 0;
   }
 
   confirm() {
-    this.onConfirm({
-      $event: {
-        type: this.type,
-      }
-    });
+    this.$emit(this.onConfirm, { type: this.type });
   }
 
   goBack() {
-    this.onBack({
-      $event: {
-        type: null,
-      }
-    });
+    this.$emit(this.onBack, { type: null });
   }
 }
 

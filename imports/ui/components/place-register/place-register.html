@@ -11,7 +11,7 @@
   </place-register-position>
   <place-register-type
     ng-show="$ctrl.step === 1"
-    selected-street="$ctrl.place.address.street"
+    address="$ctrl.place.address"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-type>
   <place-register-info
@@ -19,4 +19,9 @@
     type="$ctrl.place.type"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-info>
+  <place-register-confirm
+    ng-show="$ctrl.step === 3"
+    place="$ctrl.place"
+    on-confirm="$ctrl.handleConfirmStep($event)">
+  </place-register-confirm>
 </section>
