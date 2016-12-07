@@ -1,6 +1,6 @@
 <ul class="inline-block px0">
   <li class="gray right h2 bold"
-    ng-repeat="crumb in $ctrl.crumbs | orderBy: '-'"
+    ng-repeat="crumb in $ctrl.crumbs | orderBy: '-' track by crumb.hash"
     ng-click="$ctrl.activateCrumb(crumb)"
     ng-class="$ctrl.active === crumb ? 'fucsia' : ''">
     {{ crumb.text + (!$first ? ' >&nbsp;' : '')}}

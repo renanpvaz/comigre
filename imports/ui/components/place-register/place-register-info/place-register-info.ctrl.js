@@ -5,6 +5,7 @@ class PlaceRegisterInfoCtrl {
     Object.assign($scope, placeTypes);
 
     this.types = placeTypes;
+    this.$emit = $emit;
   }
 
   $onInit() {

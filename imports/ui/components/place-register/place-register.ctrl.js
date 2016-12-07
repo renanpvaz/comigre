@@ -13,9 +13,15 @@ class PlaceRegisterCtrl {
     this.steps = [
       { hash: 'mapa', text: 'Seleção de local' },
       { hash: 'tipo', text: 'Seleção do tipo' },
-      { hash: 'informacoes', text: 'Informações' }
+      { hash: 'informacoes', text: 'Informações' },
+      { hash: 'confirmar', text: 'Confirmação' }
     ];
+
     this.breadcrumbs = [this.steps[0]];
+  }
+
+  isInFirstOrLastStep() {
+    return this.step === 0 || this.step === this.steps.length - 1;
   }
 
   handleRegisterConfirmation() {
@@ -28,8 +34,7 @@ class PlaceRegisterCtrl {
 
   handleConfirmStep($event) {
     this.step++;
-    console.log($event);
-    Object.assign(this.place, $event);
+    this.place = Object.assign({}, this.place, $event);
 
     this.breadcrumbs = [
       ...this.breadcrumbs,

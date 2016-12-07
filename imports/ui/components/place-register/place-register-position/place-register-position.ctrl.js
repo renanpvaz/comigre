@@ -1,28 +1,33 @@
+import { Meteor } from 'meteor/meteor';
 import assign from 'angular-assign';
-import { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
+import mapboxgl, { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
 
 class PlaceRegisterPositionCtrl {
-  constructor($window, $scope, PlaceRegisterPositionService, $emit) {
+  constructor($window, $scope, PlaceRegisterPositionService, $emit, $timeout) {
     'ngInject';
 
     assign(arguments).to(this);
   }
 
   $onInit() {
+    mapboxgl.accessToken = Meteor.settings.public.mapboxAccessToken;
+
     this.markerElement = this.$window.document.createElement('div');
     this.markerElement.innerHTML = `
       <div class="dot"></div>
       <div class="pulse"></div>`;
 
-    this.map = new Map({
-      container: 'map',
-      center: [-52.2599, -15.893],
-      zoom: 3,
-      style: 'mapbox://styles/mapbox/basic-v9'
-    });
+    this.$timeout(() => {
+      this.map = new Map({
+        container: 'map',
+        center: [-52.2599, -15.893],
+        zoom: 3,
+        style: 'mapbox://styles/mapbox/basic-v9'
+      });
 
-    this.map.on('load', () => this.onMapLoad());
-    this.map.on('click', (e) => this.onMapClick(e));
+      this.map.on('load', () => this.onMapLoad());
+      this.map.on('click', (e) => this.onMapClick(e));
+    });
   }
 
   onMapLoad() {
@@ -74,7 +79,7 @@ class PlaceRegisterPositionCtrl {
   confirm() {
     this.$emit(this.onConfirm, {
       address: this.address,
-      coordinates: this.map.getCenter()
+      coordinates: this.marker.getLngLat()
     });
   }
 }
