@@ -5,10 +5,8 @@ class PlaceTypeSelectCtrl {
     'ngInject';
 
     assign(arguments).to(this);
-  }
 
-  $onInit() {
-    this.type = 0;
+    this.types = placeTypes;
   }
 
   confirm() {
