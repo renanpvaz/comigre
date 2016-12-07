@@ -1,7 +1,7 @@
 import assign from 'angular-assign';
 
 class BreadcrumbsCtrl {
-  constructor($scope, $location) {
+  constructor($scope, $location, $emit) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -11,7 +11,6 @@ class BreadcrumbsCtrl {
     this.active = this.crumbs[0];
 
     this.$scope.$watch('$ctrl.crumbs', () => {
-      console.log(this.crumbs);
       this.active = this.crumbs[this.crumbs.length - 1];
     });
   }
@@ -20,11 +19,7 @@ class BreadcrumbsCtrl {
     this.$location.hash(crumb.hash);
     this.active = crumb;
 
-    this.onCrumbClick({
-      $event: {
-        index: this.crumbs.indexOf(crumb)
-      }
-    });
+    this.$emit(this.onCrumbClick, { index: this.crumbs.indexOf(crumb) });
   }
 }
 

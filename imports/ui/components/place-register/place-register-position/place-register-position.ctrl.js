@@ -2,7 +2,7 @@ import assign from 'angular-assign';
 import { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
 
 class PlaceRegisterPositionCtrl {
-  constructor($window, $scope, PlaceRegisterPositionService) {
+  constructor($window, $scope, PlaceRegisterPositionService, $emit) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -17,7 +17,6 @@ class PlaceRegisterPositionCtrl {
     this.map = new Map({
       container: 'map',
       center: [-52.2599, -15.893],
-      trackResize: true,
       zoom: 3,
       style: 'mapbox://styles/mapbox/basic-v9'
     });
@@ -73,11 +72,9 @@ class PlaceRegisterPositionCtrl {
   }
 
   confirm() {
-    this.onConfirm({
-      $event: {
-        address: this.address,
-        coordinates: this.map.getCenter()
-      }
+    this.$emit(this.onConfirm, {
+      address: this.address,
+      coordinates: this.map.getCenter()
     });
   }
 }

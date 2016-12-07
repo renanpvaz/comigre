@@ -5,6 +5,7 @@ import placeRegisterComponent from './place-register.component';
 import './place-register.less';
 
 import placeRegisterInfo from './place-register-info';
+import placeRegisterConfirm from './place-register-confirm';
 import placePositionSelect from './place-register-position';
 import placeTypeSelect from './place-register-type';
 import breadcrumbs from '../breadcrumbs';
@@ -13,6 +14,7 @@ const placeRegister = angular
   .module('placeRegister', [
     placePositionSelect,
     placeTypeSelect,
+    placeRegisterConfirm,
     breadcrumbs,
     placeRegisterInfo
   ])

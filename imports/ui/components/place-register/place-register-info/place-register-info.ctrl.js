@@ -1,5 +1,5 @@
 class PlaceRegisterInfoCtrl {
-  constructor($scope, placeTypes) {
+  constructor($scope, placeTypes, $emit) {
     'ngInject';
 
     Object.assign($scope, placeTypes);
@@ -22,11 +22,7 @@ class PlaceRegisterInfoCtrl {
   }
 
   confirm() {
-    this.onConfirm({
-      $event: {
-        info: this.info
-      }
-    });
+    this.$emit(this.onConfirm, { info: this.info });
   }
 }
 

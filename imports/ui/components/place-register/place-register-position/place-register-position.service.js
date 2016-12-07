@@ -42,7 +42,6 @@ class PlacePositionSelectService {
       .then(response => {
         if (response.data.status === 'OK') {
           this.address = response.data.results[0].address_components; // jshint ignore:line
-          console.log(this.address);
 
           return {
             street: this.getComponent('route'),
