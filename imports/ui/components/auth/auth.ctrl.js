@@ -1,8 +1,6 @@
 class AuthCtrl {
-  constructor($mdMedia) {
+  constructor() {
     'ngInject';
-
-    this.$mdMedia = $mdMedia;
   }
 }
 

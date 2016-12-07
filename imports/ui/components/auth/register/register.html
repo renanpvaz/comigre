@@ -1,23 +1,28 @@
-<div layout="column" layout-align="center center">
-  <md-input-container>
-    <label>Nome</label>
-    <input type="text" ng-maxlength="70" ng-model="$ctrl.user.username" required>
-  </md-input-container>
+<section class="flex flex-column">
 
-  <md-input-container>
-    <label>Email</label>
-    <input type="email" ng-maxlength="130" ng-model="$ctrl.user.email" required>
-  </md-input-container>
+  <div class="flex items-end h1">
+    <span class="text-light-gray">Entre /</span><span class="fucsia ml1"> Cadastre-se</span>
+  </div>
 
-  <md-input-container>
-    <label>Senha</label>
-    <input type="password" name="password" ng-maxlength="30" ng-model="$ctrl.user.password" required>
-  </md-input-container>
+  <div class="flex justify-center mt4">
+    <form name="form" class="login-form">
+      <div class="login-form-group">
+        <input type="text" ng-maxlength="70" ng-model="$ctrl.user.username" placeholder="Nome" required>
+      </div>
 
-  <md-button ng-click="$ctrl.register()" layout-fill flex>confirmar</md-button>
+      <div class="login-form-group">
+        <input type="email" ng-maxlength="130" ng-model="$ctrl.user.email" placeholder="Email" required>
+      </div>
 
-  <span flex layout-padding>
-    Já está cadastrado?
-    <a ui-sref="login">Clique aqui</a>
-  </span>
-</div>
+      <div class="login-form-group">
+        <input type="password" name="password" ng-maxlength="30" ng-model="$ctrl.user.password" placeholder="Senha" required>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex justify-center items-center mt4">
+    <button class="btn btn-fucsia-secondary" ng-click="$ctrl.register()">Cadastrar</button>
+    <span class="ml2 text-light-gray">Já está cadastrado?<a ui-sref="login"> Clique aqui.</a></span>
+  </div>
+
+</section>

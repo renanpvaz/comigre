@@ -3,6 +3,7 @@ import uiRouter from 'angular-ui-router';
 import ngMessages from 'angular-messages';
 
 import registerComponent from './register.component';
+import './register.less';
 
 const register = angular
   .module('auth.register', [
