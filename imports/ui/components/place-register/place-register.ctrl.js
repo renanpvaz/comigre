@@ -1,7 +1,8 @@
+import { Meteor } from 'meteor/meteor';
 import assign from 'angular-assign';
 
 class PlaceRegisterCtrl {
-  constructor($state, $rootScope, $location) {
+  constructor($state, $rootScope, $location, placeTypes) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -20,12 +21,25 @@ class PlaceRegisterCtrl {
     this.breadcrumbs = [this.steps[0]];
   }
 
-  isInFirstOrLastStep() {
-    return this.step === 0 || this.step === this.steps.length - 1;
-  }
-
   handleRegisterConfirmation() {
+    let methodPrefix;
+    const place = this.place;
 
+    switch (place.type) {
+      case this.placeTypes.EVENT:
+        methodPrefix = 'events';
+        break;
+      default:
+        methodPrefix = 'events';
+    }
+
+    Meteor.call(`${methodPrefix}.insert`, place.info, (error, _id) => {
+      place.detailsId = _id;
+
+      if (!error) {
+        Meteor.call('places.insert', place, console.log);
+      }
+    });
   }
 
   handleCrumbClick({ index }) {

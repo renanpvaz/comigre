@@ -4,21 +4,24 @@ import { Meteor } from 'meteor/meteor';
 import { Places } from './collection';
 
 Meteor.methods({
-  'places.insert'(place) {
-    const newPlace = Object.assign({
-      type: 'Point',
-      coordinates: [place.lng, place.lat],
-      createdAt: new Date()
-    }, place);
+  'places.insert'({ name, description, coordinates, type, detailsId }) {
+    const newPlace = {
+      name,
+      description,
+      detailsId,
+      type,
+      userId: this.userId,
+      createdAt: new Date(),
+      location: {
+        type: 'Point',
+        coordinates
+      }
+    };
 
-    Places.insert(newPlace);
-  },
+    if (!newPlace.userId) {
+      throw new Meteor.Error('logged-out', 'User must be logged to register a place');
+    }
 
-  'places.update'(place) {
-
-  },
-
-  'places.remove'(id) {
-
+    return Places.insert(newPlace);
   }
 });

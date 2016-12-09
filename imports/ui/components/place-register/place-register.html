@@ -4,7 +4,7 @@
   on-crumb-click="$ctrl.handleCrumbClick($event)">
 </breadcrumbs>
 <section class="flex flex-column content-between register-card"
-  ng-class="$ctrl.isInFirstOrLastStep() ? 'p0' : ''">
+  ng-class="$ctrl.step === 0 ? 'p0' : ''">
   <place-register-position
     ng-cloak
     ng-show="$ctrl.step === 0"
@@ -23,6 +23,6 @@
   <place-register-confirm
     ng-show="$ctrl.step === 3"
     place="$ctrl.place"
-    on-confirm="$ctrl.handleConfirmStep($event)">
+    on-confirm="$ctrl.handleRegisterConfirmation($event)">
   </place-register-confirm>
 </section>

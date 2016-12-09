@@ -1,10 +1,16 @@
 <section class="flex">
   <img
-    style="width: 100%; height: 50%"
-    ng-src="https://api.mapbox.com/styles/v1/mapbox/basic-v9/static/{{ $ctrl.mapImageParams }}" 
+    style="width: 50%; height: 50%"
+    ng-src="https://api.mapbox.com/styles/v1/mapbox/basic-v9/static/{{ $ctrl.mapImageParams }}"
     alt="Description"/>
-  <div class="flex flex-column items-center">
+  <div class="flex flex-column items-end px3">
     <h2>{{ $ctrl.place.info.name }}</h2>
-    <p>Aaaaaa</p>
+    <p>{{ $ctrl.place.info.description }}</p>
   </div>
 </section>
+<footer class="flex flex-auto justify-between items-end mt4">
+  <button class="btn btn-teal-secondary">Voltar</button>
+  <button ng-click="$ctrl.onConfirm($event)" class="btn btn-teal-primary">
+    Confirmar cadastro
+  </button>
+</footer>

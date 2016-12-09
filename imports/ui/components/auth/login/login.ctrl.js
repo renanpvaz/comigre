@@ -2,7 +2,7 @@ import assign from 'angular-assign';
 import { Meteor } from 'meteor/meteor';
 
 class LoginCtrl {
-  constructor($scope, $reactive, $state, $mdDialog) {
+  constructor($scope, $reactive, $state) {
     'ngInject';
 
     assign(arguments).to(this);
