@@ -1,11 +1,12 @@
+import $emit from 'ng-emit';
+
 class PlaceRegisterInfoCtrl {
-  constructor($scope, placeTypes, $emit) {
+  constructor($scope, placeTypes) {
     'ngInject';
 
     Object.assign($scope, placeTypes);
 
     this.types = placeTypes;
-    this.$emit = $emit;
   }
 
   $onInit() {
@@ -23,7 +24,7 @@ class PlaceRegisterInfoCtrl {
   }
 
   confirm() {
-    this.$emit(this.onConfirm, { info: this.info });
+    $emit(this.onConfirm, { info: this.info });
   }
 }
 

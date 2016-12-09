@@ -5,8 +5,6 @@ import uiRouter from 'angular-ui-router';
 import './app.less';
 import template from './app.html';
 
-import services from '../../services';
-
 import navbar from '../navbar';
 import auth from '../auth';
 import placeRegister from '../place-register';
@@ -20,7 +18,6 @@ class AppCtrl {
 
 export default angular
   .module('app', [
-    services,
     angularMeteor,
     uiRouter,
     navbar,

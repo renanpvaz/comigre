@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
+import $emit from 'ng-emit';
 import assign from 'angular-assign';
 import mapboxgl, { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
 
 class PlaceRegisterPositionCtrl {
-  constructor($window, $scope, PlaceRegisterPositionService, $emit, $timeout) {
+  constructor($window, $scope, PlaceRegisterPositionService, $timeout) {
     'ngInject';
 
     assign(arguments).to(this);
@@ -77,7 +78,7 @@ class PlaceRegisterPositionCtrl {
   }
 
   confirm() {
-    this.$emit(this.onConfirm, {
+    $emit(this.onConfirm, {
       address: this.address,
       coordinates: this.marker.getLngLat()
     });

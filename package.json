@@ -15,7 +15,8 @@
     "angular-ui-router": "1.0.0-beta.1",
     "babel-runtime": "^6.18.0",
     "mapbox-gl": "^0.28.0",
-    "meteor-node-stubs": "~0.2.4"
+    "meteor-node-stubs": "~0.2.4",
+    "ng-emit": "0.0.2"
   },
   "devDependencies": {}
 }
