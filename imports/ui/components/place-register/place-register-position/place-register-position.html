@@ -3,8 +3,8 @@
 <footer class="flex flex-column justify-center">
   <div class="flex flex-column items-center">
     <h1 class="mt2 mb2 fucsia">Clique no mapa para selecionar o local</h1>
-    <span ng-if="$ctrl.address" class="address bold">
-      {{ $ctrl.formattedAddress }}
+    <span class="address bold">
+      {{ $ctrl.formattedAddress || 'Nenhum local selecionado' }}
     </span>
   </div>
 

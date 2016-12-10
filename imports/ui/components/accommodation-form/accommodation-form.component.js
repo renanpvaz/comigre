@@ -1,5 +1,5 @@
-import template from './residence-form.html';
-import controller from './residence-form.ctrl';
+import template from './accommodation-form.html';
+import controller from './accommodation-form.ctrl';
 
 const ResidenceFormComponent = {
   bindings: {

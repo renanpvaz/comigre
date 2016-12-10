@@ -2,7 +2,7 @@
 
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import ResidenceFormCtrl from './residence-form.ctrl';
+import ResidenceFormCtrl from './accommodation-form.ctrl';
 
 describe('ResidenceForm', () => {
 

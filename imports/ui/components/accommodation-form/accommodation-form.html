@@ -1,0 +1,83 @@
+<div class="flex justify-center px4 mr1">
+  <form name="$ctrl.form" class="register-form">
+
+    <div class="form-title">
+      <h2>Apresentação</h2>
+      <div class="flex-auto border-bottom"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Dê um nome ao seu espaço
+        <input type="text" name="name" ng-model="$ctrl.accommodation.title" placeholder="Título do anúncio" required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Descreva o espaço que você está anunciando
+        <textarea
+          type="text" rows="10"
+          ng-model="$ctrl.accommodation.description"
+          placeholder="Ex.: Localização do imóvel, cômodos da casa, eletrônicos e eletrodomésticos de uso comum, decoração..."
+          required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Preço mensal
+        <input type="number" ng-model="$ctrl.accommodation.price" placeholder="300.00" required>
+      </label>
+    </div>
+
+    <div class="form-title">
+      <h2>Detalhes</h2>
+      <div class="flex-auto border-bottom"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Que tipo de propriedade você está anunciando?
+        <div class="mt2" ng-model="$ctrl.accommodation.type">
+          <cookie-select on-select="$ctrl.handleTypeSelection($event)" options="$ctrl.types"></cookie-select>
+        </div>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Que tipo de quarto seus hóspedes terão?
+        <div class="mt2" ng-model="$ctrl.accommodation.roomType">
+          <cookie-select on-select="$ctrl.handleRoomTypeSelection($event)" options="$ctrl.roomTypes"></cookie-select>
+        </div>
+      </label>
+    </div>
+
+    <div class="mt3">
+      <label class="gray bold mb1">
+        Que comodidades você oferece?
+        <div class="mt2">
+          <label>
+            <input class="mb1" ng-model="$ctrl.accommodation.amenities.wifi" type="checkbox">
+            Wi-fi
+          </label>
+          <br>
+          <label>
+            <input class="mb1" ng-model="$ctrl.accommodation.amenities.cable" type="checkbox">
+            TV a cabo
+          </label>
+          <br>
+          <label>
+            <input class="mb1" ng-model="$ctrl.accommodation.amenities.ac" type="checkbox">
+            Ar condicionado
+          </label>
+          <br>
+        </div>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Escreva sobre as regras da casa, se possuir
+        <textarea type="text" rows="3" ng-model="$ctrl.accommodation.rules" placeholder="Ex.: Proibido fumar">
+      </label>
+    </div>
+  </form>
+</div>

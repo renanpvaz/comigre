@@ -1,0 +1,5 @@
+<div ng-repeat="option in ::$ctrl.options" class="cookie"
+  ng-class="$ctrl.isSelected(option.value) ? 'selected-cookie' : ''"
+  ng-click="$ctrl.setSelected(option.value)">
+  {{::option.text }}
+</div>

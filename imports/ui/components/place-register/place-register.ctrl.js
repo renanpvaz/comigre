@@ -29,6 +29,9 @@ class PlaceRegisterCtrl {
       case this.placeTypes.EVENT:
         methodPrefix = 'events';
         break;
+      case this.placeTypes.ACCOMMODATION:
+        methodPrefix = 'accommodations';
+        break;
       default:
         methodPrefix = 'events';
     }
