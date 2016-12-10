@@ -10,7 +10,7 @@ import auth from '../auth';
 import placeRegister from '../place-register';
 import placesList from '../places-list';
 
-import * as types from '../../config/constants';
+import * as types from '../../config';
 
 class AppCtrl {
   constructor() { }

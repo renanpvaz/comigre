@@ -2,9 +2,10 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Events } from './collection';
+import { EVENT } from '../../ui/config';
 
 Meteor.methods({
-  'events.insert'({ name, description, time, date }) {
+  [`${EVENT}.insert`]: ({ name, description, time, date }) => {
     const newEvent = {
       name,
       description,

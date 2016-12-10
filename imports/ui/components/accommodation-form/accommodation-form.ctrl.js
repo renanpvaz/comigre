@@ -1,6 +1,8 @@
 import $emit from 'ng-emit';
 import assign from 'angular-assign';
 
+import { ACCOMMODATION } from '../../config';
+
 class ResidenceFormCtrl {
   constructor($scope) {
     'ngInject';
@@ -41,7 +43,7 @@ class ResidenceFormCtrl {
 
   checkValidity() {
     if (this.form.$valid &&  this.accommodation.type && this.accommodation.roomType) {
-      $emit(this.onValid, { accommodation: this.accommodation });
+      $emit(this.onValid, { [ACCOMMODATION]: this.accommodation });
     }
   }
 }

@@ -1,4 +1,7 @@
 import assign from 'angular-assign';
+import $emit from 'ng-emit';
+
+import { EVENT } from '../../config';
 
 class EventFormCtrl {
   constructor($scope) {
@@ -12,10 +15,7 @@ class EventFormCtrl {
 
     this.$scope.$watch('form.$valid', (valid) => {
       if (valid && Object.keys(this.event).length) {
-        console.log('valid!');
-        this.onValid({
-          $event: { event: this.event }
-        });
+        $emit(this.onValid, { [EVENT]: this.event });
       }
     });
   }

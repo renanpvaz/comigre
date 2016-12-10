@@ -22,21 +22,9 @@ class PlaceRegisterCtrl {
   }
 
   handleRegisterConfirmation() {
-    let methodPrefix;
     const place = this.place;
 
-    switch (place.type) {
-      case this.placeTypes.EVENT:
-        methodPrefix = 'events';
-        break;
-      case this.placeTypes.ACCOMMODATION:
-        methodPrefix = 'accommodations';
-        break;
-      default:
-        methodPrefix = 'events';
-    }
-
-    Meteor.call(`${methodPrefix}.insert`, place.info, (error, _id) => {
+    Meteor.call(`${place.type}.insert`, place.info, (error, _id) => {
       place.detailsId = _id;
 
       if (!error) {
