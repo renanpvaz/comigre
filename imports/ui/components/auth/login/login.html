@@ -1,7 +1,7 @@
-<section class="flex flex-column">
+<section class="flex flex-column justify-center">
 
   <div class="flex items-end h1">
-    <span class="fucsia">Entre</span><span class="text-light-gray ml1">/ Cadastre-se</span>
+    <span class="fucsia">Entre</span><a ui-sref="register" class="text-light-gray ml1">/ Cadastre-se</a>
   </div>
 
   <div class="flex justify-center mt4">
@@ -16,9 +16,8 @@
     </form>
   </div>
 
-  <div class="flex justify-center items-center mt4">
-    <button class="btn btn-fucsia-secondary" ng-click="$ctrl.login()">Entrar</button>
-    <span class="ml2 text-light-gray">Não possui uma conta ainda?<a ui-sref="register"> Clique aqui.</a></span>
+  <div class="flex justify-end mt4">
+    <button class="btn btn-fucsia-primary" ng-click="$ctrl.login()">Entrar</button>
   </div>
 
 </section>
