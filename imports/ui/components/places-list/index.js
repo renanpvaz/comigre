@@ -10,7 +10,7 @@ const placesList = angular
     'ngInject';
 
     $stateProvider
-      .state('placeslist', {
+      .state('places-list', {
         url: '^/listagem-locais',
         parent: 'app',
         component: 'placesList'
