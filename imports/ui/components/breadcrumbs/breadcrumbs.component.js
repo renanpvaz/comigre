@@ -4,7 +4,7 @@ import controller from './breadcrumbs.ctrl';
 const BreadcrumbsComponent = {
   bindings: {
     crumbs: '<',
-    onCrumbClick: '&'
+    active: '<'
   },
   template,
   controller
