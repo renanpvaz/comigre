@@ -3,7 +3,7 @@ import assign from 'angular-assign';
 
 import { ACCOMMODATION } from '../../config';
 
-class ResidenceFormCtrl {
+class AccommodationFormCtrl {
   constructor($scope) {
     'ngInject';
 
@@ -29,23 +29,27 @@ class ResidenceFormCtrl {
       { text: 'Quarto inteiro', value: 0 },
       { text: 'Quarto compartilhado', value: 1 },
     ];
+
+    this.$scope.$watch(() => this.form.$valid, this.checkValidity);
   }
 
   handleTypeSelection({ value }) {
+    this.typeHasValue = true;
     this.accommodation.type = value;
     this.checkValidity();
   }
 
   handleRoomTypeSelection({ value }) {
+    this.roomTypeHasValue = true;
     this.accommodation.roomType = value;
     this.checkValidity();
   }
 
   checkValidity() {
-    if (this.form.$valid &&  this.accommodation.type && this.accommodation.roomType) {
+    if (this.form.$valid && this.typeHasValue && this.roomTypeHasValue) {
       $emit(this.onValid, { [ACCOMMODATION]: this.accommodation });
     }
   }
 }
 
-export default ResidenceFormCtrl;
+export default AccommodationFormCtrl;

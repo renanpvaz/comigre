@@ -1,9 +1,10 @@
 <breadcrumbs
   class="pl4"
   crumbs="$ctrl.breadcrumbs"
+  active="$ctrl.activeCrumb"
   on-crumb-click="$ctrl.handleCrumbClick($event)">
 </breadcrumbs>
-<section class="flex flex-column content-between register-card"
+<section class="flex flex-column content-between card register-card"
   ng-class="$ctrl.step === 0 ? 'p0' : ''">
   <place-register-position
     ng-cloak

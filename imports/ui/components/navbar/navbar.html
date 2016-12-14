@@ -1,11 +1,17 @@
 <nav class="clearfix flex black z3 top-0">
 
-  <img class="inline-block left border-right border-gray px1" src="images/logo.png"></img>
+  <figure class="inline-block left px1 m0">
+    <img class="border-right border-gray" src="images/logo.png"></img>
+  </figure>
 
-  <div class="flex items-center flex-auto ml2">
-    <a ui-sref="place-register" class="inline-block px2">Cadastrar um local</a>
-    <a ui-sref="places-list" class="inline-block px2" ui-sref="event">Seus locais</a>
-  </div>
+  <ul class="flex items-center flex-auto ml2 list-reset">
+    <li>
+      <a ui-sref="place-register" ng-class="$ctrl.isActive('place-register') ? 'active' : ''" class="inline-block px2">Cadastrar um local</a>
+    </li>
+    <li>
+      <a ui-sref="places-list" ng-class="$ctrl.isActive('places-list') ? 'active' : ''" class="inline-block px2" ui-sref="event">Seus locais</a>
+    </li>
+  </ul>
 
   <div class="flex items-center">
     <span class="px3 log-in" ng-if="!$ctrl.isLoggedIn()" ui-sref="login">

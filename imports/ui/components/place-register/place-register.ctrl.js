@@ -1,24 +1,21 @@
 import { Meteor } from 'meteor/meteor';
-import assign from 'angular-assign';
 
 class PlaceRegisterCtrl {
-  constructor($state, $rootScope, $location, placeTypes) {
+  constructor() {
     'ngInject';
-
-    assign(arguments).to(this);
   }
 
   $onInit() {
     this.place = {};
     this.step = 0;
-    this.steps = [
-      { hash: 'mapa', text: 'Seleção de local' },
-      { hash: 'tipo', text: 'Seleção do tipo' },
-      { hash: 'informacoes', text: 'Informações' },
-      { hash: 'confirmar', text: 'Confirmação' }
+    this.breadcrumbs = [
+      { order: 0, text: 'Seleção de local'},
+      { order: 1, text: 'Seleção do tipo'},
+      { order: 2, text: 'Informações'},
+      { order: 3, text: 'Confirmação'}
     ];
 
-    this.breadcrumbs = [this.steps[0]];
+    this.updateBreadcrumb();
   }
 
   handleRegisterConfirmation() {
@@ -33,24 +30,20 @@ class PlaceRegisterCtrl {
     });
   }
 
-  handleCrumbClick({ index }) {
-    this.step = index;
-  }
-
   handleConfirmStep($event) {
     this.step++;
     this.place = Object.assign({}, this.place, $event);
-
-    this.breadcrumbs = [
-      ...this.breadcrumbs,
-      this.steps[this.step]
-    ];
+    this.updateBreadcrumb();
   }
 
   handleBackStep($event) {
     this.step--;
     Object.assign(this.place, $event);
-    this.breadcrumbs.pop();
+    this.updateBreadcrumb();
+  }
+
+  updateBreadcrumb() {
+    this.activeCrumb = this.breadcrumbs[this.step];
   }
 }
 
