@@ -62,12 +62,28 @@
       </label>
     </div>
 
-  </form>
-</div>
+    <div class="form-title">
+      <h2>Contato</h2>
+      <div class="flex-auto border-bottom"></div>
+    </div>
 
-<div class="flex flex-auto justify-between items-end mt4">
-  <button class="btn btn-teal-secondary">Voltar</button>
-  <button ng-disabled="!form.$valid" class="btn btn-teal-primary">
-    Próximo
-  </button>
+    <div class="form-group">
+      <label>Quem está ofertando este curso?
+        <input type="text" ng-model="$ctrl.vocationalCourse.promoterName" placeholder="Nome da empresa ou instituição" required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Telefone para contato
+        <input type="text" ng-model="$ctrl.vocationalCourse.promoterPhone" placeholder="(00) 00000000" required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Email para contato
+        <input type="text" ng-model="$ctrl.vocationalCourse.promoterEmail" required>
+      </label>
+    </div>
+
+  </form>
 </div>

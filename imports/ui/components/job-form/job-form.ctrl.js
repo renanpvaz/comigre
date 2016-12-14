@@ -1,18 +1,23 @@
+import { JOB } from '../../config';
+
 class JobFormCtrl {
   constructor() {
     'ngInject';
   }
 
   $onInit() {
-    this.job = {};
+    this.job = {  };
+
+    this.contractTypes = [
+      { text: 'Efetivo', value: 0 },
+      { text: 'Estágio', value: 1 },
+      { text: 'Temporário', value: 2 },
+      { text: 'Outro', value: 3 }
+    ];
   }
 
-  isContractTypeSelected(type) {
-    return this.job.contractType === type ? 'selected-cookie' : '';
-  }
-
-  setContractType(type) {
-    this.job.contractType = type;
+  handleContractTypeSelection({ value }) {
+    this.job.contractType = value;
   }
 }
 

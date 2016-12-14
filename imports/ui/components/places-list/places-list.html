@@ -10,6 +10,20 @@
     </div>
   </div>
 
+  <div class="place-summary border-bottom" ng-repeat="place in $ctrl.places">
+    <div class="info ">
+      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
+      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
+      <i class="flag-place-type fa fa-home fucsia" aria-hidden="true"></i><span class="h3 my0">{{place.title}}</span>
+      <summary class="mt2 justify">
+        {{place.description}}</span>
+      </summary>
+    </div>
+  </div>
+
+
+
+
   <div class="place-summary border-bottom">
     <div class="info ">
       <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
