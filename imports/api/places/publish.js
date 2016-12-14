@@ -23,12 +23,10 @@ if (Meteor.isServer) {
     }
   });
 
-  Meteor.publish('userPlaces', () => {
+  Meteor.publish('userPlaces', function () {
     const query = {
       userId: this.userId
     };
-
     return Places.find(query);
   });
-
 }

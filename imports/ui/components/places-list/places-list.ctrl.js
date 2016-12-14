@@ -10,10 +10,11 @@ class PlacesListCtrl {
 
   $onInit() {
     this.$reactive(this).attach(this.$scope);
-    this.subscribe('userPlaces', () => {}, {
-      onStart() {
-        this.places = Places.find().fetch();
-        console.log(Places.find().fetch());
+    this.subscribe('userPlaces');
+    this.helpers({
+       places() {
+         return Places.find().fetch();
+         console.log(Places.find().fetch());
       }
     });
   }

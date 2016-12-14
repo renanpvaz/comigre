@@ -2,9 +2,12 @@ import angular from 'angular';
 
 import placesListComponent from './places-list.component';
 import './places-list.less';
+import typeIcon from '../type-icon';
 
 const placesList = angular
-  .module('placesList', [])
+  .module('placesList', [
+    typeIcon
+  ])
   .component('placesList', placesListComponent)
   .config($stateProvider => {
     'ngInject';
