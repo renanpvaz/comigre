@@ -31,8 +31,8 @@ class PlaceRegisterI18nCtrl {
 
     const availableIndex = this.available.indexOf(languageCode);
     const translated = this.i18n[languageCode];
-    const changed = translated.name !== this.original.name
-      || translated.description !== this.original.description;
+    const changed = translated && (translated.name !== this.original.name
+      || translated.description !== this.original.description);
 
     if (changed) {
       if (!this.available[availableIndex]) {
