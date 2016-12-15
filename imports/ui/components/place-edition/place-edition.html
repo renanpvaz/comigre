@@ -1,0 +1,15 @@
+<section class="register-card flex flex-column content-between mt2 card">
+
+  <event-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === EVENT"></event-form>
+  <job-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === JOB"></job-form>
+  <accommodation-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === ACCOMMODATION"></accommodation-form>
+  <portuguese-class-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === PORTUGUESE_CLASS"></portuguese-class-form>
+  <vocational-course-form on-valid="$ctrl.handleValidity($event)" ng-if="$ctrl.type === VOCATIONAL_COURSE"></vocational-course-form>
+  <span>teste</span>
+  <div class="flex flex-auto justify-between items-end mt4">
+    <button ui-sref="places-list" class="btn btn-teal-secondary">Voltar</button>
+    <button ng-disabled="!$ctrl.valid" ng-click="$ctrl.confirm()" class="btn btn-teal-primary">
+      Salvar
+    </button>
+  </div>
+</section>

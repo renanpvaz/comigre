@@ -1,6 +1,7 @@
 import $emit from 'ng-emit';
+import { Places } from '../../../api/places/collection';
 
-class PlaceRegisterInfoCtrl {
+class PlaceEditionCtrl {
   constructor($scope, placeTypes) {
     'ngInject';
 
@@ -25,4 +26,4 @@ class PlaceRegisterInfoCtrl {
   }
 }
 
-export default PlaceRegisterInfoCtrl;
+export default PlaceEditionCtrl;

@@ -14,7 +14,6 @@ class PlacesListCtrl {
     this.helpers({
        places() {
          return Places.find().fetch();
-         console.log(Places.find().fetch());
       }
     });
   }

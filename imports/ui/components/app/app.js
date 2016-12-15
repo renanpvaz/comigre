@@ -9,6 +9,7 @@ import navbar from '../navbar';
 import auth from '../auth';
 import placeRegister from '../place-register';
 import placesList from '../places-list';
+import placeEdition from '../place-edition';
 
 import * as types from '../../config';
 
@@ -23,7 +24,8 @@ export default angular
     navbar,
     auth,
     placeRegister,
-    placesList
+    placesList,
+    placeEdition
   ])
   .component('app', {
     template,

@@ -12,75 +12,14 @@
 
   <div class="place-summary border-bottom" ng-repeat="place in $ctrl.places">
     <div class="info ">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
+      <span class="action-buttons">
+      <i ui-sref="place-edition({id: place.detailsId, type: place.type})" class="fa fa-edit" aria-hidden="true"></i></span>
       <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
       <type-icon value="place.type"></type-icon><span class="h3 my0">{{place.title}}</span>
       <summary class="mt2 justify">
         {{place.description}}</span>
+
       </summary>
     </div>
   </div>
-
-
-
-
-  <div class="place-summary border-bottom">
-    <div class="info ">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
-      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
-      <i class="flag-place-type fa fa-home fucsia" aria-hidden="true"></i><span class="h3 my0">Título da vaga de moradia</span>
-      <!--div class="mt1">
-        <span class="bold">R$00,00</span>
-        <span class="ml1 text-light-gray">Tipo de propriedade e quarto</span>
-      </div-->
-      <summary class="mt2 justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac magna justo. Vestibulum lorem mi, maximus blandit blandit et, consequat at lectus. Curabitur porttitor magna eu quam sollicitudin, ut rutrum dolor convallis...</span>
-      </summary>
-    </div>
-  </div>
-
-  <div class="place-summary border-bottom">
-    <div class="info">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
-      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
-      <i class="flag-place-type fa fa-briefcase fucsia" aria-hidden="true"></i><span class="h3 my0">Título da vaga de emprego</span>
-      <summary class="mt2 justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac magna justo. Vestibulum lorem mi, maximus blandit blandit et, consequat at lectus. Curabitur porttitor magna eu quam sollicitudin, ut rutrum dolor convallis...</span>
-      </summary>
-    </div>
-  </div>
-
-  <div class="place-summary border-bottom">
-    <div class="info">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
-      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
-      <i class="flag-place-type fa fa-calendar fucsia" aria-hidden="true"></i><span class="h3 my0">Título do evento</span>
-      <summary class="mt2 justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac magna justo. Vestibulum lorem mi, maximus blandit blandit et, consequat at lectus. Curabitur porttitor magna eu quam sollicitudin, ut rutrum dolor convallis...</span>
-      </summary>
-    </div>
-  </div>
-
-  <div class="place-summary border-bottom">
-    <div class="info">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
-      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
-      <i class="flag-place-type fa fa-book fucsia" aria-hidden="true"></i><span class="h3 my0">Título do curso profissionalizante</span>
-      <summary class="mt2 justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac magna justo. Vestibulum lorem mi, maximus blandit blandit et, consequat at lectus. Curabitur porttitor magna eu quam sollicitudin, ut rutrum dolor convallis...</span>
-      </summary>
-    </div>
-  </div>
-
-  <div class="place-summary border-bottom">
-    <div class="info">
-      <span class="action-buttons"><i class="fa fa-edit" aria-hidden="true"></i></span>
-      <span class="action-buttons"><i class="fa fa-times" aria-hidden="true"></i></span>
-      <i class="flag-place-type fa fa-weixin fucsia" aria-hidden="true"></i><span class="h3 my0">Título da aula de português</span>
-      <summary class="mt2 justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac magna justo. Vestibulum lorem mi, maximus blandit blandit et, consequat at lectus. Curabitur porttitor magna eu quam sollicitudin, ut rutrum dolor convallis...</span>
-      </summary>
-    </div>
-  </div>
-
 </section>
