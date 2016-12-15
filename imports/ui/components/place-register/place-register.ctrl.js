@@ -7,12 +7,13 @@ class PlaceRegisterCtrl {
 
   $onInit() {
     this.place = {};
-    this.step = 0;
+    this.step = 3;
     this.breadcrumbs = [
       { order: 0, text: 'Seleção de local'},
       { order: 1, text: 'Seleção do tipo'},
       { order: 2, text: 'Informações'},
-      { order: 3, text: 'Confirmação'}
+      { order: 3, text: 'Traduções'},
+      { order: 4, text: 'Confirmação'}
     ];
 
     this.updateBreadcrumb();

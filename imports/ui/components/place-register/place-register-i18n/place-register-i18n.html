@@ -1,0 +1,45 @@
+<section>
+  <div class="tab flex flex-column justify-center">
+
+    <header class="mb4 border-bottom border-gray py3">
+      <h1 class="fucsia mt0">Traduza as informações</h1>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;Facilite o acesso dos usuários traduzindo as informações
+        do local para uma das línguas abaixo. As traduções são opcionais, portanto, os
+        usuários possuirão uma opção de "tradução aproximada" para as línguas não disponíveis.
+      </p>
+    </header>
+
+  	<ul class="tabs flex justify-center">
+  		<li ng-class="$ctrl.active === -1 ? 'current' : ''">
+        <a ng-click="$ctrl.active = -1">
+          Português
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </a>
+      </li>
+  		<li ng-repeat="lang in ::$ctrl.langs" ng-class="$ctrl.active === $index ? 'current' : ''">
+        <a ng-click="$ctrl.active = $index">
+          {{ lang.title }}
+          <i ng-if="$ctrl.i18n[lang.code]" class="fa fa-check" aria-hidden="true"></i>
+        </a>
+      </li>
+  	</ul>
+
+  	<div class="tab-content">
+  		<div class="tabs-item p3" ng-if="$ctrl.active === -1">
+  			<h2>{{ $ctrl.original.name }}</h2>
+  			<p>{{ $ctrl.original.description }}</p>
+  		</div>
+  		<div ng-repeat="lang in ::$ctrl.langs" class="tabs-item p3" ng-if="$ctrl.active === $index">
+  			<h2 ng-model="$ctrl.i18n[lang.code].name" spellcheck="false" content-editable>Tab 01 Neque ipsum dolor.</h2>
+  			<p ng-model="$ctrl.i18n[lang.code].description" spellcheck="false" content-editable>Consectetur adipisicing elit. Neque, repellat facilis totam ab eos distinctio sint atque maiores! Dignissimos, molestiae, rem accusantium iure vitae voluptatum voluptas repudiandae deserunt dolore quis! Quisquam mollitia eius sed.</p>
+        <small>Clique para editar.</small>
+  		</div>
+    </div>
+</section>
+<footer class="flex flex-auto justify-between items-start mt4">
+  <button class="btn btn-teal-secondary">Voltar</button>
+  <button ng-click="$ctrl.confirm()" class="btn btn-teal-primary">
+    Próximo
+  </button>
+</footer>
