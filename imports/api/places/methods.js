@@ -4,10 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import { Places } from './collection';
 
 Meteor.methods({
-  'places.insert'({ name, description, coordinates, type, detailsId }) {
+  'places.insert'({ info, coordinates, type, detailsId }) {
     const newPlace = {
-      name,
-      description,
+      name: info.name,
+      description: info.description,
       detailsId,
       type,
       userId: this.userId,

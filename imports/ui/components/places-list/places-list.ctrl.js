@@ -5,16 +5,21 @@ class PlacesListCtrl {
   constructor($scope, $reactive) {
     'ngInject';
 
-    assign (arguments).to(this);
+    assign(arguments).to(this);
   }
 
   $onInit() {
     this.$reactive(this).attach(this.$scope);
-    this.subscribe('userPlaces');
-    this.helpers({
-       places() {
-         return Places.find().fetch();
-         console.log(Places.find().fetch());
+
+    const handle = this.subscribe('userPlaces', () => {}, {
+      onStart() {
+        this.places = Places.find().fetch();
+      }
+    });
+
+    this.$scope.$watch('$ctrl.places', () => {
+      if (this.places.length) {
+        handle.stop();
       }
     });
   }

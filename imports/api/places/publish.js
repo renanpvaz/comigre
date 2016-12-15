@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Places } from './collection';
 
 if (Meteor.isServer) {
-  Meteor.publish('nearbyPlaces', ({ lng, lat }) => {
+  Meteor.publish('nearbyPlaces', ({ lng, lat, meters = 40000 }) => {
     const query = {
       loc: {
         $near:{
@@ -13,14 +13,16 @@ if (Meteor.isServer) {
             type:'Point',
             coordinates: [lng, lat]
           },
-          $maxDistance: 10000
+          $maxDistance: meters
         }
       }
     };
 
-    if (lat !== -15.893 && lng !== -52.2599) {
-      return Places.find(query);
-    }
+    return Places.find(query);
+  });
+
+  Meteor.publish('allPlaces', () => {
+    return Places.find();
   });
 
   Meteor.publish('userPlaces', function () {
