@@ -21,8 +21,13 @@
     type="$ctrl.place.type"
     on-confirm="$ctrl.handleConfirmStep($event)">
   </place-register-info>
-  <place-register-confirm
+  <place-register-i18n
     ng-show="$ctrl.step === 3"
+    original="$ctrl.place.info"
+    on-confirm="$ctrl.handleConfirmStep($event)">
+  </place-register-i18n>
+  <place-register-confirm
+    ng-show="$ctrl.step === 4"
     place="$ctrl.place"
     on-confirm="$ctrl.handleRegisterConfirmation($event)">
   </place-register-confirm>

@@ -1,0 +1,77 @@
+place-register-i18n {
+  @green: #87d3b7;
+
+  header > p {
+    font-size: 1.2em;
+  }
+
+  .tab {
+  	margin-bottom: 20px;
+  	position: relative;
+  	overflow: hidden;
+  	background: #fff;
+  	margin: 0 auto;
+  	line-height: 1.5;
+  	font-weight: 300;
+  	color: #888;
+  	-webkit-font-smoothing: antialiased;
+  }
+
+  .tabs {
+  	position: relative;
+  	overflow: hidden;
+    padding: 0;
+  	margin: 0;
+  	width: 100%;
+
+  	li {
+  		line-height: 38px;
+  		overflow: hidden;
+  		padding: 0;
+      display: inline-block;
+  		position: relative;
+  	}
+
+  	a {
+  		border-bottom: 1px solid #fff;
+  		color: #888;
+  		font-weight: 500;
+  		display: block;
+  		letter-spacing: 0;
+  		outline: none;
+  		padding: 0 3em;
+  		text-decoration: none;
+  		-webkit-transition: all 0.2s ease-in-out;
+  		-moz-transition: all 0.2s ease-in-out;
+  		transition: all 0.2s ease-in-out;
+  		border-bottom: 2px solid @green;
+  	}
+  }
+
+  .tabs-item {
+  	display: none;
+
+  	h2 {
+  		font-weight: bold;
+  		color: @green;
+      font-size: 2.2rem;
+  	}
+
+    p {
+      font-size: 1.4rem;
+    }
+
+  	img {
+  		width: 200px;
+  		float: left;
+  		margin-right: 30px;
+  	}
+
+  	&:first-child {display: block;}
+  }
+
+  .current a {
+  	color: #fff;
+  	background: @green;
+  }
+}

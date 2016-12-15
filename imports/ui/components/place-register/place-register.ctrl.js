@@ -12,7 +12,8 @@ class PlaceRegisterCtrl {
       { order: 0, text: 'Seleção de local'},
       { order: 1, text: 'Seleção do tipo'},
       { order: 2, text: 'Informações'},
-      { order: 3, text: 'Confirmação'}
+      { order: 3, text: 'Traduções'},
+      { order: 4, text: 'Confirmação'}
     ];
 
     this.updateBreadcrumb();
@@ -21,11 +22,19 @@ class PlaceRegisterCtrl {
   handleRegisterConfirmation() {
     const place = this.place;
 
+    if (!place.info || !place.i18n || !place.availableLanguages) {
+      return;
+    }
+
     Meteor.call(`${place.type}.insert`, place.info, (error, _id) => {
       place.detailsId = _id;
 
       if (!error) {
         Meteor.call('places.insert', place, console.log);
+
+        place.availableLanguages.forEach((language) => {
+          Meteor.call('translations.insert', place.i18n[language], language, console.log);
+        });
       }
     });
   }

@@ -1,3 +1,4 @@
-import '../imports/api/places/index';
-import '../imports/api/events/index';
-import '../imports/api/guides/index';
+import '../imports/api/places';
+import '../imports/api/events';
+import '../imports/api/guides';
+import '../imports/api/translations';
