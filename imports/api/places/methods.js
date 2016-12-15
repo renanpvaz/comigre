@@ -14,7 +14,10 @@ Meteor.methods({
       createdAt: new Date(),
       location: {
         type: 'Point',
-        coordinates
+        coordinates: [
+          coordinates.lng,
+          coordinates.lat
+        ]
       }
     };
 

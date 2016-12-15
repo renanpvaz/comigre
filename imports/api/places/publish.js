@@ -5,13 +5,15 @@ import { Meteor } from 'meteor/meteor';
 import { Places } from './collection';
 
 if (Meteor.isServer) {
-  Meteor.publish('nearbyPlaces', ({ lng, lat, meters = 40000 }) => {
+  Meteor.publish('nearbyPlaces', (coords,  meters = 40000) => {
+    console.log('connected to nearby!');
+
     const query = {
-      loc: {
+      location: {
         $near:{
           $geometry:{
             type:'Point',
-            coordinates: [lng, lat]
+            coordinates: [coords.longitude, coords.latitude]
           },
           $maxDistance: meters
         }
