@@ -20,23 +20,35 @@
   		<li ng-repeat="lang in ::$ctrl.langs" ng-class="$ctrl.active === $index ? 'current' : ''">
         <a ng-click="$ctrl.active = $index">
           {{ lang.title }}
-          <i ng-if="$ctrl.i18n[lang.code]" class="fa fa-check" aria-hidden="true"></i>
+          <i ng-if="$ctrl.hasChanged(lang.code)" class="fa fa-check" aria-hidden="true"></i>
         </a>
       </li>
   	</ul>
 
   	<div class="tab-content">
+
   		<div class="tabs-item p3" ng-if="$ctrl.active === -1">
   			<h2>{{ $ctrl.original.name }}</h2>
   			<p>{{ $ctrl.original.description }}</p>
   		</div>
   		<div ng-repeat="lang in ::$ctrl.langs" class="tabs-item p3" ng-if="$ctrl.active === $index">
-  			<h2 ng-model="$ctrl.i18n[lang.code].name" spellcheck="false" content-editable>Tab 01 Neque ipsum dolor.</h2>
-  			<p ng-model="$ctrl.i18n[lang.code].description" spellcheck="false" content-editable>Consectetur adipisicing elit. Neque, repellat facilis totam ab eos distinctio sint atque maiores! Dignissimos, molestiae, rem accusantium iure vitae voluptatum voluptas repudiandae deserunt dolore quis! Quisquam mollitia eius sed.</p>
-        <small>Clique para editar.</small>
+
+  			<h2 ng-model="$ctrl.i18n[lang.code].name"
+          spellcheck="false"
+          content-editable>
+        </h2>
+
+  			<p ng-model="$ctrl.i18n[lang.code].description"
+          spellcheck="false"
+          content-editable>
+        </p>
+
+        <small>Clique para editar (não altere caso não conheça a língua).</small>
+
   		</div>
     </div>
 </section>
+
 <footer class="flex flex-auto justify-between items-start mt4">
   <button class="btn btn-teal-secondary">Voltar</button>
   <button ng-click="$ctrl.confirm()" class="btn btn-teal-primary">

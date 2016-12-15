@@ -1,21 +1,14 @@
+import $emit from 'ng-emit';
+
 class PlaceRegisterI18nCtrl {
   constructor() {
     'ngInject';
   }
 
   $onInit() {
-    this.original = {
-      name: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim \
-      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
-       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate \
-       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat \
-       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    };
-
-    this.i18n = {};
+    this.available = [];
     this.active = -1;
+    this.i18n = {};
     this.langs = [
       { title: 'Espanhol', code: 'es' },
       { title: 'Francês', code: 'fr' },
@@ -23,8 +16,40 @@ class PlaceRegisterI18nCtrl {
     ];
   }
 
+  $onChanges() {
+    if (this.original) {
+      this.i18n = {
+        es: Object.assign({}, this.original),
+        fr: Object.assign({}, this.original),
+        en: Object.assign({}, this.original)
+      };
+    }
+  }
+
+  hasChanged(languageCode) {
+    if (!this.original) return;
+
+    const availableIndex = this.available.indexOf(languageCode);
+    const translated = this.i18n[languageCode];
+    const changed = translated.name !== this.original.name
+      || translated.description !== this.original.description;
+
+    if (changed) {
+      if (!this.available[availableIndex]) {
+        this.available.push(languageCode);
+      }
+    } else if(availableIndex > -1) {
+      this.available.splice(availableIndex, 1);
+    }
+
+    return changed;
+  }
+
   confirm() {
-    console.log(this.i18n);
+    $emit(this.onConfirm, {
+      i18n: this.i18n,
+      availableLanguages: this.available
+    });
   }
 }
 
