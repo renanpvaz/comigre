@@ -18,12 +18,12 @@ Meteor.methods({
     };
 
     return Events.insert(newEvent);
-  }
+  },
 
   [`${EVENT}.remove`]: ({ _id }) => {
 
     return Events.remove({ _id });
-  }
+  },
 
   [`${EVENT}.update`]: (event) => {
 

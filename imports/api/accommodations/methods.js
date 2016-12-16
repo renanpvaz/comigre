@@ -21,12 +21,12 @@ Meteor.methods({
     };
 
     return Accommodations.insert(newAccommodation);
-  }
+  },
 
   [`${ACCOMMODATION}.remove`]: ({ _id }) => {
 
     return Accommodations.remove({ _id });
-  }
+  },
 
   [`${ACCOMMODATION}.update`]: (accommodation) => {
 

@@ -20,12 +20,12 @@ Meteor.methods({
     };
 
     return PortugueseClasses.insert(newPortuguesClass);
-  }
+  },
 
   [`${PORTUGUESE_CLASS}.remove`]: ({ _id }) => {
 
     return PortugueseClasses.remove({ _id });
-  }
+  },
 
   [`${PORTUGUESE_CLASS}.update`]: (portuguesClass) => {
 

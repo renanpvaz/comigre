@@ -23,12 +23,12 @@ Meteor.methods({
     };
 
     return VocationalCourses.insert(newVocationalCouse);
-  }
+  },
 
   [`${VOCATIONAL_COURSE}.remove`]: ({ _id }) => {
 
     return VocationalCourses.remove({ _id });
-  }
+  },
 
   [`${VOCATIONAL_COURSE}.update`]: (vocationalCouse) => {
 

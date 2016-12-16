@@ -21,12 +21,12 @@ Meteor.methods({
     };
 
     return Jobs.insert(newJob);
-  }
+  },
 
   [`${JOB}.remove`]: ({ _id }) => {
 
     return Jobs.remove({ _id });
-  }
+  },
 
   [`${JOB}.update`]: (job) => {
 
