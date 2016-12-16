@@ -30,25 +30,21 @@ class AccommodationFormCtrl {
       { text: 'Quarto compartilhado', value: 1 },
     ];
 
-    this.$scope.$watch(() => this.form.$valid, this.checkValidity);
+    this.$scope.$watchGroup(['form.$valid', '$ctrl.typeHasValue', '$ctrl.roomTypeHasValue'], (values) => {
+      if (values[0] && this.typeHasValue && this.roomTypeHasValue) {
+        $emit(this.onValid, { [ACCOMMODATION]: this.accommodation });
+      }
+    });
   }
 
   handleTypeSelection({ value }) {
     this.typeHasValue = true;
     this.accommodation.type = value;
-    this.checkValidity();
   }
 
   handleRoomTypeSelection({ value }) {
     this.roomTypeHasValue = true;
     this.accommodation.roomType = value;
-    this.checkValidity();
-  }
-
-  checkValidity() {
-    if (this.form.$valid && this.typeHasValue && this.roomTypeHasValue) {
-      $emit(this.onValid, { [ACCOMMODATION]: this.accommodation });
-    }
   }
 }
 

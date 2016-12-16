@@ -11,8 +11,7 @@ class EventFormCtrl {
   }
 
   $onInit() {
-    this.event = {
-    };
+    this.event = {};
 
     this.$scope.$watch('form.$valid', (valid) => {
       if (valid && Object.keys(this.event).length) {
