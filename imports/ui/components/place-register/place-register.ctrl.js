@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 
 class PlaceRegisterCtrl {
-  constructor() {
+  constructor($state) {
     'ngInject';
+
+    this.$state = $state;
   }
 
   $onInit() {
@@ -20,23 +22,9 @@ class PlaceRegisterCtrl {
   }
 
   handleRegisterConfirmation() {
-    const place = this.place;
-
-    if (!place.info || !place.i18n || !place.availableLanguages) {
-      return;
+    if (this.place.info && this.place.i18n && this.place.availableLanguages) {
+      this.register();
     }
-
-    Meteor.call(`${place.type}.insert`, place.info, (error, _id) => {
-      place.detailsId = _id;
-
-      if (!error) {
-        Meteor.call('places.insert', place, console.log);
-
-        place.availableLanguages.forEach((language) => {
-          Meteor.call('translations.insert', place.i18n[language], language, console.log);
-        });
-      }
-    });
   }
 
   handleConfirmStep($event) {
@@ -53,6 +41,35 @@ class PlaceRegisterCtrl {
 
   updateBreadcrumb() {
     this.activeCrumb = this.breadcrumbs[this.step];
+  }
+
+  register() {
+    const place = this.place;
+
+    Meteor.call(`${place.type}.insert`, place.info, (error, _id) => {
+      place.detailsId = _id;
+
+      if (!error) {
+        Meteor.call('places.insert', place, console.log);
+        this.registerTranslations();
+      }
+    });
+  }
+
+  registerTranslations() {
+    const languages = this.place.availableLanguages;
+
+    if (!languages.length) {
+      this.$state.go('places-list');
+    }
+
+    languages.forEach((language, index, arr) => {
+      Meteor.call('translations.insert', place.i18n[language], language, (err) => {
+        if (!err && index === arr.length - 1) {
+          this.$state.go('places-list');
+        }
+      });
+    });
   }
 }
 
