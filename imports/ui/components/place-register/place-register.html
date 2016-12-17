@@ -1,34 +1,36 @@
-<breadcrumbs
-  class="pl4"
-  crumbs="$ctrl.breadcrumbs"
-  active="$ctrl.activeCrumb"
-  on-crumb-click="$ctrl.handleCrumbClick($event)">
-</breadcrumbs>
-<section class="flex flex-column content-between card register-card"
-  ng-class="$ctrl.step === 0 ? 'p0' : ''">
-  <place-register-position
-    ng-cloak
-    ng-show="$ctrl.step === 0"
-    on-confirm="$ctrl.handleConfirmStep($event)">
-  </place-register-position>
-  <place-register-type
-    ng-show="$ctrl.step === 1"
-    address="$ctrl.place.address"
-    on-confirm="$ctrl.handleConfirmStep($event)">
-  </place-register-type>
-  <place-register-info
-    ng-show="$ctrl.step === 2"
-    type="$ctrl.place.type"
-    on-confirm="$ctrl.handleConfirmStep($event)">
-  </place-register-info>
-  <place-register-i18n
-    ng-show="$ctrl.step === 3"
-    original="$ctrl.place.info"
-    on-confirm="$ctrl.handleConfirmStep($event)">
-  </place-register-i18n>
-  <place-register-confirm
-    ng-show="$ctrl.step === 4"
-    place="$ctrl.place"
-    on-confirm="$ctrl.handleRegisterConfirmation($event)">
-  </place-register-confirm>
-</section>
+<div class="flex-auto">
+  <breadcrumbs
+    class="pl4"
+    crumbs="$ctrl.breadcrumbs"
+    active="$ctrl.activeCrumb"
+    on-crumb-click="$ctrl.handleCrumbClick($event)">
+  </breadcrumbs>
+  <section class="flex flex-column content-between card register-card"
+    ng-class="$ctrl.step === 0 ? 'p0' : ''">
+    <place-register-position
+      ng-cloak
+      ng-show="$ctrl.step === 0"
+      on-confirm="$ctrl.handleConfirmStep($event)">
+    </place-register-position>
+    <place-register-type
+      ng-show="$ctrl.step === 1"
+      address="$ctrl.place.address"
+      on-confirm="$ctrl.handleConfirmStep($event)">
+    </place-register-type>
+    <place-register-info
+      ng-show="$ctrl.step === 2"
+      type="$ctrl.place.type"
+      on-confirm="$ctrl.handleConfirmStep($event)">
+    </place-register-info>
+    <place-register-i18n
+      ng-show="$ctrl.step === 3"
+      original="$ctrl.place.info"
+      on-confirm="$ctrl.handleConfirmStep($event)">
+    </place-register-i18n>
+    <place-register-confirm
+      ng-show="$ctrl.step === 4"
+      place="$ctrl.place"
+      on-confirm="$ctrl.handleRegisterConfirmation($event)">
+    </place-register-confirm>
+  </section>
+</div>
