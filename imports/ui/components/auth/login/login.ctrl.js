@@ -26,7 +26,7 @@ class LoginCtrl {
           console.log(err);
           this.error = err;
         } else {
-          this.$state.go('place-register');
+          this.$state.go('places-list');
         }
       })
     );

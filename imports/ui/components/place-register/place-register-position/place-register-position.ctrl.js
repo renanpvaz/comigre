@@ -1,7 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import $emit from 'ng-emit';
 import assign from 'angular-assign';
-import mapboxgl, { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl.js';
+import mapboxgl, { Map, LngLat, Marker, NavigationControl } from 'mapbox-gl/dist/mapbox-gl';
+import MapboxGeocoder from 'mapbox-gl/plugins/src/mapbox-gl-geocoder/v2.0.0/mapbox-gl-geocoder';
+import 'mapbox-gl/plugins/src/mapbox-gl-geocoder/v2.0.0/mapbox-gl-geocoder.css';
 
 class PlaceRegisterPositionCtrl {
   constructor($window, $scope, PlaceRegisterPositionService, $timeout) {
@@ -23,7 +25,7 @@ class PlaceRegisterPositionCtrl {
         container: 'map',
         center: [-52.2599, -15.893],
         zoom: 3,
-        style: 'mapbox://styles/mapbox/basic-v9'
+        style: 'mapbox://styles/mapbox/streets-v9'
       });
 
       this.map.on('load', () => this.onMapLoad());
@@ -33,6 +35,12 @@ class PlaceRegisterPositionCtrl {
 
   onMapLoad() {
     this.getUserLocation();
+    this.map.addControl(
+      new MapboxGeocoder({
+        accessToken: Meteor.settings.public.mapboxAccessToken,
+        placeholder: 'Buscar'
+      })
+    );
     this.map.addControl(new NavigationControl());
   }
 

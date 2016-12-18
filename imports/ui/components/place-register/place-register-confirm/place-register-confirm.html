@@ -8,7 +8,7 @@
     alt="Description"/>
   <div class="flex flex-column items-start px3">
     <h2>{{ $ctrl.place.info.name }}</h2>
-    <p style="font-size: 1.2em">{{ $ctrl.place.info.description.substring(225) || $ctrl.place.info.description }}</p>
+    <p style="font-size: 1.2em">{{ $ctrl.place.info.description.substring(0, 138) || $ctrl.place.info.description }}</p>
     <span>
       Disponível em:
       <span class="fucsia" style="text-transform: uppercase">

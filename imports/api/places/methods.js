@@ -7,7 +7,7 @@ Meteor.methods({
   'places.insert'({ info, coordinates, type, detailsId }) {
     const newPlace = {
       name: info.name,
-      description: info.description.substring(225) || info.description,
+      description: `${info.description.substring(0, 135)}...`,
       detailsId,
       type,
       userId: this.userId,

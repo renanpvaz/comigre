@@ -13,7 +13,7 @@ class RegisterCtrl {
   }
 
   goBack() {
-    this.$state.go('place-register');
+    this.$state.go('places-list');
   }
 
   register() {

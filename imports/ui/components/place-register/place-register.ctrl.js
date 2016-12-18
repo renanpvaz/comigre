@@ -66,7 +66,7 @@ class PlaceRegisterCtrl {
     }
 
     languages.forEach((language, index, arr) => {
-      Meteor.call('translations.insert', place.i18n[language], language, (err) => {
+      Meteor.call('translations.insert', this.place.i18n[language], language, (err) => {
         if (!err && index === arr.length - 1) {
           this.$state.go('places-list');
         }

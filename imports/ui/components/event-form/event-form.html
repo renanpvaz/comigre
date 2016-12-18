@@ -12,7 +12,7 @@
     <div class="form-group">
       <label>
         Descreva o evento que você está anunciando
-        <textarea type="text" rows="10" ng-model="$ctrl.event.description" placeholder="Descrição do evento" required>
+        <textarea type="text" rows="10" ng-model="$ctrl.event.description" placeholder="Conte sobre como será o evento..." required>
       </label>
     </div>
     <div class="form-title">
@@ -37,22 +37,22 @@
 
     <div class="form-group">
       <label>
-        Nome da instituição promovedora
-        <textarea type="text" rows="1" ng-model="$ctrl.event.promoterName">
+        Telefone de contato
+        <input type="text" ng-model="$ctrl.event.promoterPhone">
       </label>
     </div>
 
     <div class="form-group">
       <label>
-        Telefone de contato
-        <textarea type="text" rows="1" ng-model="$ctrl.event.promoterPhone">
+        Nome da instituição promovedora
+        <input type="text" ng-model="$ctrl.event.promoterName" required>
       </label>
     </div>
 
     <div class="form-group">
       <label>
         Email
-        <textarea type="text" rows="1" ng-model="$ctrl.event.promoterEmail">
+        <input type="email" ng-model="$ctrl.event.promoterEmail" required>
       </label>
     </div>
   </form>
