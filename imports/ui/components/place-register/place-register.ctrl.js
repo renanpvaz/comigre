@@ -1,10 +1,11 @@
 import { Meteor } from 'meteor/meteor';
+import assign from 'angular-assign';
 
 class PlaceRegisterCtrl {
-  constructor($state) {
+  constructor($state, $window) {
     'ngInject';
 
-    this.$state = $state;
+    assign(arguments).to(this);
   }
 
   $onInit() {
@@ -30,6 +31,7 @@ class PlaceRegisterCtrl {
   handleConfirmStep($event) {
     this.step++;
     this.place = Object.assign({}, this.place, $event);
+    this.$window.scrollTo(0, 0);
     this.updateBreadcrumb();
   }
 
