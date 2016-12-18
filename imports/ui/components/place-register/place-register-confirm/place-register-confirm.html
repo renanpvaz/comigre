@@ -1,3 +1,6 @@
+<header class="mt3">
+  <h1 class="fucsia mt0">Confirmar a criação do local?</h1>
+</header>
 <section class="flex">
   <img
     style="width: 50%; height: 50%"
@@ -5,7 +8,13 @@
     alt="Description"/>
   <div class="flex flex-column items-start px3">
     <h2>{{ $ctrl.place.info.name }}</h2>
-    <p>{{ $ctrl.place.info.description.substring(225) || $ctrl.place.info.description }}</p>
+    <p style="font-size: 1.2em">{{ $ctrl.place.info.description.substring(225) || $ctrl.place.info.description }}</p>
+    <span>
+      Disponível em:
+      <span class="fucsia" style="text-transform: uppercase">
+        PT,&nbsp;{{ $ctrl.place.availableLanguages.join(', ') }}
+      </span>
+    </span>
   </div>
 </section>
 <footer class="flex flex-auto justify-between items-start mt4">
