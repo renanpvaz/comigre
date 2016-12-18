@@ -15,7 +15,7 @@ class PlaceRegisterConfirmCtrl {
     const { lng, lat } = this.place.coordinates;
     const accessToken = Meteor.settings.public.mapboxAccessToken;
 
-    return `${lng},${lat},20,0,0/1280x800?access_token=${accessToken}`;
+    return `${lng},${lat},16,0,0/1280x800?access_token=${accessToken}`;
   }
 }
 

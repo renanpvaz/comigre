@@ -14,7 +14,7 @@ const placesList = angular
 
     $stateProvider
       .state('places-list', {
-        url: '^/listagem-locais',
+        url: '^/locais/meus',
         parent: 'app',
         component: 'placesList'
       });

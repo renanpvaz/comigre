@@ -1,11 +1,11 @@
 <section class="flex">
   <img
     style="width: 50%; height: 50%"
-    ng-src="https://api.mapbox.com/styles/v1/mapbox/basic-v9/static/{{ $ctrl.mapImageParams }}"
+    ng-src="https://api.mapbox.com/styles/v1/mapbox/streets-v9/static/{{ $ctrl.mapImageParams }}"
     alt="Description"/>
   <div class="flex flex-column items-start px3">
     <h2>{{ $ctrl.place.info.name }}</h2>
-    <p>{{ $ctrl.place.info.description }}</p>
+    <p>{{ $ctrl.place.info.description.substring(225) || $ctrl.place.info.description }}</p>
   </div>
 </section>
 <footer class="flex flex-auto justify-between items-start mt4">

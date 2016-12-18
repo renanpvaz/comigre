@@ -27,7 +27,7 @@ const placeRegister = angular
 
     $stateProvider
       .state('place-register', {
-        url: '^/cadastro',
+        url: '^/locais/cadastro',
         parent: 'app',
         component: 'placeRegister'
       });
