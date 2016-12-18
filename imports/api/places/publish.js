@@ -24,7 +24,7 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPlaces', () => {
-    return Places.find();
+    return Places.find({}, { sort: { createdAt: -1 } });
   });
 
   Meteor.publish('userPlaces', function () {

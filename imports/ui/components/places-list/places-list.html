@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="place-summary" ng-class="$last ? '' : 'border-bottom'" ng-repeat="place in $ctrl.places">
+  <div class="place-summary" ng-class="$last ? '' : 'border-bottom'" ng-repeat="place in $ctrl.places | orderBy: '-createdAt'">
     <div class="info ">
       <span class="action-buttons">
       <i ui-sref="place-edition({id: place.detailsId, type: place.type})" class="fa fa-edit" aria-hidden="true"></i></span>
