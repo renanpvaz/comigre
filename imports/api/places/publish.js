@@ -29,7 +29,7 @@ if (Meteor.isServer) {
 
   Meteor.publish('userPlaces', function () {
     const query = {
-      userId: this.userId
+      'user._id': this.userId
     };
     return Places.find(query);
   });

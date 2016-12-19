@@ -10,7 +10,7 @@ Meteor.methods({
       description: `${info.description.substring(0, 135)}...`,
       detailsId,
       type,
-      userId: this.userId,
+      user: this.user,
       createdAt: new Date(),
       location: {
         type: 'Point',
