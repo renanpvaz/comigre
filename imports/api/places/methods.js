@@ -8,9 +8,10 @@ Meteor.methods({
     const newPlace = {
       name: info.name,
       description: `${info.description.substring(0, 135)}...`,
+      contact: info.contact,
       detailsId,
       type,
-      user: this.user,
+      user: Meteor.users.findOne({ _id: this.userId }),
       createdAt: new Date(),
       location: {
         type: 'Point',
@@ -21,7 +22,7 @@ Meteor.methods({
       }
     };
 
-    if (!newPlace.userId) {
+    if (!this.userId) {
       throw new Meteor.Error('logged-out', 'User must be logged to register a place');
     }
 

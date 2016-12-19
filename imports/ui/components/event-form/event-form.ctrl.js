@@ -11,10 +11,12 @@ class EventFormCtrl {
   }
 
   $onInit() {
-    this.event = {};
+    this.event = {
+      contact: {}
+    };
 
     this.$scope.$watch('form.$valid', (valid) => {
-      if (valid && Object.keys(this.event).length) {
+      if (valid && Object.keys(this.event).length > 1) {
         $emit(this.onValid, { [EVENT]: this.event });
       }
     });
